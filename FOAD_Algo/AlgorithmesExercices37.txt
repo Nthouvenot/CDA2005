@@ -1,12 +1,13 @@
 CHAINE name[] = {agathe, berthe, chloé, cunégonde, olga, raymonde, sidonie}, nameSearch
-ENTIER middleName, i, compareResult, lowIndex, hightIndex, position;
+ENTIER middleName, i, compareResult,  lowPrevIndex, lowIndex, hightPrevIndex, hightIndex, position;
 DEBUT
 middleName <-- 0
 compareResult <-- 0
+lowPrevIndex = 0
 position <-- -1
+hightPrevIndex <-- length(name)
 middleName <-- ceil(length(name) / 2)
 TANT QUE position == -1 || i < lenght(name) - 1
-	
 	compareResult <-- compareTo(nameSearch, name[middleName])
 	SI  compareResult > 0
 	ALORS
