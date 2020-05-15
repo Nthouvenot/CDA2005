@@ -9,16 +9,20 @@ hightPrevIndex <-- length(name)
 middleName <-- ceil(length(name) / 2)
 TANT QUE position == -1 || i < lenght(name) - 1
 	compareResult <-- compareTo(nameSearch, name[middleName])
-	SI  compareResult > 0
+	SI  compareResult < 0
 	ALORS
-		lowIndex <-- middleName + 1
-		hightIndex <-- lenght(name)
-	SINON SI  compareResult < 0
-		lowIndex <-- 0
-		hightIndex <-- middleName - 1
+		lowIndex <-- lowPrevIndex
+		hightIndex <-- middleName
+		middleName <-- ceil((hightIndex - lowIndex) / 2);
+	SINON SI  compareResult > 0
+		lowIndex <-- middleName
+		hightIndex <-- hightPrevIndex
+		middleName <-- middleName + ceil((hightIndex - lowIndex) / 2);
 	SINON
 		position <-- middleName
 	FIN
+	lowPrevIndex <-- lowIndex
+	hightPrevIndex <-- hightIndex
 	middlename = ceil((hightIndex - lowIndex) / 2)
 	i <-- i + 1
 FIN TANT QUE
