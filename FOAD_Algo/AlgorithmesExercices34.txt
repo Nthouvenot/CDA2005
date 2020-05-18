@@ -1,0 +1,25 @@
+ENTIER tableauEntier[], i, i2, tmpCase
+DEBUT
+i2 <-- 0
+tmpCase <-- 0
+tableauEntier[] <-- {5, 21, 3, 12, 4, 36, 54, 22}
+POUR i DE 0 a  lenght(tableauEntier)
+	i <-- i + 1
+	SI i + 1 < lenght(tableauEntier)
+		i2 <-- i + 1
+	FIN SI
+	TANT QUE i2 <  lenght(tableauEntier)
+		SI tableauEntier[i] > tableauEntier[i2]	
+			tmpCase <-- tableauEntier[i2];
+        		tableauEntier[i2] <-- tableauEntier[i];
+        		tableauEntier[i] <--  tmpCase;
+		FIN SI
+		i2 <-- i2 + 1
+	FIN TANT QUE
+FIN POUR
+ECRIRE "Valeur des cases du tableau aprés tri"
+POUR i DE 0 lenght(tableauEntier)
+	i <-- i + 1
+	ECRIRE tableauEntier[i]
+FIN POUR
+FIN
