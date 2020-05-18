@@ -1,0 +1,34 @@
+CHAINE chaine, caractere
+CARACTERE charOccurency, charAtPosition
+ENTIER occurence
+DEBUT
+occurence <-- 0
+ECRIRE "saisissez une chaine qui se termine par un point"
+LIRE chaine
+ECRIRE "saisissez le caractére a rechercher"
+LIRE caractere
+charOccurency <- CARACTERE charAT(0)
+SI chaine indexOf(".") != -1
+ALORS
+	SI chaine indexOf(".") == 0
+	ALORS
+		ECRIRE "La chaine est vide"
+	SINON
+		POUR i DE 0 A lenght(chaine)
+			i <-- i + 1
+			charAtPosition <-- caractere charAt(i)
+			SI charAtPosition == charOccurency
+			ALORS
+				occurence <-- occurence + 1
+			FIN SI
+			ECRIRE "le caractére " + caractere + " est présent " + occurence + " fois"
+		FIN POUR
+	FIN SI
+SINON
+	"erreur chaine incorrect le caractére de fin de chaine '.' est introuvable"
+FIN SI	
+FIN
+
+
+
+
