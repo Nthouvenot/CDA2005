@@ -1,0 +1,77 @@
+﻿@charset "utf-8";
+
+/**********common***********/
+
+#page {
+    position: relative;
+    color: white;
+    font-family: Verdana;
+}
+
+h1, h2, th, td {
+    background-color: darkred;
+}
+
+h1, h2 {
+    padding-top: 2px;
+    padding-bottom: 2px;
+    text-align: center;
+}
+
+a {
+    color: orange;
+    text-decoration: none;
+}
+
+a:hover {
+    color: white;
+}
+
+/**********header***********/
+
+header h1 {
+    font-size: 1.5em;
+}
+
+header p {
+    width: 483px;
+    height: 341px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*********section***********/
+
+section h2 {
+    font-size: 1.3em;
+}
+
+table {
+    width: 100%;
+}
+
+table th {
+    text-align: center;
+    padding: 5px;
+    color: yellow;
+    border: 1px solid black;
+}
+
+table td {
+    padding: 5px;
+    border: 1px solid black;
+}
+
+table td a {
+    display: inline-block;
+    width: 30%;
+    text-align: center;
+}
+
+#right {
+    border-right: 1px solid white;
+}
+
+#left {
+    border-left: 1px solid white;
+}
