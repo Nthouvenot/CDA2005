@@ -1,7 +1,7 @@
-let name = ['agathe', 'berthe', 'chloé', 'cunégonde', 'olga', 'raymonde', 'sidonie']; nameSearch = 'agathe';
+let name = ['agathe', 'berthe', 'chloé', 'cunégonde', 'olga', 'raymonde', 'sidonie'], nameSearch = 'agathe';
 let middleName = 0, i = 0, compareResult = 0, lowIndex = 0, hightIndex = 0, position = -1;
 hightIndex = name.length;
-middleName = Math.ceil(name.length / 2)
+middleName = Math.ceil(name.length / 2);
 while (position == -1 && i < name.length - 1) {
     compareResult = nameSearch.localeCompare(name[middleName]);
     console.log('resultat de comparaison :' + compareResult);
