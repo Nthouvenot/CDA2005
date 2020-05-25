@@ -40,14 +40,14 @@
 class Employee
 {
     // A vous de jouer...
-    constructor(id, lastName, firstName, role, salary, hiredate) {
+    constructor(id, lastName, firstName, role, salary, hireDate) {
         this.id = id;
         this.lastName = new String(lastName);
         this.firstName = new String(firstName); 
         this.email = new String;
         this.role = new String(role);
         this.salary = salary;
-        this.hiredate = new Date(hiredate);
+        this.hireDate = new Date(hireDate);
     }
 
     getMonthlySalary(salaire_annuel) {
@@ -56,11 +56,11 @@ class Employee
     }
 
     getSeniority() {
-
+        const options = { year: 'numeric', month: 'long', day: 'numeric' };
+        return this.hireDate.toLocaleDateString('fr-FR', options);
     }
     
 }
-
 
 
 /** DÉBUT ZONE NON EDITABLE (Ne pas modifier les lignes suivantes) */
@@ -82,7 +82,6 @@ console.log(employees); // export des employés dans la console
 
 
 // Écrivez votre code à partir de la ligne suivante...
-
 
 
 
