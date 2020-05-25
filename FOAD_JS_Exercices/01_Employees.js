@@ -44,24 +44,22 @@ class Employee
         this.id = id;
         this.lastName = new String(lastName);
         this.firstName = new String(firstName); 
-        this.email = new String;
+        this.email = this.firstName.charAt(0).toLowerCase() + this.lastName.toLowerCase() + "@email.fr";
         this.role = new String(role);
         this.salary = salary;
         this.hireDate = new Date(hireDate);
     }
 
-    getMonthlySalary(salaire_annuel) {
-    salaire_mensuel = (salaire_annuel / 12) * 0.75;
-    return salaire_mensuel;
+    getMonthlySalary() {
+        return (this.salary / 12) * 0.75;
     }
 
     getSeniority() {
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
         return this.hireDate.toLocaleDateString('fr-FR', options);
     }
-    
-}
 
+}
 
 /** DÉBUT ZONE NON EDITABLE (Ne pas modifier les lignes suivantes) */
 
@@ -83,5 +81,14 @@ console.log(employees); // export des employés dans la console
 
 // Écrivez votre code à partir de la ligne suivante...
 
+console.log("L'employée " + employee1.firstName + " " + employee1.lastName + " est arrivé le " + employee1.getSeniority());
+console.log("L'employée " + employee1.firstName + " " + employee1.lastName + " touche " + String(employee1.getMonthlySalary()) + " euros par mois");
+console.log("L'email de l'employé est : " + employee1.email);
 
+let tableauEmployee = new Array(5);
 
+for (let i = 0; i < 4; i++) {
+    tableauEmployee[i] = new Employee();
+}
+
+console.log(tableauEmployee.length);
