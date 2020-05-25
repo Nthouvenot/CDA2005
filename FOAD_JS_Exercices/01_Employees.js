@@ -81,14 +81,29 @@ console.log(employees); // export des employés dans la console
 
 // Écrivez votre code à partir de la ligne suivante...
 
+//Test des méthodes créer et de la génération de l'e-mail
+console.log("******Test de la classEmployee******");
+console.log();
+
 console.log("L'employée " + employee1.firstName + " " + employee1.lastName + " est arrivé le " + employee1.getSeniority());
 console.log("L'employée " + employee1.firstName + " " + employee1.lastName + " touche " + String(employee1.getMonthlySalary()) + " euros par mois");
 console.log("L'email de l'employé est : " + employee1.email);
 
+//Création de 5 employé
 let tableauEmployee = new Array(5);
 
-for (let i = 0; i < 4; i++) {
-    tableauEmployee[i] = new Employee();
-}
+tableauEmployee[0] = new Employee(1, 'Devoldere', 'Mickael', 'manager', 82000, new Date('2020-12-28'));
+tableauEmployee[1] = new Employee(2, 'Boudier', 'Aurélien', 'Project chief', 41000, new Date('2020-12-28'));
+tableauEmployee[2] = new Employee(3, 'Shmitt', 'Joanna', 'Déveloper designer', 30000, new Date('2020-12-28'));
+tableauEmployee[3] = new Employee(4, 'Hamza', 'Reda', 'Déveloper', 26000, new Date('2020-12-28'));
+tableauEmployee[4] = new Employee(5, 'Brown', 'Tim', 'Déveloper', 26000, new Date('2020-12-28'));
 
-console.log(tableauEmployee.length);
+//Afichage des employés
+console.log();
+console.log("********Afichage des employées********");
+console.log();
+
+for (let i = 0; i < tableauEmployee.length; i++) {
+    console.log("Employé " + i + ":")
+    console.log("Nom : " + tableauEmployee[i].firstName);
+}
