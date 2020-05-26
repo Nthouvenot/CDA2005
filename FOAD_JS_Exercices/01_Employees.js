@@ -37,17 +37,16 @@
 /**
  * @class Employee
  */
-class Employee
-{
+class Employee {
     // A vous de jouer...
-    constructor(id, lastName, firstName, role, salary, hireDate) {
+    constructor(id, lastname, firstname, role, salary, hiredate) {
         this.id = id;
-        this.lastName = new String(lastName);
-        this.firstName = new String(firstName); 
-        this.email = this.firstName.charAt(0).toLowerCase() + this.lastName.toLowerCase() + "@email.fr";
+        this.lastname = new String(lastname);
+        this.firstname = new String(firstname);
+        this.email = this.firstname.charAt(0).toLowerCase() + this.lastname.toLowerCase() + "@email.fr";
         this.role = new String(role);
         this.salary = salary;
-        this.hireDate = new Date(hireDate);
+        this.hiredate = new Date(hiredate);
     }
 
     getMonthlySalary() {
@@ -55,10 +54,23 @@ class Employee
     }
 
     getSeniority() {
-        const options = { year: 'numeric', month: 'long', day: 'numeric' };
-        return this.hireDate.toLocaleDateString('fr-FR', options);
+        let hiredTime = Date.now() - this.hiredate.getTime(); //On calcul la différence pour savoir depuis combien de temps l'employé est dans l'entreprise
+        hiredTime = Math.floor(hiredTime / 1000); //On met en secondes
+        let year = Math.round(hiredTime / 3600 / 24 / 30 / 12); //une année fait 12 mois de 30 jour de 24 heure
+        let month = Math.round(hiredTime / 3600 / 24 / 30); //Un mois fait en moyenne 30 jours
+        let day = Math.round(hiredTime / 3600 / 24); //Une journée fait 24 heures
+        if (day > 0 && month > 0 && year > 0) {
+            return day + " jours " + month + " mois " + year + " années";
+        } else if (day > 0 && month > 0 && year == 0) {
+            return day + " jours " + month + " mois ";
+        } else if (day > 0 && month == 0 && year == 0) {
+            return day + " jours ";
+        } else {
+            return 0;
+        }
+        
+        
     }
-
 }
 
 /** DÉBUT ZONE NON EDITABLE (Ne pas modifier les lignes suivantes) */
@@ -85,18 +97,18 @@ console.log(employees); // export des employés dans la console
 console.log("******Test de la classEmployee******");
 console.log();
 
-console.log("L'employée " + employee1.firstName + " " + employee1.lastName + " est arrivé le " + employee1.getSeniority());
-console.log("L'employée " + employee1.firstName + " " + employee1.lastName + " touche " + String(employee1.getMonthlySalary()) + " euros par mois");
+console.log("L'employée " + employee1.firstname + " " + employee1.lastname + " est arrivé le " + employee1.getSeniority());
+console.log("L'employée " + employee1.firstname + " " + employee1.lastname + " touche " + String(employee1.getMonthlySalary()) + " euros par mois");
 console.log("L'email de l'employé est : " + employee1.email);
 
 //Création de 5 employé
 let tableauEmployee = new Array(5);
 
-tableauEmployee[0] = new Employee(1, 'Devoldere', 'Mickael', 'manager', 82000, new Date('2020-12-28'));
-tableauEmployee[1] = new Employee(2, 'Boudier', 'Aurélien', 'Project chief', 41000, new Date('2020-12-28'));
-tableauEmployee[2] = new Employee(3, 'Shmitt', 'Joanna', 'Déveloper designer', 30000, new Date('2020-12-28'));
-tableauEmployee[3] = new Employee(4, 'Hamza', 'Reda', 'Déveloper', 26000, new Date('2020-12-28'));
-tableauEmployee[4] = new Employee(5, 'Brown', 'Tim', 'Déveloper', 26000, new Date('2020-12-28'));
+tableauEmployee[0] = new Employee(1, 'Devoldere', 'Mickael', 'manager', 82000, new Date('2015-01-28'));
+tableauEmployee[1] = new Employee(2, 'Boudier', 'Aurélien', 'Project chief', 41000, new Date('2017-09-16'));
+tableauEmployee[2] = new Employee(3, 'Shmitt', 'Joanna', 'Déveloper designer', 30000, new Date('2016-05-14'));
+tableauEmployee[3] = new Employee(4, 'Hamza', 'Reda', 'Déveloper', 26000, new Date('2015-01-28'));
+tableauEmployee[4] = new Employee(5, 'Brown', 'Tim', 'Déveloper', 26000, new Date('2018-01-25'));
 
 //Afichage des employés
 console.log();
@@ -105,5 +117,8 @@ console.log();
 
 for (let i = 0; i < tableauEmployee.length; i++) {
     console.log("Employé " + i + ":")
-    console.log("Nom : " + tableauEmployee[i].firstName);
+    console.log("Nom : " + tableauEmployee[i].firstname);
+    console.log("Email : " + tableauEmployee[i].email)
+    console.log("Date embauche : " + tableauEmployee[i].getSeniority());
+    console.log("Salaire mensuel : " + tableauEmployee[i].getMonthlySalary() + " euros");
 }
