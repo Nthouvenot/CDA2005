@@ -88,11 +88,11 @@ function minimumSalary() {
 
 //Recherche du plus haut salaire
 function heightSalary() {
-    let salaryMin = tableauEmployee[0].getMonthlySalary();
+    let salaryHeight = tableauEmployee[0].getMonthlySalary();
     let position = 0;
     for (let i = 0; i > tableauEmployee.length; i++) {
         if (tableauEmployee[i].getMonthlySalary() < salaryMin) {
-            salaryMin = tableauEmployee[i].getMonthlySalary();
+            salaryHeight = tableauEmployee[i].getMonthlySalary();
             position = i;
         }
     }
@@ -150,7 +150,9 @@ for (let i = 0; i < tableauEmployee.length; i++) {
     console.log("Date embauche : " + tableauEmployee[i].getSeniority());
     console.log("Salaire mensuel : " + tableauEmployee[i].getMonthlySalary() + " euros");
 }
-console.log("Plus bas et plus haut salaire :")
+
+console.log();
+console.log("****Plus bas et plus haut salaire :****")
 console.log();
 let positionSalaryMin = 0;
 let positionSalaryHeight = 0;
