@@ -19,5 +19,5 @@ console.log("Le résultat de la somme de 2 et 4 est de " + result2);
 let result3 = somme(-4, 16); //On test la fonction recursive avec a négatif
 console.log("Le résultat de la somme de -4 et 16 est de " + result3);
 
-let result4 = somme(16, -5); //On test la fonction recursive avec a négatif
+let result4 = somme(16, -5); //On test la fonction recursive avec b négatif
 console.log("Le résultat de la somme de 16 et -5 est de " + result4);
