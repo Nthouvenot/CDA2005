@@ -73,6 +73,32 @@ class Employee {
     }
 }
 
+//Recherche du plus bas salaire
+function minimumSalary() {
+    let salaryMin = tableauEmployee[0].getMonthlySalary();
+    let position = 0;
+    for (let i = 0; i < tableauEmployee.length; i++) {
+        if (tableauEmployee[i].getMonthlySalary() < salaryMin) {
+            salaryMin = tableauEmployee[i].getMonthlySalary();
+            position = i;
+        }
+    }
+    return position;
+}
+
+//Recherche du plus haut salaire
+function heightSalary() {
+    let salaryMin = tableauEmployee[0].getMonthlySalary();
+    let position = 0;
+    for (let i = 0; i > tableauEmployee.length; i++) {
+        if (tableauEmployee[i].getMonthlySalary() < salaryMin) {
+            salaryMin = tableauEmployee[i].getMonthlySalary();
+            position = i;
+        }
+    }
+    return position;
+}
+
 /** DÉBUT ZONE NON EDITABLE (Ne pas modifier les lignes suivantes) */
 
 
@@ -92,6 +118,8 @@ console.log(employees); // export des employés dans la console
 
 
 // Écrivez votre code à partir de la ligne suivante...
+
+
 
 //Test des méthodes créer et de la génération de l'e-mail
 console.log("******Test de la classEmployee******");
@@ -122,3 +150,15 @@ for (let i = 0; i < tableauEmployee.length; i++) {
     console.log("Date embauche : " + tableauEmployee[i].getSeniority());
     console.log("Salaire mensuel : " + tableauEmployee[i].getMonthlySalary() + " euros");
 }
+console.log("Plus bas et plus haut salaire :")
+console.log();
+let positionSalaryMin = 0;
+let positionSalaryHeight = 0;
+positionSalaryMin = minimumSalary();
+console.log(tableauEmployee[positionSalaryMin].lastname + ' ' + tableauEmployee[positionSalaryMin].firstname + ' a le plus bas salaire');
+positionSalaryHeight = heightSalary();
+console.log(tableauEmployee[positionSalaryHeight].lastname + ' ' + tableauEmployee[positionSalaryHeight].firstname + ' a le plus haut salaire');
+
+//Différence entre les deux
+let salaryDiferency = tableauEmployee[positionSalaryHeight].getMonthlySalary() - tableauEmployee[positionSalaryMin].getMonthlySalary();
+console.log("Différence entre le plus haut et le plus bas salaire : " + salaryDiferency + " euros mensuel");
