@@ -29,7 +29,13 @@ class Point
      * @param int _y Coordonnée verticale du point (ordonnée). Valeur négative acceptée
      */
     constructor(_x, _y) {
-        
+        if (typeof _x == 'number' && typeof _y == 'number') {
+            this.x = _x;
+            this.y = _y;
+        } else {
+            this.x = 0;
+            this.y = 0;
+        }
     }
 
     /**
@@ -48,6 +54,53 @@ class Point
         return new Point(this.x, this.y);
     }
 
+    /**
+     * définit de nouvelles coordonnées (x=abscisses, y=ordonnées)
+     * @param {integer} _x
+     * @param {integer} _y
+     */
+    move(_x, _y) {
+        if (typeof _x == 'number' && typeof _y == 'number') {
+            this.x = _x;
+            this.y = _y;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+   /**
+    * copie les coordonnées du "Point" fourni en argument dans l'instance actuelle
+    * @param {Point} _point
+    */
+    copy(_point) {
+        if (typeof (_point == 'Point')) {
+            this.x = _point.x;
+            this.y = _point.y;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * Les coordonnées de l'instance actuelle et du "Point" fourni en argument sont échangées
+     * @param {Point} _point
+     */
+    rabbit(_point) {
+        if (typeof (_point == 'Point')) {
+            let tmpX = _point.x;
+            let tmpY = _point.y;
+            _point.x = this.x;
+            _point.y = this.y;
+            this.x = tmpX;
+            this.y = tmpY;
+            return true;
+        } else {
+            return false;
+        }
+    }
+
 }
 
 
@@ -57,7 +110,7 @@ class Point
  * Décrivez ci-dessous en quelques lignes le programme suivant
  * (utilité, finalité)
  * 
- * 
+ * Cette classe gére la représentation d'un point dans un espace bidimentionelle
  * 
  * 
  * 
