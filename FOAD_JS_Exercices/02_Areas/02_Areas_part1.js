@@ -140,4 +140,3 @@ p1.rabbit(p3);
 console.log(p1 !== p3);         // affiche: true
 console.log(p1.toString());     // affiche:  (4,5)
 console.log(p3.toString());     // affiche:  (0,1)
-
