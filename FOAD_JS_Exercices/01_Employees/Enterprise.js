@@ -114,12 +114,6 @@ class Enterprise
         return this.getLowerSalary().salary - this.getHigherSalary().salary;
     }
 
-
-    
-
-
-
 }
-
 
 module.exports = Enterprise;
