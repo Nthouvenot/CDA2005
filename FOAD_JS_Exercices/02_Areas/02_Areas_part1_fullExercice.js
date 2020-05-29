@@ -88,9 +88,14 @@ class Point
      * @param {Point} _point
      */
     rabbit(_point) {
+        /*
         let chaineTempo = this.toString();
         this.copy(_point);
         this.move(parseInt(chaineTempo.split(',')[0].substring(1)), parseInt(chaineTempo.split(',')[1])); // todo : récupure tableau '(x', 'y)'
+    }*/
+        let tempo = this.duplicate();
+        this.copy(_point);
+        _point.copy(tempo);
     }
 }
 
