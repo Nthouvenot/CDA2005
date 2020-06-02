@@ -102,37 +102,31 @@ class Enterprise
      * retourne l'employé qui a le salaire le plus élevé
      **/
     getHigherSalary() {
-        let salaryHeight = 0;
-        let position = 0;
-        for (let i = 0; i > this.employees.length; i++) {
-            if (tableauEmployee[i].getMonthlySalary() < salaryHeight) {
-                salaryHeight = this.employee[i].getMonthlySalary();
-                position = i;
-            }
+        let i = 0;
+        let higherSalary = Math.max(...this.employees.map(emp => emp.salary));
+        while (this.employees[i].salary != higherSalary) {
+            i++;
         }
-        return this.employees[position];
+        return this.employees[i];
     }
 
     /**
      * retourne l'employé qui a le salaire le plus bas
      */
     getLowerSalary() {
-        let salaryMin = 0;
-        let position = 0;
-        for (let i = 0; i < this.employees.length; i++) {
-            if (this.employees[i].getMonthlySalary() < salaryMin) {
-                salaryMin = this.employees[i].getMonthlySalary();
-                position = i;
-            }
+        let i = 0;
+        let lowerSalary = Math.min(...this.employees.map(emp => emp.salary));
+        while (this.employees[i].salary != lowerSalary) {
+            i++;
         }
-        return this.employees[position];
+        return this.employees[i];
     }
 
     /**
-     * retourne la différence entre le salire le plus élevé et le plus bas
+     * retourne la différence entre le salaire le plus élevé et le plus bas
      */
     getSalaryGap() {
-        return this.getLowerSalary().salary - this.getHigherSalary().salary;
+        return (this.getHigherSalary().salary - this.getLowerSalary().salary);
     }
 
 }
