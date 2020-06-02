@@ -19,19 +19,19 @@ class Enterprise
         } else {
             let copyEmployees = this.employees;
             if (_filter == "id") {
-                copyEmployees.sort(function (a, b) { return a.id < b.id; });
-                return copyEmployee;
-            } else if (_filter == 'lastName') {
-                copyEmployees.sort(function (a, b) { return a.lastName < b.lastName; });
-                return copyEmployee;
-            } else if (_filter == 'firstName') {
-                copyEmployees.sort(function (a, b) { return a.firstName < b.firstName; });
+                copyEmployees.sort(function (a, b) { return a.id - b.id});
                 return copyEmployees;
-            } else if (_filter == 'salary') {
-                copyEmployees.sort(function (a, b) { return a.salary < b.salary; });
+            } else if (_filter == "lastName") {
+                copyEmployees.sort(function (a, b) { return a.lastName - b.lastName});
+                return copyEmployees;
+            } else if (_filter == "firstName") {
+                copyEmployees.sort(function (a, b) { return a.firstName - b.firstName });
+                return copyEmployees;
+            } else if (_filter == "salary") {
+                copyEmployees.sort(function (a, b) { return a.salary - b.salary });
                 return copyEmployees
-            } else if (_filter == 'hireDate') {
-                copyEmployees.sort(function (a, b) { return a.hireDate < b.hireDate; });
+            } else if (_filter == "hireDate") {
+                copyEmployees.sort(function (a, b) { return a.hireDate - b.hireDate });
                 return copyEmployees;
             } else {
                 return false;
@@ -90,7 +90,7 @@ class Enterprise
             while (_id != this.employees[i].id) {
                 i++;
             }
-            this.employees.delete(i);
+            this.employees.splice(i, 1);
             return true;
         } else {
             return false;
