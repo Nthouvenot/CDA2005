@@ -1,0 +1,49 @@
+CHAINE chaine, chaineReponse
+ENTIER essaisRestant, i, caractereOk
+CHAR reponseUtilisateur[25], caractéreReponse
+BOOLEAN victoire
+DEBUT
+essaiRestant <-- 6
+victoire = false
+ECRIRE "Jeu du pendu"
+ECRIRE "Saisissez un mot de minimum 5 lettres"
+LIRE chaine
+reponseUtilisateur[0] <-- charAt(chaine, 0)
+reponseUtilisateur[length(chaine)] <-- charAt(chaine, length(chaine))
+POUR i de 1 A length(chaine)
+reponseUtilisateur[i] = '-'
+FIN POUR
+TANT QUE essaisRestant >= 0 && victoire == false
+	ECRIRE "Essais restant :" + essaisRestant
+	ECRIRE copyValueOf(reponseUtilisateur)
+	ECRIRE "Saisissez une lettre"
+	LIRE chaineReponse
+	caractereReponse <-- charAt(chaineReponse, 0)
+	caractereTrouve = false
+	POUR i DE 1 A lenght(chaine) - 1
+		i <-- i + 1
+		SI caractereReponse == charAt(chaine, i)
+		ALORS
+			reponseUtilisateur[i] = charAt(chaine, i)
+			caractereTrouve = true
+		FIN SI
+	FIN POUR
+	SI caractereTrouve == false
+		essaisRestant <--  essaisrestant - 1
+	FIN SI
+	caractereOk <-- 1
+	POUR i DE 0 A length(chaine)
+		i <-- i + 1
+		SI reponseUtilisateur == charAt(chaine, i)
+		ALORS
+		caractereOk <-- caractereOk + 1
+		FIN SI
+	FIN POUR
+	SI caractereOk == lenght(chaine)  && victoire == false
+	ALORS
+		victoire = true
+		essaisRestant <-- 6 - essaisRestant
+		ECRIRE "Vous avez trouvez en " + essaisRestant + " coup"
+	FIN SI	
+FIN TANT QUE
+FIN
