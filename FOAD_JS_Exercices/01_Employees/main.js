@@ -24,13 +24,14 @@ let highterSalary = myEnterprise.getHigherSalary();
 let differencySalary = myEnterprise.getSalaryGap();
 
 //Affichage des employees avec la méthode read(_id)
-console.log("Employees N°1 : " + myEnterprise.read(1));
-console.log("Employees N°2 : " + myEnterprise.read(2));
-console.log("Employees N°3 : " + myEnterprise.read(3));
-console.log("Employees N°4 : " + myEnterprise.read(4));
-console.log("Employees N°5 : " + myEnterprise.read(5));
+console.log("Affichage de la liste des Employées avec la méthode read(_id)")
+console.log(myEnterprise.read(1));
+console.log(myEnterprise.read(2));
+console.log(myEnterprise.read(3));
+console.log(myEnterprise.read(4));
+console.log(myEnterprise.read(5));
 
 //Affichage des résultats
-console.log('le plus bas salaire est : ' + lowerSalary.firstName + " " + lowerSalary.lastName);
-console.log('le plus haut salaire est : ' + highterSalary.firstName + " " + highterSalary.lastName);
-console.log('Différence entre le plus haut et le plus bas salaire : ' + differencySalary + "euros");
+console.log('le plus bas salaire est : ' + lowerSalary.firstname + " " + lowerSalary.lastname);
+console.log('le plus haut salaire est : ' + highterSalary.firstname + " " + highterSalary.lastname);
+console.log('Différence entre le plus haut et le plus bas salaire : ' + differencySalary + " euros");
