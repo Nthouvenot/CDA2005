@@ -1,0 +1,13 @@
+entier n, tab[n], i
+début
+i <-- 0
+faire tant que tab[i] == n
+i <-- i + 1
+fin tant que
+si i == taille du tableau
+alors
+ecrire "Non trouvé"
+sinon
+ecrire n + "est a la position n° " + i
+fin si
+fin
