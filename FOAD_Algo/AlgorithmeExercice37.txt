@@ -1,0 +1,28 @@
+CHAINE name[] = {agathe, berthe, chloé, cunégonde, olga, raymonde, sidonie}, nameSearch
+ENTIER middleName, i, compareResult,  lowIndex, hightIndex, position;
+DEBUT
+middleName <-- 0
+compareResult <-- 0
+position <-- -1
+hightIndex <-- length(name)
+middleName <-- ceil(length(name) / 2)
+TANT QUE position == -1 || i < lenght(name) - 1
+	compareResult <-- compareTo(nameSearch, name[middleName])
+	SI  compareResult < 0
+	ALORS
+		hightIndex <-- middleName
+		middleName <-- ceil((hightIndex - lowIndex) / 2);
+	SINON SI  compareResult > 0
+		lowIndex <-- middleName
+		middleName <-- middleName + ceil((hightIndex - lowIndex) / 2);
+	SINON
+		position <-- middleName
+	FIN
+	i <-- i + 1
+FIN TANT QUE
+SI position != -1
+ECRIRE "Le nom " + nameSearch
+SINON
+ECRIRE "Le nom n'a pas été trouvé"
+FIN SI
+FIN
