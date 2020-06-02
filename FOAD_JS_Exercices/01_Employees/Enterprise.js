@@ -14,7 +14,29 @@ class Enterprise
      * @param  _filter 
      */
     readAll(_filter) {
-        
+        if (typeof _filter != 'string') {
+            return false;
+        } else {
+            let copyEmployees = this.employees;
+            if (_filter == "id") {
+                copyEmployees.sort(function (a, b) { return a.id < b.id; });
+                return copyEmployee;
+            } else if (_filter == 'lastName') {
+                copyEmployees.sort(function (a, b) { return a.lastName < b.lastName; });
+                return copyEmployee;
+            } else if (_filter == 'firstName') {
+                copyEmployees.sort(function (a, b) { return a.firstName < b.firstName; });
+                return copyEmployees;
+            } else if (_filter == 'salary') {
+                copyEmployees.sort(function (a, b) { return a.salary < b.salary; });
+                return copyEmployees
+            } else if (_filter == 'hireDate') {
+                copyEmployees.sort(function (a, b) { return a.hireDate < b.hireDate; });
+                return copyEmployees;
+            } else {
+                return false;
+            }
+        }
     }
 
     /**
@@ -22,9 +44,8 @@ class Enterprise
      * @param Employee _employee 
      */
     create(_employee) {
-        if (typeof _employee == 'Employee') {
-            this.employees.push(new Employee(_employee));
-            return true;
+        if (_employee instanceof Employee) {
+            this.employees.push(_employee);
         } else {
             return false;
         }
