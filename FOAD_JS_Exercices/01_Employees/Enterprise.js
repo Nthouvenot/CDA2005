@@ -3,127 +3,126 @@ const Employee = require('./Employee.js');
 /**
  * Gestion d'employés
  */
-class Enterprise 
-{
+class Enterprise {
     constructor() {
         this.employees = [];
     }
 
     /**
-     * 
+     * Retourne la collection d'Employee trié en fonction d'un filtre
      * @param  _filter 
+     * @returns {Employee}
      */
     readAll(_filter) {
         if (typeof _filter != 'string') {
-            return false;
-        } else {
-            let copyEmployees = this.employees;
-            if (_filter == "id") {
-                copyEmployees.sort(function (a, b) { return a.id - b.id});
-                return copyEmployees;
-            } else if (_filter == "lastName") {
-                copyEmployees.sort(function (a, b) { return a.lastName - b.lastName});
-                return copyEmployees;
-            } else if (_filter == "firstName") {
-                copyEmployees.sort(function (a, b) { return a.firstName - b.firstName });
-                return copyEmployees;
-            } else if (_filter == "salary") {
-                copyEmployees.sort(function (a, b) { return a.salary - b.salary });
-                return copyEmployees
-            } else if (_filter == "hireDate") {
-                copyEmployees.sort(function (a, b) { return a.hireDate - b.hireDate });
-                return copyEmployees;
-            } else {
-                return false;
-            }
+            return undefined;
+        }
+        switch (_filter) {
+            case "id":
+                return this.employees.sort((a, b) => a.id - b.id);
+                break;
+            case "lastname":
+                return this.employees.sort((a, b) => a.lastname - b.lastname);
+                break;
+            case "firstname":
+                return this.employees.sort((a, b) => a.firstname - b.firstname);
+                break;
+            case "salary":
+                return this.employees.sort((a, b) => a.salary - b.salary);
+                break;
+            case "hiredate":
+                return this.employees.sort((a, b) => a.hiredate - b.hiredate);
+                break;
+            default:
+                return undefined;
         }
     }
 
     /**
      * Créer un employé
-     * @param Employee _employee 
+     * @param Employee _employee
+     * @returns {Employee}
      */
     create(_employee) {
-        if (_employee instanceof Employee) {
-            this.employees.push(_employee);
-        } else {
+        if (!(_employee instanceof Employee)) {
             return false;
         }
-        
+        this.employees.push(_employee);
+        return _employee;
     }
 
     /**
      * Retourne l'employé correspondant a l'id
-     * @param int _id 
+     * @param int _id
+     * @returns {Employee}
      */
-    read(_id) { 
-        if (typeof _id == 'number') {
-            let i = 0;
-            while (_id != this.employees[i].id) {
-                i++;
-            }
-            return this.employees[i];
+    read(_id) {
+        if (typeof _id != 'number') {
+            return undefined;
+        }
+        let employee = this.employees.find(employee => employee.id == _id);
+        if (employee != undefined) {
+            return Object.assign(employee);
         } else {
-            return false;
+            return undefined;
         }
     }
 
     /**
      * Met à jour un employé
-     * @param Employee _employee 
+     * @param Employee _employee
+     * @returns {Employee}
      */
     update(_employee) { // on réutilise les méthodes qui sont déja sécurisé donc inutile de vérifier le type de l'entrée 
         if (this.delete(_employee.id)) {
-            this.create(_employee);
+            return this.create(_employee);
         } else {
-            return false;
+            return undefined;
         }
+
     }
-    
+
     /**
      * Supprime un employé
-     * @param int _id 
+     * @param int _id
+     * @returns {boolean}
      */
     delete(_id) {
-        if (typeof _id == 'number') {
-            let i = 0;
-            while (_id != this.employees[i].id) {
-                i++;
-            }
-            this.employees.splice(i, 1);
-            return true;
-        } else {
+        if (typeof _id != 'number') {
             return false;
         }
+        let index = this.employees.indexOf('id', _id);
+        if (index == undefined) {
+            return false;
+        }
+        this.employees.splice(index, 1);
+        return true;
     }
 
 
     /**
      * retourne l'employé qui a le salaire le plus élevé
+     * @returns {Employee}
      **/
     getHigherSalary() {
-        let i = 0;
         let higherSalary = Math.max(...this.employees.map(emp => emp.salary));
-        while (this.employees[i].salary != higherSalary) {
-            i++;
-        }
-        return this.employees[i];
+        let employeeBySalary = this.employees.find(employee => employee.salary == higherSalary);
+        return Object.assign(employeeBySalary);
     }
 
     /**
      * retourne l'employé qui a le salaire le plus bas
+     * @returns {Employee}
      */
     getLowerSalary() {
-        let i = 0;
         let lowerSalary = Math.min(...this.employees.map(emp => emp.salary));
-        while (this.employees[i].salary != lowerSalary) {
-            i++;
-        }
-        return this.employees[i];
+        let employeeBySalary = this.employees.find(employee => employee.salary == lowerSalary);
+        return Object.assign(employeeBySalary);
     }
 
     /**
      * retourne la différence entre le salaire le plus élevé et le plus bas
+     * @returns {number}
      */
     getSalaryGap() {
         return (this.getHigherSalary().salary - this.getLowerSalary().salary);
