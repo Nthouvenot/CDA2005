@@ -52,4 +52,13 @@ console.log("By id");
 console.log(myEnterprise.readAll("id"));
 console.log();
 console.log("By hireDate");
-console.log(myEnterprise.readAll("hireDate"));
+console.log(myEnterprise.readAll("hiredate"));
+
+//Supression d'un employé
+console.log("****supression d'un employée****");
+if (!myEnterprise.delete(3)) {
+    console.log("id introuvable");
+}
+console.log("affichage des employees :")
+console.log(myEnterprise);
+
