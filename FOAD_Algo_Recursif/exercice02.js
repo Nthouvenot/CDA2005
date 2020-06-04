@@ -1,5 +1,8 @@
 
 // formule m*n=m+m*(n-1)
+
+//Version de départ
+/*
 function produit(a, b) {
     if (a == 0) {
         return 0;
@@ -9,6 +12,23 @@ function produit(a, b) {
     }
     a -= 1;
     return produit(a += a, b -= 1);
+}*/
+
+//Version Masoud
+/*
+function produit(a, b) {
+if (b === 0) return0;
+else
+return a + produit(a, b - 1);
+}
+*/
+
+//Version finale
+function produit(a, b) {
+    if (b == 0) {
+        return 0;
+    }
+    return a + produit(a, b - 1);
 }
 
 result1 = produit(0, 3); //On teste la division par un numérateur a 0
