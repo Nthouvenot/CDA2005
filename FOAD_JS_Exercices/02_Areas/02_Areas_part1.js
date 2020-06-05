@@ -74,7 +74,7 @@ class Point
     * @param {Point} _point
     */
     copy(_point) {
-        if (typeof (_point == 'Point')) {
+        if (_point instanceof 'Point') {
             this.x = _point.x;
             this.y = _point.y;
             return true;
@@ -88,7 +88,7 @@ class Point
      * @param {Point} _point
      */
     rabbit(_point) {
-        if (typeof (_point == 'Point')) {
+        if (_point instanceof 'Point') {
             let tmpX = _point.x;
             let tmpY = _point.y;
             _point.x = this.x;
