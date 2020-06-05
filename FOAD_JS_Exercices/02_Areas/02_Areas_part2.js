@@ -6,7 +6,7 @@
  * 
  * CONSIGNES : 
  * 1) Lisez la description de la classe "Area"
- * 2) Implémentez le code nécessaire à son bon fonctionnement en suivant les indications dans sa descirption
+ * 2) Implémentez le code nécessaire à son bon fonctionnement en suivant les indications dans sa description
  * 3) Implémentez ensuite le programme suivant :
  *      a) Créer 2 "Area"
  *      b) Dans la 1ère "Area", ajouter 8 "Point"" (coordonnées au choix, 5 dans les limites de la zone et 3 hors limites)
@@ -35,6 +35,9 @@
  * - Les "Point" situés sur la limite de la zone sont considérés "dans les limites de la zone" 
  * Aidez-vous des images "02_Points_***" présentes dans ce dossier pour vous faire une réprésentation
  */
+
+const Point = require('./02_Areas_Point.js');
+
 class Area
 {
     /**
@@ -45,6 +48,13 @@ class Area
      */
     constructor(_width, _height) {
         // A vous de jouer
+        if ((typeof _width != 'number') && (typeof _height != 'number')) {
+            this.areaWidth = _width;
+            this.areaHeight = _height;
+            this.numberAreaCase = _width * _height;
+            this.pointArea = new Array();
+            this.pointArea.push(new Point(0, 0));
+        }
     }
 
     /**
@@ -54,12 +64,14 @@ class Area
      * @returns Boolean true en cas de succès, false si l'ajout est impossible 
      */
     addPoint(_point) {
-        if((typeof _point) !== 'Point') {
+        if (!(_point instanceof 'Point')) {
             return false;
         }
-
         // A vous de jouer
-
+        if (this.pointArea.length + 1 > this.numberAreaCase) { // Si la zone est pleine on ajoute pas le point
+            return false;
+        }
+        this.pointArea.push(new Point(_point.x, _point.y))
         return true;
     }
 
@@ -69,6 +81,8 @@ class Area
      * Ce déplacement utilise les mêmes règles que l'ajout d'un "Point"
      */
     needAllInside() {
-
+        return;
     }
 }
+
+module.exports = Area;
