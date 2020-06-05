@@ -38,8 +38,7 @@
 
 const Point = require('./02_Areas_Point.js');
 
-class Area
-{
+class Area {
     /**
      * Constructeur: Initialise une nouvelle instance de la classe "Area"
      * La largeur et la hauteur définissent les limites de la zone. 
@@ -48,13 +47,23 @@ class Area
      */
     constructor(_width, _height) {
         // A vous de jouer
-        if ((typeof _width != 'number') && (typeof _height != 'number')) {
-            this.areaWidth = _width;
-            this.areaHeight = _height;
-            this.numberAreaCase = _width * _height;
-            this.pointArea = new Array();
+        if ((typeof _width == 'number') && (typeof _height == 'number')) {
+            this.areaWidth = parseInt(_width);
+            this.areaHeight = parseInt(_height);
+            this.numberAreaCase = this.areaWidth * this.areaHeight;
+            this.pointArea = [];
             this.pointArea.push(new Point(0, 0));
         }
+    }
+    //To Do bug boucle infinie
+    movePoint = (i) => {
+        if (i == this.pointArea.length) {
+            return 0;
+        }
+        if (this.pointArea[i].x == undefined) {
+            this.pointArea[i].x = i;
+        }
+        return this.movePoint(i++);
     }
 
     /**
@@ -64,14 +73,13 @@ class Area
      * @returns Boolean true en cas de succès, false si l'ajout est impossible 
      */
     addPoint(_point) {
-        if (!(_point instanceof 'Point')) {
+        if (!(_point instanceof Point)) {
             return false;
         }
-        // A vous de jouer
         if (this.pointArea.length + 1 > this.numberAreaCase) { // Si la zone est pleine on ajoute pas le point
             return false;
         }
-        this.pointArea.push(new Point(_point.x, _point.y))
+        this.pointArea.push(new Point(_point.x, _point.y));
         return true;
     }
 
@@ -81,7 +89,19 @@ class Area
      * Ce déplacement utilise les mêmes règles que l'ajout d'un "Point"
      */
     needAllInside() {
-        return;
+        for (let i = 0; i < this.pointArea.length; i++) {
+            if (this.pointArea[i].x > this.areaWidth || this.pointArea[i].x < 0) {
+                //To do le point est mis dans la plus proche casse de libre
+                let i = 0;
+                this.movePoint(i);
+            } else if (this.pointArea[i].y > this.areaHeight || this.pointArea[i].x < 0) {
+                //To do le point est mis dans la plus proche casse de libre
+            }
+        }
+    }
+
+    getPointArea() {
+        return Object.assign(this.pointArea);
     }
 }
 
