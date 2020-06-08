@@ -56,20 +56,6 @@ class Area {
         }
     }
 
-
-    movePoint(i){
-        if (i == this.pointArea.length) {
-            return 0;
-        }
-        if (this.pointArea[i].x == undefined) {
-            this.pointArea[i].x = i;
-        }
-        if (this.pointArea[i].y == undefined) {
-            this.pointArea[i].y == i;
-        }
-        return this.movePoint(i += 1);
-    }
-
     /**
      * Ajoute un "Point" dans la zone
      * Le "Point" peut se trouver hors des limites de la zone
@@ -92,19 +78,25 @@ class Area {
      * Chaque Point hors des limites est automatiquement déplacé vers une position "dans la zone"
      * Ce déplacement utilise les mêmes règles que l'ajout d'un "Point"
      */
-    needAllInside() {
-        this.pointArea.sort(a, b => a.x - b.x)
-        for (let i = 0; i < this.pointArea.length; i++) {
-            if (this.pointArea[i].x > this.areaWidth || this.pointArea[i].x < 0) {
-                //To do le point est mis dans la plus proche casse de libre
-                let i = 0;
-                this.movePoint(i);
-            } else if (this.pointArea[i].y > this.areaHeight || this.pointArea[i].y < 0) {
-                //To do le point est mis dans la plus proche casse de libre
-                let i = 0;
-                this.movePoint(i);
-            }
+    needAllInside(i) {
+        if (i == undefined) { //Si on a pas de paramétre a la premiére execution de la récursive on initialise i a 0
+            i = 0;
         }
+        if (i == this.pointArea.length) {
+            return true;
+        }
+        if (this.pointArea[i].x > this.areaWidth || this.pointArea[i].x < 0) {
+            let i2 = 0
+            while (i2 < this.pointArea.length) {
+                if (this.pointArea[i2].x >= this.pointArea[i].x + 1) {
+                    //ça marchera pas !!!!!!!!!!!!!!!!!!!!!!!!!!
+                }
+            }
+        } else if (this.pointArea[i].y > this.areaHeight || this.pointArea[i].y < 0) {
+                //To do le point est mis dans la plus proche casse de libre
+              
+        }
+        return this.needAllInside(i += 1);
     }
 
     getPointArea() {
