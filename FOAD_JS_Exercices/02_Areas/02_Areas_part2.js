@@ -55,15 +55,19 @@ class Area {
             this.pointArea.push(new Point(0, 0));
         }
     }
-    //To Do bug boucle infinie
-    movePoint = (i) => {
+
+
+    movePoint(i){
         if (i == this.pointArea.length) {
             return 0;
         }
         if (this.pointArea[i].x == undefined) {
             this.pointArea[i].x = i;
         }
-        return this.movePoint(i++);
+        if (this.pointArea[i].y == undefined) {
+            this.pointArea[i].y == i;
+        }
+        return this.movePoint(i += 1);
     }
 
     /**
@@ -89,13 +93,16 @@ class Area {
      * Ce déplacement utilise les mêmes règles que l'ajout d'un "Point"
      */
     needAllInside() {
+        this.pointArea.sort(a, b => a.x - b.x)
         for (let i = 0; i < this.pointArea.length; i++) {
             if (this.pointArea[i].x > this.areaWidth || this.pointArea[i].x < 0) {
                 //To do le point est mis dans la plus proche casse de libre
                 let i = 0;
                 this.movePoint(i);
-            } else if (this.pointArea[i].y > this.areaHeight || this.pointArea[i].x < 0) {
+            } else if (this.pointArea[i].y > this.areaHeight || this.pointArea[i].y < 0) {
                 //To do le point est mis dans la plus proche casse de libre
+                let i = 0;
+                this.movePoint(i);
             }
         }
     }
