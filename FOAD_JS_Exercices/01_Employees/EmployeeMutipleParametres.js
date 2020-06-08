@@ -22,6 +22,7 @@ class Employee
         this.role = _role || "Boulanger";
         this.salary = parseInt(_salary);
         this.hiredate = _hiredate;
+
         this.email = (this.firstname[0] + this.lastname).toLowerCase() + "@email.fr";
     }
 

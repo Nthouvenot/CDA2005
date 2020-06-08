@@ -1,10 +1,11 @@
-const fs = require('fs');
+
 const Employee = require('./Employee.js');
 
 /**
  * Gestion d'employés
  */
 class Enterprise {
+    constructor() {
         this.employees = [];
     }
 
