@@ -6,13 +6,13 @@ class Employee
 {
 
     /**
-     * Constructeur
-     * @param {any} _id
+     * Constructeur@param {any} _id
      * @param {any} _lastname
      * @param {any} _firstname
      * @param {any} _role
      * @param {any} _salary
      * @param {any} _hiredate
+     * 
      */
     constructor(_id, _lastname, _firstname, _role, _salary, _hiredate) {
 
