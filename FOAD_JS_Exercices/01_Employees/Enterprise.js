@@ -5,7 +5,39 @@ const Employee = require('./Employee.js');
  * Gestion d'employés
  */
 class Enterprise {
+
+    constructor() {
         this.employees = [];
+    }
+
+    /**
+     * Permet de valider _employee
+     * @param {Employee} _employee
+     */
+    isValid(_employee) {
+        if (!(_employee instanceof Employee)) {
+            _employee = new Employee();
+        }
+        if (typeof _employee.id != 'number' || _employee.id == undefined) {
+            _employee.id = 0;
+        }
+        if (typeof _employee.lastname != 'string' || _employee.lastname == undefined) {
+            _employee.lastname = "Doe";
+        }
+        if (typeof _employee.firstname != 'string' || _employee.firstname == undefined) {
+            _employee.lastname = "John";
+        }
+        if (typeof _employee.role != 'string' || _employee.role == undefined) {
+            _employee.role = "???";
+        }
+        if (typeof _employee.salary != 'number' || _employee.salary == undefined) {
+            _employee.salary = "14000";
+        }
+        if (_employee.hiredate instanceof Date || _employee.hiredate == undefined) {
+            _employee.hiredate = new Date(Date.now());
+        }
+        _employee.email = (_employee.firstname[0].toLowerCase() + _employee.lastname).toLowerCase() + "@email.fr";
+        return 0;
     }
 
     /**
@@ -48,7 +80,7 @@ class Enterprise {
             return false;
         }
         this.employees.push(_employee);
-        return _employee;
+        return Object.assign(new Employee(), _employee);
     }
 
     /**
@@ -73,12 +105,13 @@ class Enterprise {
      * @param Employee _employee
      * @returns {Employee}
      */
-    update(_employee) { // on réutilise les méthodes qui sont déja sécurisé donc inutile de vérifier le type de l'entrée 
-        if (this.delete(_employee.id)) {
-            return this.create(_employee);
-        } else {
+    update(_employee) {
+        this.isValid(_employee);
+        let employeeToUpdate = this.read(_employee.id);
+        if (employeeToUpdate == undefined) {
             return undefined;
         }
+        return Object.assign(employeeToUpdate, _employee);
 
     }
 
@@ -107,7 +140,7 @@ class Enterprise {
     getHigherSalary() {
         let higherSalary = Math.max(...this.employees.map(emp => emp.salary));
         let employeeBySalary = this.employees.find(employee => employee.salary == higherSalary);
-        return Object.assign(employeeBySalary);
+        return Object.assign(new Employee(), employeeBySalary);
     }
 
     /**
@@ -117,7 +150,7 @@ class Enterprise {
     getLowerSalary() {
         let lowerSalary = Math.min(...this.employees.map(emp => emp.salary));
         let employeeBySalary = this.employees.find(employee => employee.salary == lowerSalary);
-        return Object.assign(employeeBySalary);
+        return Object.assign(new Employee(), employeeBySalary);
     }
 
     /**
