@@ -71,12 +71,9 @@ class Point {
         if (!(_point instanceof 'Point')) {
             return false;  
         }
-        let tmpX = _point.x;
-        let tmpY = _point.y;
-        _point.x = this.x;
-        _point.y = this.y;
-        this.x = tmpX;
-        this.y = tmpY;
+        let tempo = this.duplicate();
+        this.copy(_point);
+        _point.copy(tempo);
         return true;
     }
 
