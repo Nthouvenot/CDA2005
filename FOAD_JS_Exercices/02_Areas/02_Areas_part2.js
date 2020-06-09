@@ -56,6 +56,23 @@ class Area {
         }
     }
 
+
+/**
+ * méthode interne a la classe Area
+ * trie la collection de Point avec x et y
+ * */
+    areaSort() {
+        let sortBy = [{ prop: 'y', direction: 1 }, { prop: 'x', direction: 1 }];
+        this.pointArea.sort((a, b) => {
+            let i = 0, result = 0;
+            while (i < sortBy.length && result === 0) {
+                result = sortBy[i].direction * (a[sortBy[i].prop].toString() < b[sortBy[i].prop].toString() ? -1 : (a[sortBy[i].prop].toString() > b[sortBy[i].prop].toString() ? 1 : 0));
+                i++;
+            }
+            return result;
+        })
+    }
+
     /**
      * Ajoute un "Point" dans la zone
      * Le "Point" peut se trouver hors des limites de la zone
@@ -70,6 +87,7 @@ class Area {
             return false;
         }
         this.pointArea.push(new Point(_point.x, _point.y));
+        this.areaSort(); //On trie le tableau aprés l'ajout d'un nouveau point
         return true;
     }
 
@@ -86,15 +104,17 @@ class Area {
             return true;
         }
         if (this.pointArea[i].x > this.areaWidth || this.pointArea[i].x < 0) {
-            let i2 = 0
-            while (i2 < this.pointArea.length) {
-                if (this.pointArea[i2].x >= this.pointArea[i].x + 1) {
-                    //ça marchera pas !!!!!!!!!!!!!!!!!!!!!!!!!!
-                }
+            let i1 = 0;
+            while (this.pointArea[i1].x + 1 > this.pointArea[i].x) {
+                i1++;
             }
-        } else if (this.pointArea[i].y > this.areaHeight || this.pointArea[i].y < 0) {
-                //To do le point est mis dans la plus proche casse de libre
-              
+            this.pointArea[i].x = this.pointArea[i1].x += 1;
+            this.areaSort();
+            i = 0; //On repart du début pour vérifier qu'il n' a plus de point en dehors aprés le tri
+        }
+        if (this.pointArea[i].y > this.areaHeight || this.pointArea[i].y < 0) {
+            //To do le point est mis dans la plus proche casse de libre
+            
         }
         return this.needAllInside(i += 1);
     }
