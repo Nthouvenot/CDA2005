@@ -60,5 +60,5 @@ if (!myEnterprise.delete(3)) {
     console.log("id introuvable");
 }
 console.log("affichage des employees :")
-console.log(myEnterprise);
+console.log(myEnterprise.getEnterprise());
 

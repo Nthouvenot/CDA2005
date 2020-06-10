@@ -6,8 +6,24 @@ const Employee = require('./Employee.js');
  */
 class Enterprise {
 
+    #employees
+
     constructor() {
-        this.employees = [];
+        this.#employees = new Array();
+    }
+
+   /**
+    * @returns {Array} copie de la collection d'employee => respet de l'encapsulation
+    * */
+    getEnterprise() {
+        let copyEnterprise = new Array();
+        for (let i = 0; i < this.#employees.length; i++) {
+            copyEnterprise.push(new Employee());
+        }
+        for (let i = 0; i < this.#employees.length; i++) {
+            Object.assign(copyEnterprise[i], this.#employees[i]);
+        }
+        return copyEnterprise;
     }
 
     /**
@@ -51,19 +67,19 @@ class Enterprise {
         }
         switch (_filter) {
             case "id":
-                return this.employees.sort((a, b) => a.id - b.id);
+                return this.#employees.sort((a, b) => a.id - b.id);
                 break;
             case "lastname":
-                return this.employees.sort((a, b) => a.lastname - b.lastname);
+                return this.#employees.sort((a, b) => a.lastname - b.lastname);
                 break;
             case "firstname":
-                return this.employees.sort((a, b) => a.firstname - b.firstname);
+                return this.#employees.sort((a, b) => a.firstname - b.firstname);
                 break;
             case "salary":
-                return this.employees.sort((a, b) => a.salary - b.salary);
+                return this.#employees.sort((a, b) => a.salary - b.salary);
                 break;
             case "hiredate":
-                return this.employees.sort((a, b) => a.hiredate - b.hiredate);
+                return this.#employees.sort((a, b) => a.hiredate - b.hiredate);
                 break;
             default:
                 return undefined;
@@ -79,8 +95,8 @@ class Enterprise {
         if (!(_employee instanceof Employee)) {
             return false;
         }
-        this.employees.push(_employee);
-        return Object.assign(new Employee(), _employee);
+        this.#employees.push(_employee);
+        return this.getEnterprise()
     }
 
     /**
@@ -92,7 +108,7 @@ class Enterprise {
         if (typeof _id != 'number') {
             return undefined;
         }
-        let employee = this.employees.find(employee => employee.id == _id);
+        let employee = this.#employees.find(employee => employee.id == _id);
         if (employee != undefined) {
             return Object.assign(new Employee(), employee);
         } else {
@@ -111,7 +127,7 @@ class Enterprise {
         if (employeeToUpdate == undefined) {
             return undefined;
         }
-        return Object.assign(employeeToUpdate, _employee);
+        return this.getEnterprise()
 
     }
 
@@ -124,11 +140,11 @@ class Enterprise {
         if (typeof _id != 'number') {
             return false;
         }
-        let index = this.employees.indexOf('id', _id);
+        let index = this.#employees.indexOf('id', _id);
         if (index == undefined) {
             return false;
         }
-        this.employees.splice(index, 1);
+        this.#employees.splice(index, 1);
         return true;
     }
 
@@ -138,8 +154,8 @@ class Enterprise {
      * @returns {Employee}
      **/
     getHigherSalary() {
-        let higherSalary = Math.max(...this.employees.map(emp => emp.salary));
-        let employeeBySalary = this.employees.find(employee => employee.salary == higherSalary);
+        let higherSalary = Math.max(...this.#employees.map(emp => emp.salary));
+        let employeeBySalary = this.#employees.find(employee => employee.salary == higherSalary);
         return Object.assign(new Employee(), employeeBySalary);
     }
 
@@ -148,8 +164,8 @@ class Enterprise {
      * @returns {Employee}
      */
     getLowerSalary() {
-        let lowerSalary = Math.min(...this.employees.map(emp => emp.salary));
-        let employeeBySalary = this.employees.find(employee => employee.salary == lowerSalary);
+        let lowerSalary = Math.min(...this.#employees.map(emp => emp.salary));
+        let employeeBySalary = this.#employees.find(employee => employee.salary == lowerSalary);
         return Object.assign(new Employee(), employeeBySalary);
     }
 
