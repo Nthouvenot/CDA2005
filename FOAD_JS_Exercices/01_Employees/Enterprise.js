@@ -1,3 +1,4 @@
+const path = require('path');
 const fs = require('fs');
 const Employee = require('./Employee.js');
 
@@ -7,10 +8,31 @@ const Employee = require('./Employee.js');
 class Enterprise {
 
     #employees
+    #filename;
 
-    constructor() {
+    /**
+     * @param {string} _name nom du fichier de sauvegarde de l'entreprise
+     */
+    constructor(_name) {
+        if (typeof _name != 'string') {
+            _name = "CRM";
+            this.filename;
+        }
         this.#employees = new Array();
+        this.#filename = path.resolve(__dirname, "./savedData/" + _name + ".json");
+        if (fs.existsSync(this.#filename)) {
+            let rawFile = fs.readFileSync(this.#filename);
+            let jsonFile = JSON.parse(rawFile); //Converti les donnée JSON en objet litéral JavaScript
+            for (let i = 0; i < jsonFile.length; i++) { //On copie les objet litéraux dans des instances d'Employee et on les ajoute a la collection
+                let employee = new Employee(jsonFile[i]);
+                this.#employees.create(employee);
+            } 
+        } else {
+            fs.writeFileSync(this.#filename, "[]");
+            console.log("le fichier " + _name + "n'existe pas : création d'un fichier vide");
+        }
     }
+    
 
    /**
     * @returns {Array} copie de la collection d'employee => respet de l'encapsulation
@@ -175,6 +197,14 @@ class Enterprise {
      */
     getSalaryGap() {
         return (this.getHigherSalary().salary - this.getLowerSalary().salary);
+    }
+
+    /**
+     * sauvegarde la collection d'employee au format JSON
+     * */
+    save() {
+        let jsonFile = JSON.stringify(this.#employees); // conversion de la collection d'employes vers le format JSON
+        fs.writeFileSync(this.#filename, jsonFile); // ecriture des donnees JSON dans une sauvegarde
     }
 
 }

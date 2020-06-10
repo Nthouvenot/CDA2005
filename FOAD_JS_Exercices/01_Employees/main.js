@@ -2,7 +2,7 @@ const Employee = require('./Employee.js');
 const Enterprise = require('./Enterprise.js');
 
 //Création de l'entreprise
-let myEnterprise = new Enterprise();
+let myEnterprise = new Enterprise("CRM");
 
 //Création des employees
 let employee1 = new Employee(1, 'Devoldere', 'Mickael', 'manager', 82000, new Date('2015-01-28'));
@@ -62,3 +62,5 @@ if (!myEnterprise.delete(3)) {
 console.log("affichage des employees :")
 console.log(myEnterprise.getEnterprise());
 
+//Sauvegarde de l'entreprise au format JSON
+myEnterprise.save();
