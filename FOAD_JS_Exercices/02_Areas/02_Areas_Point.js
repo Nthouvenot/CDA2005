@@ -29,12 +29,33 @@ class Point {
         return this.#x;
     }
 
+    /**
+     * Mutateur de l'attribut x
+     * @param {integer} _x set la coordonne x du point
+     */
+    setX(_x) {
+        if(typeof _x != 'integer') {
+            return false;
+        }
+        this.#x = _x
+    }
 /**
  * Accesseur de l'attribut y
  * @returns {integer} retourne la coordonne y du point
  * */
     getY() {
         return this.#y;
+    }
+
+    /**
+     * Mutateur de l'attribut y
+     * @param {integer} _y set la coordonne y du point
+     */
+    setY(_y) {
+        if (typeof _y != 'integer') {
+            return false;
+        }
+        this.#y = _y;
     }
 
     /**
