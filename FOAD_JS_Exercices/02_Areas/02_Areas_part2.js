@@ -39,6 +39,12 @@
 const Point = require('./02_Areas_Point.js');
 
 class Area {
+
+    #areaWidth;
+    #areaHeight;
+    #numberAreaCase;
+    #pointArea;
+
     /**
      * Constructeur: Initialise une nouvelle instance de la classe "Area"
      * La largeur et la hauteur définissent les limites de la zone. 
@@ -48,29 +54,42 @@ class Area {
     constructor(_width, _height) {
         // A vous de jouer
         if ((typeof _width == 'number') && (typeof _height == 'number')) {
-            this.areaWidth = parseInt(_width);
-            this.areaHeight = parseInt(_height);
-            this.numberAreaCase = this.areaWidth * this.areaHeight;
-            this.pointArea = [];
-            this.pointArea.push(new Point(0, 0));
+            this.#areaWidth = parseInt(_width);
+            this.#areaHeight = parseInt(_height);
+            this.#numberAreaCase = this.#areaWidth * this.#areaHeight;
+            this.#pointArea = [];
+            this.#pointArea.push(new Point(0, 0));
         }
     }
 
+    /**
+     * retourne une copie de la collection de point
+     * @returns {Array} copie de la collection de point
+     * */
+    getPointArea() {
+        let copyArea = new Array();
+        for (let i = 0; i < this.#pointArea.length; i++) {
+            copyArea.push(new Point());
+        }
+        for (let i = 0; i < this.#pointArea.length; i++) {
+            Object.assign(copyArea[i], this.#pointArea[i]);
+        }
+        return copyArea;
+    }
 
-/**
- * méthode interne a la classe Area
- * trie la collection de Point avec x et y
- * */
+    /**
+     * méthode interne a la classe Area
+     * trie la collection de Point avec x et y
+     * */
     areaSort() {
-        let sortBy = [{ prop: 'y', direction: 1 }, { prop: 'x', direction: 1 }];
-        this.pointArea.sort((a, b) => {
-            let i = 0, result = 0;
-            while (i < sortBy.length && result === 0) {
-                result = sortBy[i].direction * (a[sortBy[i].prop].toString() < b[sortBy[i].prop].toString() ? -1 : (a[sortBy[i].prop].toString() > b[sortBy[i].prop].toString() ? 1 : 0));
-                i++;
+
+        for (let i = 0; i < this.#pointArea.length - 1; i++) {
+            if (this.#pointArea[i + 1].getX() > this.#pointArea[i].getX()) {
+                let point = this.#pointArea[i].duplicate();
+                this.#pointArea[i].copy(this.#pointArea[i + 1].duplicate());
+                this.#pointArea[i + 1].copy(point);
             }
-            return result;
-        })
+        }
     }
 
     /**
@@ -83,11 +102,11 @@ class Area {
         if (!(_point instanceof Point)) {
             return false;
         }
-        if (this.pointArea.length + 1 > this.numberAreaCase) { // Si la zone est pleine on ajoute pas le point
+        if (this.#pointArea.length + 1 > this.#numberAreaCase) { // Si la zone est pleine on ajoute pas le point
             return false;
         }
-        this.pointArea.push(new Point(_point.x, _point.y));
-        this.areaSort(); //On trie le tableau aprés l'ajout d'un nouveau point
+        this.#pointArea.push(new Point(_point.getX(), _point.getY()));
+        /*this.areaSort(); //On trie le tableau aprés l'ajout d'un nouveau point*/
         return true;
     }
 
@@ -100,28 +119,25 @@ class Area {
         if (i == undefined) { //Si on a pas de paramétre a la premiére execution de la récursive on initialise i a 0
             i = 0;
         }
-        if (i == this.pointArea.length) {
+        if (i == this.#pointArea.length) {
             return true;
         }
-        if (this.pointArea[i].x > this.areaWidth || this.pointArea[i].x < 0) {
+        if (this.#pointArea[i].getX() > this.#areaWidth || this.#pointArea[i].getX() < 0) {
             let i1 = 0;
-            while (this.pointArea[i1].x + 1 > this.pointArea[i].x) {
+            while (this.#pointArea[i1].getX() + 1 > this.#pointArea[i].getX()) {
                 i1++;
             }
-            this.pointArea[i].x = this.pointArea[i1].x += 1;
+            this.pointArea[i].setX(this.pointArea[i1].getX() + 1);
             this.areaSort();
             i = 0; //On repart du début pour vérifier qu'il n' a plus de point en dehors aprés le tri
         }
-        if (this.pointArea[i].y > this.areaHeight || this.pointArea[i].y < 0) {
+        if (this.#pointArea[i].getX() > this.#areaHeight || this.#pointArea[i].getY < 0) {
             //To do le point est mis dans la plus proche casse de libre
             
         }
         return this.needAllInside(i += 1);
     }
 
-    getPointArea() {
-        return Object.assign(this.pointArea);
-    }
 }
 
 module.exports = Area;
