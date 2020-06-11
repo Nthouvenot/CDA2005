@@ -95,7 +95,7 @@ class Point {
      * @returns {boolean} retourne true si le type passé en argument est un Point
      */
     copy(_point) {
-        if (!(_point instanceof 'Point')) {
+        if (!(_point instanceof Point)) {
             return false;
         }
         this.#x = _point.x;
