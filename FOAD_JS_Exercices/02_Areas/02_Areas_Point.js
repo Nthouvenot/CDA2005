@@ -2,6 +2,10 @@
   * La classe "Point" représente les coordonnées d'un point dans une zone à 2 dimensions
   */
 class Point {
+
+    #x;
+    #y;
+
     /**
      * Constructeur: Initialise une nouvelle instance de la classe "Point"
      * @param int _x Coordonnée horizontale du point (abscisse). Valeur négative acceptée
@@ -9,12 +13,28 @@ class Point {
      */
     constructor(_x, _y) {
         if (typeof _x == 'number' && typeof _y == 'number') {
-            this.x = _x;
-            this.y = _y;
+            this.#x = _x;
+            this.#y = _y;
         } else {
-            this.x = 0;
-            this.y = 0;
+            this.#x = 0;
+            this.#y = 0;
         }
+    }
+
+    /**
+     * Accesseur de l'attribut x
+     * @returns {integer} retourne la coordonne x du point
+     * */
+    getX() {
+        return this.#x;
+    }
+
+/**
+ * Accesseur de l'attribut y
+ * @returns {integer} retourne la coordonne y du point
+ * */
+    getY() {
+        return this.#y;
     }
 
     /**
@@ -22,7 +42,7 @@ class Point {
      * @return {string} Les coordonnées du Point
      */
     toString() {
-        return "(" + this.x + "," + this.y + ")";
+        return "(" + this.#x + "," + this.#y + ")";
     }
 
     /**
@@ -30,7 +50,7 @@ class Point {
      * @returns {Point} La nouvelle instance de Point créée
      */
     duplicate() {
-        return new Point(this.x, this.y);
+        return new Point(this.#x, this.#y);
     }
 
     /**
@@ -43,8 +63,8 @@ class Point {
         if (!(typeof _x == 'number' && typeof _y == 'number')) {
             return false;  
         }
-        this.x = _x;
-        this.y = _y;
+        this.#x = _x;
+        this.#y = _y;
         return true;
     }
 
@@ -57,8 +77,8 @@ class Point {
         if (!(_point instanceof 'Point')) {
             return false;
         }
-        this.x = _point.x;
-        this.y = _point.y;
+        this.#x = _point.x;
+        this.#y = _point.y;
         return true;
     }
 
