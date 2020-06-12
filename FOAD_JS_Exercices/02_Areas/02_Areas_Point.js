@@ -98,8 +98,8 @@ class Point {
         if (!(_point instanceof Point)) {
             return false;
         }
-        this.#x = _point.x;
-        this.#y = _point.y;
+        this.#x = _point.getX();
+        this.#y = _point.getY();
         return true;
     }
 
