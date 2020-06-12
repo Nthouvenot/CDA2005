@@ -109,13 +109,13 @@ class Point {
      * @returns {boolean} retourne true si le type passé en argument est un Point
      */
     rabbit(_point) {
-        if (!(_point instanceof 'Point')) {
+        if (!(_point instanceof Point)) {
             return false;  
         }
         let tempo = this.duplicate();
         this.copy(_point);
         _point.copy(tempo);
-        return true;
+        return _point;
     }
 
 }
