@@ -14,7 +14,7 @@ let point5 = new Point(4, 3);
 
 let point6 = new Point(2, 5);
 let point7 = new Point(4, 3);
-let point8 = new Point(8, 6);
+let point8 = new Point(5, 6);
 let point9 = new Point(2, 6);
 let point10 = new Point(7, 3);
 
@@ -25,16 +25,24 @@ area1.addPoint(point2);
 area1.addPoint(point3);
 area1.addPoint(point4);
 area1.addPoint(point5);
-console.log(area1.getPointArea())
+
 area1.addPoint(point6);
 area1.addPoint(point7);
 area1.addPoint(point8);
 area1.addPoint(point9);
 area1.addPoint(point10);
-console.log(area1.getPointArea())
-/*
-area1.needAllInside();
-console.log(area1.getPointArea());*/
 
+
+//Tri de la collection en fonction de x
+console.log("collection de point avant tri :");
+console.log(area1.getPointArea());
+console.log(" ");
 area1.areaSort();
-console.log(area1.getPointArea())
+console.log("collection de point aprés tri :");
+console.log(area1.getPointArea());
+
+//Rapatriement des points en dehors
+area1.needAllInside();
+console.log();
+console.log("collection de point aprés rapatriement des points")
+console.log(area1.getPointArea());
