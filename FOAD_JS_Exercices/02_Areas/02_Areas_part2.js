@@ -61,12 +61,13 @@ class Area {
             this.#pointArea.push(new Point(0, 0));
         }
     }
-
+    
     /**
      * retourne une copie de la collection de point
      * @returns {Array} copie de la collection de point
      * */
     getPointArea() {
+        /*
         let copyArea = new Array();
         for (let i = 0; i < this.#pointArea.length; i++) {
             copyArea.push(new Point());
@@ -75,6 +76,8 @@ class Area {
             Object.assign(copyArea[i], this.#pointArea[i]);
         }
         return copyArea;
+        */
+        return this.#pointArea.map((a) => { return a.toString() });
     }
 
     /**
@@ -82,12 +85,13 @@ class Area {
      * trie la collection de Point avec x et y
      * */
     areaSort() {
-
-        for (let i = 0; i < this.#pointArea.length - 1; i++) {
-            if (this.#pointArea[i + 1].getX() > this.#pointArea[i].getX()) {
-                let point = this.#pointArea[i].duplicate();
-                this.#pointArea[i].copy(this.#pointArea[i + 1].duplicate());
-                this.#pointArea[i + 1].copy(point);
+        for (let i = 0; i < this.#pointArea.length; i++) {
+            for (let i2 = 0; i2 < this.#pointArea.length; i2++) {
+                if (this.#pointArea[i].getX() > this.#pointArea[i2].getX()) {
+                    let point = this.#pointArea[i2].duplicate();
+                    this.#pointArea[i2].copy(this.#pointArea[i].duplicate());
+                    this.#pointArea[i].copy(point);
+                }
             }
         }
     }
@@ -106,7 +110,6 @@ class Area {
             return false;
         }
         this.#pointArea.push(new Point(_point.getX(), _point.getY()));
-        /*this.areaSort(); //On trie le tableau aprés l'ajout d'un nouveau point*/
         return true;
     }
 
@@ -116,20 +119,23 @@ class Area {
      * Ce déplacement utilise les mêmes règles que l'ajout d'un "Point"
      */
     needAllInside(i) {
-        if (i == undefined) { //Si on a pas de paramétre a la premiére execution de la récursive on initialise i a 0
+        if (i == undefined) { //Si on a pas de paramétre a la premiére execution de la pseudo récursive on initialise i a 0
             i = 0;
         }
         if (i == this.#pointArea.length) {
             return true;
         }
         if (this.#pointArea[i].getX() > this.#areaWidth || this.#pointArea[i].getX() < 0) {
-            let i1 = 0;
-            while (this.#pointArea[i1].getX() + 1 > this.#pointArea[i].getX()) {
-                i1++;
+            let xTested = 0;
+            let yTested = 0;
+            let positionFound = false;
+            while (yTested != this.#numberAreaCase || positionFound) { //To Do : revoir l'algorithme pour chercher une case de libre
+                while ((this.#pointArea.find((a) => a.getX() == xTested) != undefined && a.getY() == yTested) {
+                    xTested++;
+                }
             }
-            this.pointArea[i].setX(this.pointArea[i1].getX() + 1);
-            this.areaSort();
-            i = 0; //On repart du début pour vérifier qu'il n' a plus de point en dehors aprés le tri
+            this.areaSort(); //On retrie la collection pour pouvoir verifier si il y a encore des points en dehors
+            /*i = 0; *///On repart du début pour vérifier qu'il n' a plus de point en dehors aprés le tri
         }
         if (this.#pointArea[i].getX() > this.#areaHeight || this.#pointArea[i].getY < 0) {
             //To do le point est mis dans la plus proche casse de libre
