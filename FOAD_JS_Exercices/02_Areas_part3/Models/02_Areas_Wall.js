@@ -1,4 +1,4 @@
-const Point = require('./02_Areas_Point.js')
+const Point = require('./02_Areas_Point.js');
 
 /**
   * La classe "Wall" représente la position d'un mur dans une zone à 2 dimensions

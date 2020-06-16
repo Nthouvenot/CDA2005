@@ -32,3 +32,5 @@ class Goal extends Point {
 	}
 
 }
+
+module.exports = Goal;

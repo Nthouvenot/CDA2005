@@ -67,3 +67,5 @@ class Path extends Point {
         this.#nbPassages = _nbPassages;
     }
 }
+
+module.exports = Path;

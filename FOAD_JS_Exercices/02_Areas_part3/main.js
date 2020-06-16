@@ -1,11 +1,12 @@
 
+const Point = require('./Models/02_Areas_Point.js')
 const Door = require('./Models/02_Areas_Door.js');
 const Goal = require('./Models/02_Areas_Goal.js');
 const Path = require('./Models/02_Areas_Path.js');
 const Wall = require('./Models/02_Areas_Wall.js');
 
 
-let door1 = new Door(1, 5, "wood");*/
+let door1 = new Door(1, 5, "wood");
 let goal1 = new Goal(10, 4, false);
 let path1 = new Path(3, 5);
 let wall1 = new Wall(6, 2, "marble");

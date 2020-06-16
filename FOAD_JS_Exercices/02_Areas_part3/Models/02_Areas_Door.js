@@ -1,4 +1,4 @@
-const Point = require('./02_Areas_Point.js')
+const Point = require('./02_Areas_Point.js');
 const Wall = require('./02_Areas_Wall.js');
 
 /**
@@ -47,3 +47,5 @@ class Door extends Wall {
 		return this.#isOpen;
     }
 }
+
+module.exports = Door;
