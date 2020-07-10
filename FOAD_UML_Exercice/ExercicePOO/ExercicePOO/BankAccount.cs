@@ -13,6 +13,32 @@ namespace ExercicePOO
         private int allowedOverdraft;
 
         /// <summary>
+        /// constructor with no parameter
+        /// </summary>
+        public BankAccount()
+        {
+            this.accountNumber = 0;
+            this.ownerName = "OwnerName";
+            this.balance = 0;
+            this.allowedOverdraft = 0;
+        }
+
+        /// <summary>
+        /// constructor with all attribute in parameters
+        /// </summary>
+        /// <param name="_accountNumber"></param>
+        /// <param name="_ownerName"></param>
+        /// <param name="_balance"></param>
+        /// <param name="_allowedOverdraft"></param>
+        public BankAccount(int _accountNumber, string _ownerName, int _balance, int _allowedOverdraft)
+        {
+            this.accountNumber = _accountNumber;
+            this.ownerName = _ownerName;
+            this.balance = _balance;
+            this.allowedOverdraft = _allowedOverdraft;
+        }
+
+        /// <summary>
         /// propertie for the getter of the balance attribute
         /// </summary>
         public int Balance
@@ -26,7 +52,7 @@ namespace ExercicePOO
         /// <returns>string</returns>
         public String Print()
         {
-            return this.accountNumber + this.ownerName + this.balance + this.allowedOverdraft;
+            return "numéro : " + this.accountNumber + " nom :" + this.ownerName + " solde :" + this.balance + " découvert autorisé :" + this.allowedOverdraft;
         }
 
         /// <summary>
