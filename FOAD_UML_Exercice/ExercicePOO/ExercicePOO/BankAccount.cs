@@ -48,10 +48,15 @@ namespace ExercicePOO
 
         /// <summary>
         /// return the information of the account to string format
+        /// if the BankAccount is empty return a void string
         /// </summary>
         /// <returns>string</returns>
         public override string ToString()
         {
+            if(this.accountNumber == 0 && this.ownerName == "OwnerName")
+            {
+                return " ";
+            }
             return "numéro : " + this.accountNumber + " nom :" + this.ownerName + " solde :" + this.balance + " découvert autorisé :" + this.allowedOverdraft;
         }
 
