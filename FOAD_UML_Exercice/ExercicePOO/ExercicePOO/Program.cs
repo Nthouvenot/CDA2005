@@ -34,6 +34,12 @@ namespace ExercicePOO
             c1.Transfert(1300, c2);
             Console.WriteLine(c1.ToString());
             Console.WriteLine(c2.ToString());
+            //fourth stage
+            Console.WriteLine("Stage 4 :");
+            c2.Transfert(1300, c1); // the account will be a the same amount at the start of the last exercice
+            c1.Transfert(3300, c2);
+            Console.WriteLine(c1.ToString());
+            Console.WriteLine(c2.ToString());
         }
     }
 }
