@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace ExercicePOO
+namespace ExerciceCompteBancaire
 {
     class BankAccount
     {
