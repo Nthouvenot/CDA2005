@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Runtime.InteropServices;
 
 namespace ExercicePOO
 {
@@ -25,6 +26,11 @@ namespace ExercicePOO
             {
                 Console.WriteLine("Débit pas réussi !");
             }
+            //third stage
+            BankAccount c2 = new BankAccount(45657, "titi", 2000, -1000);
+            c1.Transfert(1300, c2);
+            Console.WriteLine(c1.ToString());
+            Console.WriteLine(c2.ToString());
         }
     }
 }
