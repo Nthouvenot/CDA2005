@@ -40,6 +40,16 @@ namespace ExercicePOO
             c1.Transfert(3300, c2);
             Console.WriteLine(c1.ToString());
             Console.WriteLine(c2.ToString());
+            //fifth stage
+            Console.WriteLine("Stage 5 :");
+            if(c1.Equals(c2))
+            {
+                Console.WriteLine("Higher");
+            }
+            else
+            {
+                Console.WriteLine("Lower");
+            }
         }
     }
 }
