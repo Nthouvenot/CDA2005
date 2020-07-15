@@ -50,7 +50,7 @@ namespace ExercicePOO
         /// return the information of the account to string format
         /// </summary>
         /// <returns>string</returns>
-        public String Print()
+        public override string ToString()
         {
             return "numéro : " + this.accountNumber + " nom :" + this.ownerName + " solde :" + this.balance + " découvert autorisé :" + this.allowedOverdraft;
         }
