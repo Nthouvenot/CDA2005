@@ -42,7 +42,7 @@ namespace ExercicePOO
             Console.WriteLine(c2.ToString());
             //fifth stage
             Console.WriteLine("Stage 5 :");
-            if(c1.Equals(c2))
+            if(c1.CompareBalanceIsHigher(c2))
             {
                 Console.WriteLine("Higher");
             }
