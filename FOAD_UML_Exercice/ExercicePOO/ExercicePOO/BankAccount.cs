@@ -106,9 +106,9 @@ namespace ExercicePOO
         /// </summary>
         /// <param name="_account;"></param>
         /// <returns>bool</returns>
-        public bool CompareAccountCredit(BankAccount _account)
+        public bool CompareBalanceIsHigher(BankAccount _account)
         {
-            if(this.balance == _account.Balance) // check if my interpretation is correct
+            if(this.balance > _account.Balance)
             {
                 return true;
             }
