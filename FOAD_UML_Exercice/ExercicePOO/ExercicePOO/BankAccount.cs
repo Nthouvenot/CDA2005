@@ -80,7 +80,7 @@ namespace ExercicePOO
             {
                 return false;
             }
-            this.balance += _amount;
+            this.balance -= _amount;
             return true;
         }
 
@@ -88,16 +88,16 @@ namespace ExercicePOO
         /// transfert a amount to an other bank account
         /// check the balance of the account before making the operation
         /// </summary>
-        /// <param name="_destinationAccount"></param>
         /// <param name="_amount"></param>
+        /// <param name="_destinationAccount"></param>
         /// <returns></returns>
-        public bool Transfert(BankAccount _destinationAccount, int _amount)
+        public bool Transfert(int _amount, BankAccount _destinationAccount)
         {
-            if (this.balance - _amount < this.allowedOverdraft)
+            if(!this.Debit(_amount))
             {
                 return false;
             }
-            //ToDo implement the rest of the code
+            _destinationAccount.Credit(_amount);
             return true;
         }
 
