@@ -140,7 +140,13 @@ namespace ExerciceFraction
         /// <returns>bool</returns>
         public bool IsSuperior(Fraction _fraction)
         {
-            if(this.ToString().CompareTo(_fraction.ToString()) > 0) 
+            //we do reduce the two fraction before make the opération
+            _fraction.Reduce();
+            this.Reduce();
+            string[] fraction = _fraction.ToString().Split("/");
+            int numerator = Int32.Parse(fraction[0]);
+            int denominator = Int32.Parse(fraction[1]);
+            if (this.numerator > numerator && this.denominator > denominator) 
             {
                 return true;
             }
@@ -164,7 +170,7 @@ namespace ExerciceFraction
         /// <summary>
         /// simplifies the Fraction
         /// </summary>
-        public void reduce()
+        public void Reduce()
         {
             int pgcd = this.GetPgcd(); //calculate of the pgcd of the Fraction
             int numerator = this.numerator / pgcd; //reduce the numerator
@@ -184,8 +190,8 @@ namespace ExerciceFraction
         public Fraction Sums(Fraction _fraction)
         {
             //we do reduce the two fraction before make the opération
-            _fraction.reduce();
-            this.reduce();
+            _fraction.Reduce();
+            this.Reduce();
             string[] fraction = _fraction.ToString().Split("/");
             int numerator = Int32.Parse(fraction[0]);
             int denominator = Int32.Parse(fraction[1]);
@@ -194,6 +200,56 @@ namespace ExerciceFraction
 
         }
 
+        /// <summary>
+        /// sbstract two fraction
+        /// </summary>
+        /// <param name="_fraction"></param>
+        /// <returns>Fraction</returns>
+        public Fraction Substract(Fraction _fraction)
+        {
+            //we do reduce the two fraction before make the opération
+            _fraction.Reduce();
+            this.Reduce();
+            string[] fraction = _fraction.ToString().Split("/");
+            int numerator = Int32.Parse(fraction[0]);
+            int denominator = Int32.Parse(fraction[1]);
+            numerator = this.numerator - numerator;
+            return new Fraction(numerator, denominator);
+        }
+
+        /// <summary>
+        /// Multiply two Fraction
+        /// </summary>
+        /// <param name="_fraction"></param>
+        /// <returns>Fraction</returns>
+        public Fraction Multiply(Fraction _fraction)
+        {
+            //we do reduce the two fraction before make the opération
+            _fraction.Reduce();
+            string[] fraction = _fraction.ToString().Split("/");
+            int numerator = Int32.Parse(fraction[0]);
+            int denominator = Int32.Parse(fraction[1]);
+            numerator = this.numerator * numerator;
+            denominator = this.denominator * denominator;
+            return new Fraction(numerator, denominator);
+        }
+
+        /// <summary>
+        /// divide two Fraction
+        /// </summary>
+        /// <param name="_fraction"></param>
+        /// <returns>Fraction</returns>
+        public Fraction Divide(Fraction _fraction)
+        {
+            //we do reduce the two fraction before make the opération
+            _fraction.Reduce();
+            string[] fraction = _fraction.ToString().Split("/");
+            int numerator = Int32.Parse(fraction[0]);
+            int denominator = Int32.Parse(fraction[1]);
+            numerator = this.numerator * numerator;
+            denominator = this.denominator * denominator;
+            return new Fraction(numerator, denominator);
+        }
     }
 
 }
