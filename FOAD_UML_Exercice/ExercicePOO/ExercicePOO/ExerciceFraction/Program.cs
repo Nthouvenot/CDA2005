@@ -24,11 +24,21 @@ namespace ExerciceFraction
             f5.Reverse();
             Console.WriteLine("valeur de f5 aprés methode reverse : " + f5.ToDisplay());
 
-            //test compare
-            Fraction f6 = new Fraction(11, 7);
-            Fraction f7 = new Fraction(5, 4);
-            bool isSuperior = f6.IsSuperior(f7);
-            Console.WriteLine("f6 > f7 : " + isSuperior);
+            //test Fraction reduce
+            Fraction f6 = new Fraction(120, -150);
+            f6.Reduce();
+            Console.WriteLine("reduction de f6 : " + f6.ToDisplay());
+
+            //test compare superior
+            Fraction f7 = new Fraction(11, 7);
+            Fraction f8 = new Fraction(5, 4);
+            bool isSuperior = f7.IsSuperior(f8);
+            Console.WriteLine("f7 > f8 : " + isSuperior);
+
+            //test compare equal
+            Fraction f9 = new Fraction(22, 14);
+            bool isEqual = f7.IsEqual(f9);
+            Console.WriteLine("f7 == f9 : " + isEqual);
         }
     }
 }
