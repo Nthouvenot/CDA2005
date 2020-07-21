@@ -39,6 +39,12 @@ namespace ExerciceFraction
             Fraction f9 = new Fraction(22, 14);
             bool isEqual = f7.IsEqual(f9);
             Console.WriteLine("f7 == f9 : " + isEqual);
+
+            //test operation Sums
+            Console.WriteLine("f9 + f7 : " + f9.Sums(f7).ToString());
+
+            //test operation Substract
+            Console.WriteLine("f9 - f7 : " + f9.Substract(f7).ToString());
         }
     }
 }
