@@ -134,6 +134,23 @@ namespace ExerciceFraction
         }
 
         /// <summary>
+        /// simplifies the Fraction
+        /// </summary>
+        public void Reduce()
+        {
+            int pgcd = this.GetPgcd(); //calculate of the pgcd of the Fraction
+            int numerator = this.numerator / pgcd; //reduce the numerator
+            int denominator = this.denominator / pgcd; //reduce the denominator
+            if ((this.numerator < 0 && this.denominator < 0) || (this.numerator > 0 && this.denominator < 0))
+            {
+                this.numerator = -numerator;
+                this.denominator = -denominator;
+            }
+            this.numerator = numerator;
+            this.denominator = denominator;
+        }
+
+        /// <summary>
         /// compare if the current Fraction is supérior to the fraction in parameter
         /// </summary>
         /// <param name="_fraction"></param>
@@ -160,28 +177,19 @@ namespace ExerciceFraction
         /// <returns></returns>
         public bool IsEqual(Fraction _fraction)
         {
-            if (this.ToString().CompareTo(_fraction.ToString()) == 0)
+            //we do reduce the two fraction before make the opération
+            _fraction.Reduce();
+            this.Reduce();
+            string[] fractionString = _fraction.ToString().Split("/");
+            int numerator = Int32.Parse(fractionString[0]);
+            int denominator = Int32.Parse(fractionString[1]);
+            if (this.numerator == numerator && this.denominator == denominator)
             {
                 return true;
             }
             return false;
         }
-
-        /// <summary>
-        /// simplifies the Fraction
-        /// </summary>
-        public void Reduce()
-        {
-            int pgcd = this.GetPgcd(); //calculate of the pgcd of the Fraction
-            int numerator = this.numerator / pgcd; //reduce the numerator
-            int denominator = this.denominator / pgcd; //reduce the denominator
-            if((this.numerator < 0 && this.denominator < 0) || (this.numerator > 0 && this.denominator < 0))
-            {
-                this.numerator = -numerator;
-                this.denominator = -denominator;
-            }
-        }
-        
+ 
         /// <summary>
         /// addition two Fraction
         /// </summary>
