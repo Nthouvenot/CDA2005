@@ -1,6 +1,8 @@
+using IntroEnterprise.Models;
+
 namespace IntroEnterprise
 {
-    abstract class Person
+    abstract class Person : IStorage, ISalary
     {
         private string lastname;
         private string firstname;

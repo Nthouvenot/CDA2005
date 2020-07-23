@@ -34,5 +34,18 @@ namespace IntroEnterprise.Models
             this.employees.Add(_employee);
 
         }
+
+        /// <summary>
+        /// calculate the bonus of the employee
+        /// </summary>
+        /// <param name="_employee"></param>
+        /// <returns>int</returns>
+        public int CalculateBonus(Employee _employee)
+        {
+            Employee p = (Employee)_employee;
+            return 0;
+        }
+
     }
+
 }
