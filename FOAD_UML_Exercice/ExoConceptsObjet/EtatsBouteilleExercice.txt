@@ -1,0 +1,11 @@
+Considérons le cas d'une bouteille pour laquelle nous définissons les méthodes suivantes : 
+Ouvrir
+Fermer
+Vider
+Remplir
+Rechercher les états possibles de la bouteille.
+
+Ouvert	|
+Fermer	| open
+Vide	|
+Rempli	| empty
