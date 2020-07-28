@@ -1,0 +1,7 @@
+Le poste de télévison correspond au modéle objet qui a des propriéte et peu être manipulé (caractéristique du poste + allumer, changer de chaine, monter le volume ...)
+La qualité du compilateur ne peu être un objet ce n'est que des informations qui ne peuvent pas être manipulé
+La deuxiéme guerre mondiale ne peu être un objet ce n'est que des informations qui ne peuvent pas être manipulé
+James Rumbaugh, correspond au modéle objet qui a des propriéte (nom, prenom, date de naissance ...) et et peu être manipulé (parler, marcher ...)
+Une transaction boursiére orrespond au modéle objet qui a des propriéte et et peu être manipulé
+La racine carré de 4 est une opération mathématique n'est donc pas un objet mais peu correspondre a une méthode d'un objet Mathématique
+La vitesse de la lumiére est une information et ne correspond pas au principe de l'objet mais peu correspondre a une propriété d'un objet qui traiterai les phénomenes physique
