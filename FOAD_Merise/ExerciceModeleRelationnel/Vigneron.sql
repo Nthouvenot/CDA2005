@@ -7,7 +7,7 @@ Num_Vigneron INT NOT NULL PRIMARY KEY,
 Nom_Vigneron VARCHAR(50) NOT NULL,
 Prenom_Vigneron VARCHAR(50) NOT NULL,
 Ville_Vigneron VARCHAR(128) NOT NULL,
-CONSTRAINT UN_Nom_Prenom UNIQUE(Nom_Vigneron, Prenom_Vigneron)
+CONSTRAINT UQ_Nom_Prenom UNIQUE(Nom_Vigneron, Prenom_Vigneron)
 );
 CREATE TABLE Appreciation
 (
@@ -49,3 +49,5 @@ CONSTRAINT FK_Num_Vigneron_Commande FOREIGN KEY(Num_Vigneron) REFERENCES Vignero
 CONSTRAINT FK_Num_Commande FOREIGN KEY(Num_Commande) REFERENCES Commande(Num_Commande),
 CONSTRAINT PK_Vin_Commande PRIMARY KEY(Num_Vigneron, Num_Commande)
 );
+CREATE INDEX IX_Nom_Prenom_Buveur ON Buveur(Nom_Buveur, Prenom_Buveur);
+CREATE VIEW Représentant AS SELECT *  FROM Buveur;
