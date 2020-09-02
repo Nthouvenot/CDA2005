@@ -6,7 +6,7 @@ CREATE TABLE Etudiants
 id_etudiant INT UNSIGNED NOT NULL PRIMARY KEY,
 nom VARCHAR(50) NOT NULL,
 prenom VARCHAR(50) NOT NULL,
-date_e DATE NOT NULL
+date_e TIMESTAMP NOT NULL DEFAULT current_timestamp
 );
 CREATE TABLE Matieres
 (
