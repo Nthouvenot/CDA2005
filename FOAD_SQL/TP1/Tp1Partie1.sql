@@ -1,8 +1,8 @@
 USE employees_management;
 
 -- 1. Donner nom, job, numéro et salaire de tous les employés, puis seulement des employés du département 10
-SELECT ENAME, JOB, SAL FROM emp;
-SELECT ENAME, JOB, SAL FROM emp WHERE DEPTNO=10;
+SELECT ENAME, JOB, EMPNO, SAL FROM emp;
+SELECT ENAME, JOB, EMPNO, SAL FROM emp WHERE DEPTNO=10;
 
 -- 2. Donner nom, job et salaire des employés de type MANAGER dont le salaire est supérieur à 2800
 SELECT ENAME, JOB, SAL FROM emp WHERE JOB='MANAGER' AND SAL>2800;
