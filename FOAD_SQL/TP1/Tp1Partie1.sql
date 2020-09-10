@@ -29,7 +29,7 @@ SELECT DISTINCT JOB FROM emp ORDER BY JOB ASC;
 SELECT ENAME, DNAME FROM emp INNER JOIN dept ON emp.DEPTNO = dept.DEPTNO WHERE ENAME='ALLEN';
 
 -- 10. Liste des employés avec nom du département, nom, job, salaire classés par noms de départements et par salaires décroissants.
-SELECT DNAME, ENAME, JOB, SAL FROM dept INNER JOIN emp ON dept.DEPTNO = emp.DEPTNO ORDER BY DNAME AND SAL DESC;
+SELECT DNAME, ENAME, JOB, SAL FROM dept INNER JOIN emp ON dept.DEPTNO = emp.DEPTNO ORDER BY DNAME, SAL DESC;
 
 -- 11. Liste des employés vendeurs (SALESMAN) avec affichage de nom, salaire, commissions, salaire + commissions
 SELECT ENAME, SAL, COMM, (SAL+COMM) AS Total_Gain FROM emp WHERE JOB='SALESMAN' ORDER BY ENAME ASC;
