@@ -47,3 +47,12 @@ SELECT ENAME, ROUND((DATEDIFF(CURRENT_DATE, HIREDATE)/30)) AS NUMBER_OF_MONTH FR
 
 -- 15. Afficher la liste des employés ayant un M et un A dans leur nom.
 SELECT * FROM emp WHERE LOCATE ('A', ENAME) AND LOCATE ('M', ENAME);
+
+-- 16. Afficher la liste des employés ayant deux 'A' dans leur nom.
+SELECT * FROM emp WHERE ENAME LIKE '%a%a%';
+
+-- 17. Afficher les employés embauchés avant tous les employés du département 10.
+SELECT * FROM emp WHERE HIREDATE < ALL (SELECT HIREDATE FROM emp WHERE DEPTNO=10);
+
+-- 18. Sélectionner le métier où le salaire moyen est le plus faible.
+SELECT JOB, AVG(SAL) AS SAL_AVERAGE FROM emp GROUP BY JOB; -- salaire moyen par JOB
