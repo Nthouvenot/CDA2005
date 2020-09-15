@@ -21,9 +21,9 @@ SELECT ENAME, LOC FROM emp, dept WHERE emp.DEPTNO = dept.DEPTNO and LOC='DALLAS'
 
 -- 6. Afficher les noms et dates d'embauche des employés embauchés avant leur manager, avec le nom et date d'embauche du manager.
 -- SELECT DISTINCT MGR FROM emp; -- requête de recherche des manager
-SELECT HIREDATE FROM emp WHERE EMPNO = ANY (SELECT DISTINCT MGR FROM emp); -- requête de recherche des manager par date d'embauche
-SELECT ENAME, HIREDATE FROM emp WHERE HIREDATE < ALL (SELECT HIREDATE FROM emp WHERE EMPNO = ANY (SELECT DISTINCT MGR FROM emp)  AND emp.EMPNO = emp.MGR); -- à vérifier le résultat
+SELECT ENAME, HIREDATE FROM emp WHERE EMPNO = ANY (SELECT DISTINCT MGR FROM emp); -- requête de recherche des managers et selection nom et date embauche
 
+SELECT ENAME, HIREDATE FROM emp WHERE EMPNO != ANY (SELECT DISTINCT MGR FROM emp) AND emp.EMPNO != emp.MGR;
 -- 7. Lister les numéros des employés n'ayant pas de subordonné.
 SELECT * FROM emp WHERE EMPNO NOT IN (SELECT DISTINCT MGR FROM emp WHERE MGR IS NOT NULL);
 
@@ -65,3 +65,13 @@ SELECT JOB, AVG(SAL) FROM emp GROUP BY JOB HAVING AVG(SAL) <= ALL (SELECT AVG(SA
 -- 19. Sélectionner le département ayant le plus d'employes.
 -- SELECT COUNT(EMPNO) AS NUMBER_OF_EMPLOYEES, dept.DNAME FROM emp INNER JOIN dept ON emp.DEPTNO = dept.DEPTNO GROUP BY dept.DNAME; -- nombre d'employé par département avec recuperation du nom du département
 SELECT COUNT(EMPNO) AS NUMBER_OF_EMPLOYEES, dept.DNAME FROM emp INNER JOIN dept ON emp.DEPTNO = dept.DEPTNO GROUP BY dept.DNAME HAVING COUNT(EMPNO) >= ALL (SELECT COUNT(EMPNO) FROM emp INNER JOIN dept ON emp.DEPTNO = dept.DEPTNO GROUP BY dept.DNAME);
+
+-- 20. Donner la répartition en pourcentage du nombre d'employés par département selon le modèle ci-dessous
+-- Département Répartition en %
+-- ----------- ----------------
+-- 10 21.43
+-- 20 35.71
+-- 30 42.86
+-- SELECT COUNT(EMPNO) AS NUMBER_OF_EMPLOYEES FROM emp GROUP BY DEPTNO; -- calcul du nombre d'employé par département
+-- SELECT COUNT(*) FROM emp; -- calcul du nombre total d'employé
+SELECT DEPTNO, ROUND((COUNT(EMPNO)*100)/(SELECT COUNT(*) FROM emp), 2) AS PERCENT_NUMBER_OF_EMPLOYEES FROM emp GROUP BY DEPTNO;
