@@ -52,4 +52,5 @@ SELECT SUM(SAL + CASE WHEN COMM IS NULL THEN 0 ELSE COMM END) AS payroll, COUNT(
 SELECT ENAME, JOB, DNAME, SAL FROM emp INNER JOIN dept ON emp.DEPTNO = dept.DEPTNO WHERE JOB = (SELECT JOB FROM emp WHERE ENAME='JONES');
 
 -- 17. Liste des employés (nom, salaire) dont le salaire est supérieur à la moyenne globale des salaires
-SELECT ENAME, SAL FROM emp HAVING SAL > AVG(SAL); -- avg ne fonctionne pas avec having
+-- SELECT AVG(SAL) FROM emp; -- calcul de la moyenne globale des salaires
+SELECT ENAME, SAL FROM emp HAVING SAL > ALL (SELECT AVG(SAL) FROM emp);
