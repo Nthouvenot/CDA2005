@@ -1,0 +1,96 @@
+@font-face {
+    font-family: "channel-webfont";
+    src: url("./fonts/channel-webfont.eot") format("eot"), 
+         url("./fonts/channel-webfont.ttf") format("ttf"), 
+         url("./fonts/channel-webfont.svg") format("svg"),
+         url("./fonts/channel-webfont.woff") format("woff");
+}
+        
+    a {
+        text-decoration: none;
+    }
+
+    header {
+        position: relative;
+        background-color: black;
+        border-bottom: 2px solid white;
+    }
+
+    header ul {  
+        position: relative;
+        width: 50%;
+        height: 50px;
+        margin: 0px 0px 0px auto;
+        padding: 0px 20px 0px 20px;
+    }
+
+    header ul li {
+        display: block;
+        float: left;
+        list-style: none;
+        width: calc(100%/5);
+        height: 100%;
+        margin: 0px 0px 0px -4px;
+    }
+
+    header ul li a {
+        display: inline-block;
+        width: 100%;
+        height: 100%;
+        color: white;
+        box-sizing: border-box;
+        text-align: center;
+        font-size: 1em;
+        font-family: "channel-webfont";
+        padding: 9px 5px 9px 5px;
+     }
+
+    header ul li a:hover {
+        color: red;
+    }
+
+    #sous_menu_css:hover #sous_menu {
+        display: block;
+    }
+
+#sous_menu {
+    position: absolute;
+    display: none;
+    z-index: 1;
+    width: calc((100%) / 5);
+    margin: 1px 0px 0px calc((100% / 5) / 2);
+    padding: 0px;
+    height: 199px;
+    border: 1px solid white;
+}
+
+    #sous_menu li {
+        position: relative;
+        display: block;
+        width: 100%;
+        height: 39px;
+        border-bottom: 1px solid white;
+        margin-left: 0px;
+    }
+
+    #sous_menu li a {
+     width: 100%;
+     height: 100%;
+     padding: 2px 12px 2px 12px;
+     color: white;
+     box-sizing: border-box;
+     font-size: 0.8em;
+     text-align: left;
+     }
+
+    #sous_menu li a:hover {
+        color: red;
+    }
+    /***********************************************/
+    /*************CorpDePage************************/
+    section {
+        position: relative;
+        background-image: url('./images/bg_motif.gif');
+        width: 100%;
+        height: 600px;
+    }
