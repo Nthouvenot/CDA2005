@@ -108,13 +108,14 @@ header ul li a:hover {
 
 section {
     position: relative;
+    top: 52px;
     margin: 0px;
-    
     width: 100%;
 }
 
 #article1 {
-    margin-top: 80px;
+    position: relative;
+    top: 20px;
     width: 930px;
     margin: auto auto;
     padding: 0px;
@@ -123,7 +124,6 @@ section {
 }
 
 #article1>p {
-   
    width: 900px;
    margin: 0px auto 5px auto;
    padding-top: 10px;
@@ -132,7 +132,15 @@ section {
    color: firebrick;
    text-align: center;
    font-size: 1.3em;
-    }
+}
+
+#article1 > hr {
+    width: calc(100% - 20px);
+    margin-right: auto;
+    margin-left: auto;
+    background-color: lightgray;
+    border-color: lightgray;
+}
 
 #article1>div {
    
