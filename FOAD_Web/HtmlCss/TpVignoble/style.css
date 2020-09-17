@@ -143,8 +143,8 @@ section {
 }
 
 #article1>div {
-   position: relative;
-    display: inline-block;
+    position: relative;
+    float: left;
     top: 10px;
     width: calc((100% / 3) - 4px);
     margin: 0px -4px 0px 0px;
@@ -153,21 +153,39 @@ section {
     font-size: 0.8em;
 }
 
-#article1>div>h1 {
+.title_box {
     position: relative;
-    float:left;
+    height: 62px;
+}
+
+.title_box h1 {
+    position: relative;
+    float: left;
     width: calc(100% - 48px);
     height: 62px;
     margin: 0px;
-    padding: 10px 0px 0px 0px;
+    padding: 7px 0px 7px 0px;
     text-align: center;
+    font-size: 1.5em;
+    box-sizing: border-box;
 }
 
-#article1>div>p {
+.title_box p {
     position: relative;
     float: right;
     width: 48px;
     height: 62px;
     margin: 0px;
     padding: 0px;
+}
+
+p.text {
+    position: relative;
+    float: none;
+    width: calc(100% - 4px);
+    padding: 5px;
+    color: black;
+    font-family: 'Arial';
+    font-size: 1.5em;
+    text-align: center;
 }
