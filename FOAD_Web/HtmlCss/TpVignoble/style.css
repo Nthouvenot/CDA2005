@@ -143,16 +143,31 @@ section {
 }
 
 #article1>div {
-   
+   position: relative;
     display: inline-block;
-    width: calc((100% / 3) - 5px);
-    margin: 0px 0px 0px 0px;
+    top: 10px;
+    width: calc((100% / 3) - 4px);
+    margin: 0px -4px 0px 0px;
     color: white;
     font-family: "channel-webfont";
     font-size: 0.8em;
 }
 
-#article1 > div > h1 {
+#article1>div>h1 {
+    position: relative;
+    float:left;
     width: calc(100% - 48px);
-    padding-left: 30px;
+    height: 62px;
+    margin: 0px;
+    padding: 10px 0px 0px 0px;
+    text-align: center;
+}
+
+#article1>div>p {
+    position: relative;
+    float: right;
+    width: 48px;
+    height: 62px;
+    margin: 0px;
+    padding: 0px;
 }
