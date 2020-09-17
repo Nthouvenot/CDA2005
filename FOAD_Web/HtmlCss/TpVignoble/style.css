@@ -1,13 +1,14 @@
 @font-face {
     font-family: "channel-webfont";
-    src: url("./fonts/channel-webfont.eot") format("eot"), 
-         url("./fonts/channel-webfont.ttf") format("ttf"), 
-         url("./fonts/channel-webfont.svg") format("svg"),
-         url("./fonts/channel-webfont.woff") format("woff");
+    src: url("./fonts/channel-webfont.eot") format('embedded-opentype'), 
+         url("./fonts/channel-webfont.ttf") format('truetype'), 
+         url("./fonts/channel-webfont.svg") format('svg'),
+         url("./fonts/channel-webfont.woff") format('woff');
 }
-  
+
 body {
     font-family: "Calibri";
+    background-image: url('./images/bg_motif.gif');
 }
 a {
     text-decoration: none;
@@ -16,22 +17,26 @@ a {
 /***********************************************/
 /****************header*************************/
 
-header {
-    position: relative;
-    margin: 0px;
-    background-color: black;
+header nav {
+    top: 0px;
+    left: 0px;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    height: 60px;
     border-bottom: 2px solid white;
+    background-image: url('./images/header.png')
 }
 
-header ul {  
+header nav ul {  
     position: relative;
     width: 50%;
-    height: 50px;
+    height: 60px;
     margin: 0px 0px 0px auto;
     padding: 0px 20px 0px 20px;
 }
 
-header ul li {
+header nav ul li {
     display: block;
     float: left;
     list-style: none;
@@ -40,59 +45,62 @@ header ul li {
     margin: 0px 0px 0px -4px;
 }
 
-header ul li a {
-     display: inline-block;
-     width: 100%;
-     height: 100%;
-     color: white;
-     box-sizing: border-box;
-     text-align: center;
-     font-size: 1em;
-     font-family: "channel-webfont";
-     padding: 9px 5px 9px 5px;
-     }
+header nav ul li a {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    color: white;
+    box-sizing: border-box;
+    text-align: center;
+    font-size: 1em;
+    font-family: "channel-webfont";
+    padding: 12px 5px 12px 5px;
+}
 
 header ul li a:hover {
     color: red;
 }
 
-#sous_menu_css:hover #sous_menu {
+.sous_menu_menu:hover .sous_menu {
     display: block;
 }
 
-#sous_menu {
+.sous_menu {
     position: absolute;
     display: none;
     z-index: 1;
     width: calc((100%) / 5);
+    height: 100%;
     margin: 1px 0px 0px calc((100% / 5) / 2);
     padding: 0px;
-    height: 199px;
-    border: 1px solid white;
 }
 
-#sous_menu li {
+.sous_menu li {
     position: relative;
     display: block;
     width: 100%;
-    height: 39px;
-    border-bottom: 1px solid white;
+    height: 45px;
+    border: 1px solid white;
     margin-left: 0px;
+    background-image: url('./images/header.png')
     }
 
-#sous_menu li a {
+.sous_menu li a {
      width: 100%;
      height: 100%;
-     padding: 2px 12px 2px 12px;
+     padding: 10px 15px 10px 15px;
      color: white;
-     background-color: rgba(0, 0, 0, 0.5);
      box-sizing: border-box;
      font-size: 0.8em;
      text-align: left;
 }
 
-#sous_menu li a:hover {
+.sous_menu li a:hover {
     color: red;
+}
+
+.sous_menu li a:visited {
+    color: white;
 }
 
 /***********************************************/
@@ -101,12 +109,12 @@ header ul li a:hover {
 section {
     position: relative;
     margin: 0px;
-    background-image: url('./images/bg_motif.gif');
+    
     width: 100%;
 }
 
 #article1 {
-    position: relative;
+    margin-top: 80px;
     width: 930px;
     margin: auto auto;
     padding: 0px;
@@ -114,21 +122,23 @@ section {
     background-repeat: repeat;
 }
 
-#article1 > p {
-   position: relative;
+#article1>p {
+   
+   width: 900px;
+   margin: 0px auto 5px auto;
    padding-top: 10px;
    padding-bottom: 10px;
    background-color: white;
    color: firebrick;
    text-align: center;
-   font-size: 1.2em;
+   font-size: 1.3em;
     }
 
 #article1>div {
-    position: relative;
+   
     display: inline-block;
     width: calc((100% / 3) - 5px);
-    text-align: justify;
+    margin: 0px 0px 0px 0px;
     color: white;
     font-family: "channel-webfont";
     font-size: 0.8em;
@@ -137,9 +147,4 @@ section {
 #article1 > div > h1 {
     width: calc(100% - 48px);
     padding-left: 30px;
-}
-
-#article1 > div > p {
-    
-    float: right;
 }
