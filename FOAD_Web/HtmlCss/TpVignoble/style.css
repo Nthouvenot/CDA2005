@@ -115,8 +115,11 @@ section {
     top: 0px;
     margin: 0px auto 0px auto;
     width: 930px;
-    background-color: rgba(100, 100, 100, 0.5);
+    background-color: rgba(100, 100, 100, 0.2);
 }
+
+    /***********************************************/
+    /**************Article1*************************/
 
 #article1 { 
     position: relative;
@@ -136,13 +139,8 @@ section {
    font-size: 1.3em;
 }
 
-#article1 > hr, #article2 > hr {
-    width: calc(100% - 20px);
-    margin-right: auto;
-    margin-left: auto;
-    background-color: white;
-    border-color: white;
-    }
+    /***********************************************/
+    /**************Article2*************************/
 
 #article2 {
     position: relative;
@@ -198,16 +196,89 @@ p.text {
     text-align: center;
 }
 
-section>article>div>p {
+section > article > div > p {
     width: 130px;
     margin-left: auto;
     margin-right: auto;
 }
 
-section>article>div>p>button {
+.gray_button {
     width: 100%;
     height: 40px;
     background-color: darkgray;
     color: white;
     font-size: 1.4em;
+}
+        /***********************************************/
+        /****************ArticleCommon******************/
+
+#article1 > hr, #article2 > hr {
+    width: calc(100% - 20px);
+    margin-right: auto;
+    margin-left: auto;
+    background-color: white;
+    border-color: white;
+}
+
+    /***********************************************/
+    /********************Aside**********************/
+
+aside {
+    position: relative;
+    vertical-align: top;
+    width: calc(30% - 4px);
+    display: inline-block;
+    padding: 0px;
+    background-color: rgba(70, 70, 70, 0.8);
+}
+
+aside > h1 {
+    margin: 0px;
+    padding: 10px;
+    font-family: "channel-webfont";
+    font-size: 1.1em;
+    color: white;
+    text-align: center;
+}
+
+aside > ul {
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+} 
+
+aside > ul > li {
+    width: 100%;
+    height: 40px;
+    list-style: none;
+    border-top: 1px solid white;
+}
+
+aside > ul > li > p {
+    height: 100%;
+    margin: 0px;
+    padding: 10px 0px 8px 10px;
+}
+
+aside > ul > li > p a {
+    width: 100%;
+    height: 100%;
+}
+
+    /***********************************************/
+    /**************Article3*************************/
+
+#article3 {
+    vertical-align: top;
+    width: calc(70% - 4px);
+    display: inline-block;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+#article3+p {
+    position: relative;
+    width: 212px;
+    padding: 5px;
+    background-color: white;
 }
