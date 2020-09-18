@@ -160,6 +160,7 @@ section {
     margin: 0px -4px 0px 0px;
     color: white;
     background-image: url("./images/bg_g.png");
+    background-repeat: no-repeat;
     font-family: "channel-webfont";
     font-size: 0.8em;
  }
