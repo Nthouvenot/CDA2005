@@ -114,8 +114,15 @@ section {
     position: relative;
     top: 0px;
     margin: 0px auto 0px auto;
-    width: 930px;
+    padding: 10px;
+    width: 950px;
     background-color: rgba(100, 100, 100, 0.2);
+}
+
+section > hr {
+    width: 920px;
+    margin-left: auto;
+    margin-right: auto;
 }
 
     /***********************************************/
@@ -213,7 +220,7 @@ section > article > div > p {
         /****************CommonArticle******************/
 
 hr {
-    width: calc(100% - 20px);
+    width: calc(100% - 10px);
     margin-right: auto;
     margin-left: auto;
     background-color: white;
@@ -240,25 +247,31 @@ aside > h1, #article3 > h1 {
 
 aside {
     position: relative;
+    top: 10px;
     vertical-align: top;
-    width: calc(30% - 4px);
+    margin: 0px 5px 20px 14px;
+    width: calc(30% - 19px);
     display: inline-block;
     padding: 0px;
     background-color: rgba(70, 70, 70, 0.8);
     box-sizing: border-box;
 }
 
+aside h1 {
+    border-bottom: 1px solid white;
+}
+
 aside > ul {
     width: 100%;
     margin: 0px;
-    padding: 0px;
+    padding: 0px 0px 15px 0px;
 } 
 
 aside > ul > li {
     width: 100%;
     height: 40px;
     list-style: none;
-    border-top: 1px solid white;
+    border-bottom: 1px solid white;
 }
 
 aside > ul > li > p {
@@ -277,10 +290,12 @@ aside > ul > li > p a {
 
 #article3 {
     position: relative;
+    top: 10px;
     vertical-align: top;
-    width: calc(70% - 4px);
     display: inline-block;
-    padding: 0px 10px 35px 10px;
+    width: calc(70% - 22px);
+    margin: 0px 10px 20px 5px;
+    padding: 0px 10px 50px 10px;
     background-color: rgba(70, 70, 70, 0.8);
     box-sizing: border-box;
 }
@@ -321,12 +336,12 @@ aside > ul > li > p a {
     padding: 0px;
 }
 
-
     /***********************************************/
     /****************Footer*************************/
 footer {
-    width: 930px;
-    margin: -10px auto 0px auto;
+    width: 970px;
+    margin: -10px auto -10px auto;
+    padding: 0px;
     height: 100px;
 }
 
@@ -342,7 +357,7 @@ footer nav ul {
     width: 60%;
     height: 100px;
     margin: 0px;
-    padding: 0px 20px 0px 20px;
+    padding: 0px 10px 0px 10px;
 }
 
 footer nav ul li {
