@@ -21,7 +21,7 @@ SELECT ENAME, LOC FROM emp, dept WHERE emp.DEPTNO = dept.DEPTNO and LOC='DALLAS'
 
 -- 6. Afficher les noms et dates d'embauche des employés embauchés avant leur manager, avec le nom et date d'embauche du manager.
 -- SELECT DISTINCT MGR FROM emp; -- requête de recherche des manager
-SELECT ENAME, HIREDATE FROM emp WHERE EMPNO = ANY (SELECT DISTINCT MGR FROM emp); -- requête de recherche des managers et selection nom et date embauche
+select e.ename,e.hiredate,m.ename as 'nom manager',m.hiredate as 'date embauche manager' from emp e,emp m where e.MGR = m.EMPNO and e.HIREDATE < m.HIREDATE and e.EMPNO NOT IN (SELECT DISTINCT emp.MGR from emp where emp.MGR IS NOT NULL) ORDER BY e.deptno;
 
 SELECT ENAME, HIREDATE FROM emp WHERE EMPNO != ANY (SELECT DISTINCT MGR FROM emp) AND emp.EMPNO != emp.MGR;
 -- 7. Lister les numéros des employés n'ayant pas de subordonné.
