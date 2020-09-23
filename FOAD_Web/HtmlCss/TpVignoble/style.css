@@ -299,24 +299,33 @@ aside > ul > li > p {
     padding: 10px 0px 8px 10px;
 }
 
-aside > ul > li > p a {
+aside > ul > li >  p a {
     width: 100%;
     height: 100%;
 }
 
-    /***********************************************/
-    /**************Article3*************************/
+aside > ul > li:hover {
+    background-color: white;
+}
 
+aside > ul > li > p a:visited {
+    color: black;
+}
+
+
+
+     /***********************************************/
+     /**************Article3*************************/
 #article3 {
-    position: relative;
-    top: 10px;
-    vertical-align: top;
-    display: inline-block;
-    width: calc(70% - 22px);
-    margin: 0px 10px 20px 5px;
-    padding: 0px 10px 50px 10px;
-    background-color: rgba(70, 70, 70, 0.8);
-    box-sizing: border-box;
+position: relative;
+top: 10px;
+vertical-align: top;
+display: inline-block;
+width: calc(70% - 22px);
+margin: 0px 10px 20px 5px;
+padding: 0px 10px 50px 10px;
+background-color: rgba(70, 70, 70, 0.8);
+box-sizing: border-box;
 }
 
 #article3>p:nth-child(2) {
@@ -362,7 +371,7 @@ footer {
     width: 970px;
     margin: -10px auto -10px auto;
     padding: 0px;
-    height: 140px;
+    height: 120px;
 }
 
 footer nav {
