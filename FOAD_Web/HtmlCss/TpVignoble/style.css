@@ -25,6 +25,11 @@ a {
     font-size: 1.4em;
 }
 
+.gray_button:hover {
+    background-color: red;
+    border-color: red;
+}
+
 /***********************************************/
 /****************header*************************/
 header {
@@ -226,25 +231,26 @@ p.text {
 }
 
 section > article > div > p {
+    position: relative;
     width: 130px;
     margin-left: auto;
     margin-right: auto;
 }
 
 #article2 > div > p > button:hover {
-    background-color: red;
-    border-color: red;
     transform: rotate(-20deg);
+    transition: all 750ms ease-out 50ms;
 }
-        /***********************************************/
-        /****************CommonArticle******************/
+
+    /***********************************************/
+    /****************CommonArticle******************/
 
 hr {
-    width: calc(100% - 10px);
-    margin-right: auto;
-    margin-left: auto;
-    background-color: white;
-    border-color: white;
+width: calc(100% - 10px);
+margin-right: auto;
+margin-left: auto;
+background-color: white;
+border-color: white;
 }
 
     /***********************************************/
