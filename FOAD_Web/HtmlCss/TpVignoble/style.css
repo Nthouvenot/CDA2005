@@ -28,6 +28,8 @@ a {
 .gray_button:hover {
     background-color: red;
     border-color: red;
+    transform: rotate(-20deg) scale(1.5);
+    transition: all 750ms ease-out 50ms;
 }
 
 /***********************************************/
@@ -237,11 +239,6 @@ section > article > div > p {
     margin-right: auto;
 }
 
-#article2 > div > p > button:hover {
-    transform: rotate(-20deg);
-    transition: all 750ms ease-out 50ms;
-}
-
     /***********************************************/
     /****************CommonArticle******************/
 
@@ -278,7 +275,7 @@ aside {
     margin: 0px 5px 20px 14px;
     width: calc(30% - 19px);
     display: inline-block;
-    padding: 0px;
+    padding: 10px 0px 0px 0px;
     background-color: rgba(70, 70, 70, 0.8);
     box-sizing: border-box;
 }
@@ -288,6 +285,7 @@ aside h1 {
 }
 
 aside > ul {
+    z-index: 1;
     width: 100%;
     margin: 0px;
     padding: 0px 0px 15px 0px;
@@ -295,7 +293,7 @@ aside > ul {
 
 aside > ul > li {
     width: 100%;
-    height: 40px;
+    height: 50px;
     list-style: none;
     border-bottom: 1px solid white;
 }
@@ -303,23 +301,45 @@ aside > ul > li {
 aside > ul > li > p {
     height: 100%;
     margin: 0px;
-    padding: 10px 0px 8px 10px;
+    padding: 0px;
 }
 
-aside > ul > li >  p a {
-    width: 100%;
+.selection_img {
+    display: inline-block;
+    width: 36px;
     height: 100%;
+    box-sizing: border-box;
+    margin: 0px;
+    padding: 17px 0px 17px 8px;
 }
 
-aside > ul > li:hover {
+.selection_texte {
+    display: inline-block;
+    vertical-align: top;
+    width: calc(100% - 41px);
+    box-sizing: border-box;
+    padding: 17px 0px 17px 8px;
+}
+
+aside > ul li:hover {
     background-color: white;
 }
 
-aside > ul > li > p a:visited {
-    color: black;
+aside div {
+    position: absolute;
+    z-index: 0;
+    top: 80px;
+    left: 0px;
+    width: 100%;
+    height: 51px;
 }
 
-
+aside div a {
+    position: relative;
+    z-index: 0;
+    display: block;
+    height: 51px;
+    }
 
      /***********************************************/
      /**************Article3*************************/
@@ -329,8 +349,9 @@ top: 10px;
 vertical-align: top;
 display: inline-block;
 width: calc(70% - 22px);
+height: 100%;
 margin: 0px 10px 20px 5px;
-padding: 0px 10px 50px 10px;
+padding: 10px 10px 110px 10px;
 background-color: rgba(70, 70, 70, 0.8);
 box-sizing: border-box;
 }
@@ -376,7 +397,7 @@ box-sizing: border-box;
 footer {
     position: relative;
     width: 970px;
-    margin: -10px auto -10px auto;
+    margin: 0px auto 0px auto;
     padding: 0px;
     height: 120px;
 }
