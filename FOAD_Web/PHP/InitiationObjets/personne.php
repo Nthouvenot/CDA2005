@@ -22,11 +22,11 @@
         }
     
         public function GetPersonne() {
-            echo '<p>nom: '.$this->_nom.' prenom: '.$this->_prenom.' adresse: '.$this->_adresse.' email: '.$this->_email.'</p>';
+            echo 'nom: '.$this->_nom.' prenom: '.$this->_prenom.' adresse: '.$this->_adresse.' email: '.$this->_email;
         }
     
         public function __destruct() {
-            echo 'L\'objet a bien été détruit';
+            echo 'L\'objet de type personne a bien été détruit<br>';
         }
     }
 ?>
