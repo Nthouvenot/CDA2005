@@ -325,7 +325,7 @@ aside > ul li:hover {
     background-color: white;
 }
 
-.selection_texte > a:hover, .selection_texte > a:visited:visited {
+.selection_texte > a, .selection_texte > a:hover, .selection_texte > a:visited {
     color: black;
 }
 
