@@ -34,6 +34,7 @@ namespace IntroEnterprise.Models
             this.employees.Add(_employee);
 
         }
+<<<<<<< HEAD
 
         /// <summary>
         /// calculate the bonus of the employee
@@ -48,4 +49,7 @@ namespace IntroEnterprise.Models
 
     }
 
+=======
+    }
+>>>>>>> e99e87d... Create FOAD_C#_Cours/IntroEnterprise
 }

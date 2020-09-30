@@ -1,8 +1,14 @@
+<<<<<<< HEAD
 using IntroEnterprise.Models;
 
 namespace IntroEnterprise
 {
     abstract class Person : IStorage, ISalary
+=======
+namespace IntroEnterprise
+{
+    abstract class Person
+>>>>>>> e99e87d... Create FOAD_C#_Cours/IntroEnterprise
     {
         private string lastname;
         private string firstname;
