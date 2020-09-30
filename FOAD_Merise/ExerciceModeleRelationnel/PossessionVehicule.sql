@@ -1,0 +1,23 @@
+DROP DATABASE IF EXISTS pocession_vehicule;
+CREATE DATABASE pocession_vehicule;
+USE pocession_vehicule;
+CREATE TABLE Personne
+(
+id_personne INT UNSIGNED AUTO_INCREMENT	NOT NULL PRIMARY KEY,
+nom VARCHAR(50) NOT NULL,
+Prenom VARCHAR(50) NOT NULL,
+Num_Rue TINYINT UNSIGNED NULL,
+rue VARCHAR(128) NOT NULL,
+cp MEDIUMINT UNSIGNED NOT NULL,
+ville VARCHAR(50) NOT NULL,
+CONSTRAINT cp CHECK(cp<96000)
+);
+CREATE TABLE Vehicule
+(
+immatriculation CHAR(9) NOT NULL PRIMARY KEY,
+marque VARCHAR(30) NOT NULL,
+kilometrage INT NOT NULL,
+date_mise_en_service DATE NOT NULL,
+id_Personne INT UNSIGNED AUTO_INCREMENT	NOT NULL,
+CONSTRAINT FK_Personne FOREIGN KEY(id_personne) REFERENCES Personne(id_personne)
+);
