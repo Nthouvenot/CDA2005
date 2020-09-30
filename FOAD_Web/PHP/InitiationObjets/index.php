@@ -23,7 +23,7 @@
 		    echo '</p>';
 		    
 		    $employe1 = new employe('mickael', 'devoldére','mon_mail@mail.com', 'mon_adresse');
-		    $employe1->SetEmail('mdevoldere@arfp.asso.fr');
+		    $employe1->SetEmail('mdevoldere@mail.fr');
 		    $employe1->SetAdresse('57 rue Albert-Camu 68200 Mulhouse');
 		    $employe1->SetNum(1540);
 		    echo '<p>donnée de employe 1 :'.$employe1->GetEmploye().'<br>';
