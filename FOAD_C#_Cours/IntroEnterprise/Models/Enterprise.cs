@@ -35,6 +35,9 @@ namespace IntroEnterprise.Models
 
         }
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> 9a39fcc... Update Enterprise.cs and Person.cs
 
         /// <summary>
         /// calculate the bonus of the employee
@@ -47,9 +50,14 @@ namespace IntroEnterprise.Models
             return 0;
         }
 
+<<<<<<< HEAD
     }
 
 =======
     }
 >>>>>>> e99e87d... Create FOAD_C#_Cours/IntroEnterprise
+=======
+    }
+
+>>>>>>> 9a39fcc... Update Enterprise.cs and Person.cs
 }
