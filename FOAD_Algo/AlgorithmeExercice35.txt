@@ -1,0 +1,37 @@
+CHAINE chaine
+ENTIER longeurChaine
+BOOLEAN palindrome
+DEBUT
+palindrome <-- true
+ECRIRE "Saisisser une phrase ou un mot finissant par '.'"
+LIRE chaine
+SI charAt(chaine, lenght(chaine - 1)) == '.' && charAt(chaine, 0) != '.'
+ALORS
+	chaine <-- substring(chaine, 0, length(chaine) - 1
+	SI length(chaine % 2) == 0
+	ALORS
+		longeurChaine = lenght(chaine) - 1
+		TANT QUE i < lenght(chaine) / 2 && palindrome == true
+			i <-- i + 1
+			SI charAt(chaine, i) == charAt(chaine, longeurChaine)
+			ALORS
+				longeurChaine - 1
+			SINON
+				palindrome <-- false
+			FIN SI
+		FIN TANT QUE
+	SINON
+		palindrome = false
+	FIN SI
+	SI palindrome == true
+	ALORS
+		ECRIRE chaine + " est un palindrome"
+	SINON
+		ECRIRE chaine + " n'est pas un palindrome"
+	FIN SI
+SINON SI charAt(chaine, 0) == '.'
+	ECRIRE "La chaine est vide"
+SINON
+	ECRIRE "Chaine mal formaté, le caractére '.' est introuvable"
+FIN SI
+FIN

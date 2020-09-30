@@ -1,0 +1,26 @@
+Une Peugeot 205 rouge
+Le TGV Paris-Lyon
+Un Airbus A320
+L'alouette de la gendarmerie de Chamonix
+Le ferry Calais-Douvre
+Le cheval Belino II
+La moto de Thibault
+Un voilier Bénéteau
+un sous-marin
+un delta-plane jaune
+une rame de métro
+
+				|Une Peugeot 205 rouge
+				|Le TGV Paris-Lyon
+		|Terrestre------|Le cheval Belino II
+		|		|La moto de Thibault
+		|		|une rame de métro
+		|			
+		|		|Le ferry Calais-Douvre
+Vehicule--------|Maritime-------|Un voilier Bénéteau
+		|		|un sous-marin
+		|
+		|		|Un Airbus A320
+		|Aerien---------|L'alouette de la gendarmerie de Chamonix
+				|un delta-plane jaune
+		
