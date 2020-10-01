@@ -6,7 +6,7 @@ use tp_agence_voyages;
 
 -- 1) Afficher les informations de toutes les villes (informations du pays incluses)
 
-CREATE VIEW city_info AS SELECT city_code, city_name, country_name FROM cities, countries WHERE countries.country_code = cities.country_code;
+CREATE VIEW city_info AS SELECT cities.city_code, cities.city_name, cities.country_code, countries.country_name FROM cities, countries WHERE countries.country_code = cities.country_code;
 SELECT * FROM city_info ORDER BY city_code;
 
 -- 2) Afficher les noms, prénoms, email de tous les clients qui ont réservé au moins 1 voyage.  
