@@ -21,4 +21,6 @@ SELECT * FROM clients_reservation ORDER BY client_lastname ASC;
 --     Le nombre de voyages qu'il a commandé ET payé
 --     La destination de son dernier voyage (ville + pays)
 
-SELECT clients.client_lastname, clients.client_firstname, clients.client_email, sales.com_name, COUNT(*) AS paid_travel_number FROM clients, orders, sales WHERE order_paid=1 AND orders.client_id = clients.client_id AND sales.com_code = clients.com_code GROUP BY orders.client_id;
+CREATE VIEW client_full_view AS SELECT clients.client_lastname, clients.client_firstname, clients.client_email, sales.com_name, cities.city_name, countries.country_name, COUNT(*) AS paid_travel_number, trips.trip_title FROM clients, sales, orders, trips, cities, countries WHERE orders.client_id = clients.client_id AND sales.com_code = clients.com_code AND trips.trip_code = orders.trip_code AND trips.city_code = cities.city_code AND countries.country_code = cities.country_code  AND order_paid=1 GROUP BY clients.client_id;
+SELECT * FROM client_full_view ORDER BY client_lastname;
+ 
