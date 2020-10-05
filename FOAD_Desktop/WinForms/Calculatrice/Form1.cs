@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -12,149 +13,79 @@ namespace Calculatrice
 {
     public partial class Form1 : Form
     {
-        private int result = 0;
+        private int result;
         private string sum;
         public Form1()
         {
+            this.result = 0;
             InitializeComponent();
         }
 
-        private void button0_Click(object sender, EventArgs e)
+        private void MakeSum(object sender, EventArgs e)
         {
-            this.result += 0;
-            if (string.IsNullOrEmpty(this.sum))
+            int value = 0;
+            if (sender == this.button0)
             {
-                this.sum = this.sum + "0";
+                value = 0;
             }
-            else
-            {
-                this.sum = this.sum + "+0";
-            }
-            this.printResult.Text = this.sum;
-        }
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            this.result += 1;
-            if(string.IsNullOrEmpty(this.sum))
-            {
-                this.sum = this.sum + "1";
-            } else
-            {
-                this.sum = this.sum + "+1";
-            }
-            this.printResult.Text = this.sum;
-        }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.result += 2;
-            if (string.IsNullOrEmpty(this.sum))
+            if (sender == this.button1)
             {
-                this.sum = this.sum + "2";
+                value = 1;
             }
-            else
-            {
-                this.sum = this.sum + "+2";
-            }
-            this.printResult.Text = this.sum;
-        }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            this.result += 3;
-            if (string.IsNullOrEmpty(this.sum))
+            if (sender == this.button2)
             {
-                this.sum = this.sum + "3";
+                value = 2;
             }
-            else
-            {
-                this.sum = this.sum + "+3";
-            }
-            this.printResult.Text = this.sum;
-        }
 
-        private void button4_Click(object sender, EventArgs e)
-        {
-            this.result += 4;
-            if (string.IsNullOrEmpty(this.sum))
+            if (sender == this.button3)
             {
-                this.sum = this.sum + "4";
+                value = 3;
             }
-            else
-            {
-                this.sum = this.sum + "+4";
-            }
-            this.printResult.Text = this.sum;
-        }
 
-        private void button5_Click(object sender, EventArgs e)
-        {
-            this.result += 5;
-            if (string.IsNullOrEmpty(this.sum))
+            if (sender == this.button4)
             {
-                this.sum = this.sum + "5";
+                value = 4;
             }
-            else
-            {
-                this.sum = this.sum + "+5";
-            }
-            this.printResult.Text = this.sum;
-        }
 
-        private void button6_Click(object sender, EventArgs e)
-        {
-            this.result += 6;
-            if (string.IsNullOrEmpty(this.sum))
+            if (sender == this.button5)
             {
-                this.sum = this.sum + "6";
+                value = 5;
             }
-            else
-            {
-                this.sum = this.sum + "+6";
-            }
-            this.printResult.Text = this.sum;
-        }
 
-        private void button7_Click(object sender, EventArgs e)
-        {
-            this.result += 7;
-            if (string.IsNullOrEmpty(this.sum))
+            if (sender == this.button6)
             {
-                this.sum = this.sum + "7";
+                value = 6;
             }
-            else
-            {
-                this.sum = this.sum + "+7";
-            }
-            this.printResult.Text = this.sum;
-        }
 
-        private void button8_Click(object sender, EventArgs e)
-        {
-            this.result += 8;
-            if (string.IsNullOrEmpty(this.sum))
+            if (sender == this.button7)
             {
-                this.sum = this.sum + "8";
+                value = 7;
             }
-            else
-            {
-                this.sum = this.sum + "+8";
-            }
-            this.printResult.Text = this.sum;
-        }
 
-        private void button9_Click(object sender, EventArgs e)
-        {
-            this.result += 9;
+            if (sender == this.button8)
+            {
+                value = 8;
+            }
+
+            if (sender == this.button9)
+            {
+                value = 9;
+            }
+
             if (string.IsNullOrEmpty(this.sum))
             {
-                this.sum = this.sum + "9";
+                this.result = value;
+                this.sum = value.ToString();
             }
             else
             {
-                this.sum = this.sum + "+9";
+                this.sum = this.sum + "+" + value;
+                this.result += value;
             }
             this.printResult.Text = this.sum;
+
         }
 
         private void clear_Click(object sender, EventArgs e)
