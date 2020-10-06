@@ -23,69 +23,26 @@ namespace Calculatrice
 
         private void MakeSum(object sender, EventArgs e)
         {
-            int value = 0;
-            if (sender == this.button0)
-            {
-                value = 0;
-            }
-
-            if (sender == this.button1)
-            {
-                value = 1;
-            }
-
-            if (sender == this.button2)
-            {
-                value = 2;
-            }
-
-            if (sender == this.button3)
-            {
-                value = 3;
-            }
-
-            if (sender == this.button4)
-            {
-                value = 4;
-            }
-
-            if (sender == this.button5)
-            {
-                value = 5;
-            }
-
-            if (sender == this.button6)
-            {
-                value = 6;
-            }
-
-            if (sender == this.button7)
-            {
-                value = 7;
-            }
-
-            if (sender == this.button8)
-            {
-                value = 8;
-            }
-
-            if (sender == this.button9)
-            {
-                value = 9;
-            }
-
+            Button button = (Button)sender;
+            int number = Convert.ToInt32(button.Tag);
             if (string.IsNullOrEmpty(this.sum))
             {
-                this.result = value;
-                this.sum = value.ToString();
+                this.result = number;
+                this.sum = number.ToString();
             }
             else
             {
-                this.sum = this.sum + "+" + value;
-                this.result += value;
+                if((this.result + number) > Int32.MaxValue)
+                {
+                    this.sum = "Overflow error";
+                }
+                else
+                {
+                    this.sum = this.sum + "+" + number;
+                    this.result += number;
+                }
             }
             this.printResult.Text = this.sum;
-
         }
 
         private void clear_Click(object sender, EventArgs e)
