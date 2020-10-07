@@ -1,0 +1,41 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30523.141
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryLepidoptere", "ClassLibraryLepidoptere\ClassLibraryLepidoptere.csproj", "{3FE1F748-B5D7-4EB2-8CAD-70AE104DF3A8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppTestLepidoptere", "ConsoleAppTestLepidoptere\ConsoleAppTestLepidoptere.csproj", "{4AAF6E04-0F55-45EC-AE4E-0C9407D0B9E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
+		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3FE1F748-B5D7-4EB2-8CAD-70AE104DF3A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3FE1F748-B5D7-4EB2-8CAD-70AE104DF3A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3FE1F748-B5D7-4EB2-8CAD-70AE104DF3A8}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{3FE1F748-B5D7-4EB2-8CAD-70AE104DF3A8}.Debug|x86.Build.0 = Debug|Any CPU
+		{3FE1F748-B5D7-4EB2-8CAD-70AE104DF3A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3FE1F748-B5D7-4EB2-8CAD-70AE104DF3A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3FE1F748-B5D7-4EB2-8CAD-70AE104DF3A8}.Release|x86.ActiveCfg = Release|Any CPU
+		{3FE1F748-B5D7-4EB2-8CAD-70AE104DF3A8}.Release|x86.Build.0 = Release|Any CPU
+		{4AAF6E04-0F55-45EC-AE4E-0C9407D0B9E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4AAF6E04-0F55-45EC-AE4E-0C9407D0B9E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4AAF6E04-0F55-45EC-AE4E-0C9407D0B9E1}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{4AAF6E04-0F55-45EC-AE4E-0C9407D0B9E1}.Debug|x86.Build.0 = Debug|Any CPU
+		{4AAF6E04-0F55-45EC-AE4E-0C9407D0B9E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4AAF6E04-0F55-45EC-AE4E-0C9407D0B9E1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4AAF6E04-0F55-45EC-AE4E-0C9407D0B9E1}.Release|x86.ActiveCfg = Release|Any CPU
+		{4AAF6E04-0F55-45EC-AE4E-0C9407D0B9E1}.Release|x86.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {77CCD56E-AA5C-4FE5-B5DF-10A50BF34651}
+	EndGlobalSection
+EndGlobal
