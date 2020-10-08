@@ -24,6 +24,7 @@ namespace ClassLibraryLepidoptere
         /// <returns>StadeDEvolution</returns>
         public override StadeDEvolution SeMetamorphoser()
         {
+            Console.WriteLine("J'évolue en papillon");
             return (StadeDEvolution)new Papillon();
         }
     }

@@ -13,12 +13,9 @@ namespace ClassLibraryLepidoptere
             return true;
         }
 
-        /// <summary>
-        /// override method abstract SeMetamorphoser
-        /// </summary>
-        /// <returns>StadeDEvolution</returns>
         public override StadeDEvolution SeMetamorphoser()
         {
+            Console.WriteLine("Je suis déja un papillon je ne peu plus évoluer !!!");
             return this;
         }
     }

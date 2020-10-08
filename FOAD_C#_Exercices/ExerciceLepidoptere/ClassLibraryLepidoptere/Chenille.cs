@@ -14,6 +14,7 @@ namespace ClassLibraryLepidoptere
         }
         public override StadeDEvolution SeMetamorphoser()
         {
+            Console.WriteLine("J'évolue en chrysalide");
             return (StadeDEvolution)new Chrysalide();
         }
     }

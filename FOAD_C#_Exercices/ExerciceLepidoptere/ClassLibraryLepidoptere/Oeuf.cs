@@ -23,6 +23,7 @@ namespace ClassLibraryLepidoptere
         /// <returns>StadeDEvolution</returns>
         public override StadeDEvolution SeMetamorphoser()
         {
+            Console.WriteLine("J'évolue en chenille");
             return (StadeDEvolution)new Chenille();
         }
     }
