@@ -12,5 +12,9 @@ namespace ClassLibraryLepidoptere
             Console.WriteLine("Je rampe");
             return true;
         }
+        public override StadeDEvolution SeMetamorphoser()
+        {
+            return (StadeDEvolution)new Chrysalide();
+        }
     }
 }

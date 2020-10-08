@@ -10,6 +10,7 @@ namespace ClassLibraryLepidoptere
 {
     public class Lepidoptere
     {
+        private bool StadeDEvolutionMax;
         private StadeDEvolution monStadeCourant;
         private DateTime dateDeNaissance;
 
@@ -21,6 +22,7 @@ namespace ClassLibraryLepidoptere
         {
             if(_dateDeNaissance <= DateTime.Now)
             {
+
                 this.dateDeNaissance = _dateDeNaissance;
                 this.monStadeCourant = (StadeDEvolution)new Oeuf();
             }
@@ -52,27 +54,26 @@ namespace ClassLibraryLepidoptere
           
         public void SeMetamorphoser()
         {
-            if(this.monStadeCourant.GetType() == typeof(Papillon))
+            this.monStadeCourant = this.monStadeCourant.SeMetamorphoser();
+            if (StadeDEvolutionMax == true)
             {
                 Console.WriteLine("Je suis déja un papillon je ne peu plus évoluer !!!");
                 return;
             }
-            if(this.monStadeCourant.GetType() == typeof(Oeuf))
+            if (this.monStadeCourant.GetType() == typeof(Chenille))
             {
-                this.monStadeCourant = (StadeDEvolution) new Chenille();
                 Console.WriteLine("J'évolue en chenille");
                 return;
             }
-            if(this.monStadeCourant.GetType() == typeof(Chenille))
+            if (this.monStadeCourant.GetType() == typeof(Chrysalide))
             {
-                this.monStadeCourant = (StadeDEvolution)new Chrysalide();
                 Console.WriteLine("J'évolue en chrysalide");
                 return;
             }
-            if(this.monStadeCourant.GetType() == typeof(Chrysalide))
+            if (this.monStadeCourant.GetType() == typeof(Papillon))
             {
-                this.monStadeCourant = (StadeDEvolution)new Papillon();
                 Console.WriteLine("J'évolue en Papillon");
+                StadeDEvolutionMax = true;
                 return;
             }
         }

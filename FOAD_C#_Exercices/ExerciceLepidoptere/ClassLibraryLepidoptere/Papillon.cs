@@ -12,5 +12,14 @@ namespace ClassLibraryLepidoptere
             Console.WriteLine("Je vole");
             return true;
         }
+
+        /// <summary>
+        /// override method abstract SeMetamorphoser
+        /// </summary>
+        /// <returns>StadeDEvolution</returns>
+        public override StadeDEvolution SeMetamorphoser()
+        {
+            return this;
+        }
     }
 }

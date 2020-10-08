@@ -17,5 +17,14 @@ namespace ClassLibraryLepidoptere
         {
             return false;
         }
+
+        /// <summary>
+        /// override method abstract SeMetamorphoser
+        /// </summary>
+        /// <returns>StadeDEvolution</returns>
+        public override StadeDEvolution SeMetamorphoser()
+        {
+            return (StadeDEvolution)new Papillon();
+        }
     }
 }
