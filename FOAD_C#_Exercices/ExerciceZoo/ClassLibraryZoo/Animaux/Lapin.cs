@@ -11,7 +11,12 @@ namespace ClassLibraryZoo.Animaux
     {
         int lgOreilleEnCm;
 
-        public Lapin():base()
+        public Lapin() : base(DateTime.Today, false)
+        {
+
+        }
+
+        public Lapin(DateTime dateDeNaissance, bool estNeeAuZoo) :base(dateDeNaissance, estNeeAuZoo)
         {
             this.lgOreilleEnCm = 10;
         }
