@@ -9,6 +9,16 @@ namespace ClassLibraryZoo.Animaux
 {
     public class Lion : AnimalDuZoo
     {
+        public Lion() : base(DateTime.Today, false)
+        {
+
+        }
+
+        public Lion(DateTime dateDeNaissance, bool estNeeAuZoo) : base(dateDeNaissance, estNeeAuZoo)
+        {
+
+        }
+
         public void Manger()
         {
             throw new System.NotImplementedException();

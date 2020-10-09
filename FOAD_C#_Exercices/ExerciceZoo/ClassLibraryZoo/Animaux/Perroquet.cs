@@ -9,6 +9,16 @@ namespace ClassLibraryZoo.Animaux
 {
     public class Perroquet : AnimalDuZoo, IParleable
     {
+        public Perroquet() : base(DateTime.Today, false)
+        {
+
+        }
+
+        public Perroquet(DateTime dateDeNaissance, bool estNeeAuZoo) : base(dateDeNaissance, estNeeAuZoo)
+        {
+
+        }
+
         public void Manger()
         {
             throw new System.NotImplementedException();

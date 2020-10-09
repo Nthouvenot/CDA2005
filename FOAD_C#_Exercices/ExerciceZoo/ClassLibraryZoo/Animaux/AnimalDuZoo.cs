@@ -14,12 +14,23 @@ namespace ClassLibraryZoo.Animaux
 
         protected AnimalDuZoo():this(DateTime.Today,false)
         {
+
         }
 
         protected AnimalDuZoo(DateTime dateDeNaissance, bool estNeeAuZoo)
         {
             this.dateDeNaissance = dateDeNaissance;
             this.estNeeAuZoo = estNeeAuZoo;
+        }
+
+        public DateTime DateDeNaissance 
+        {
+            get => this.dateDeNaissance;
+        }
+
+        public bool EstNeeAuZoo
+        {
+            get => this.estNeeAuZoo;
         }
 
         public int CompareTo(object obj)
