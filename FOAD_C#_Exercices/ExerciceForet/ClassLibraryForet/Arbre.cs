@@ -29,10 +29,15 @@ namespace ClassLibraryForet
             //set => hauteur = value; 
         }
 
-        public void AddFeuille(Feuille feuille)
+        //public void AddFeuille(Feuille feuille) //faille de sécurité
+        //{
+        //    //a faire
+        //    this.feuilles.Add(feuille); 
+        //}
+
+        public void AddFeuille(int nbNervure, EnumFormeFeuille formeFeuille, EnumCouleur couleurFeuille) //Correction faille de sécurité
         {
-            //a faire
-            this.feuilles.Add(feuille);
+            this.feuilles.Add(new Feuille(nbNervure, formeFeuille, couleurFeuille));
         }
 
         public void PasserEnAutomne()
