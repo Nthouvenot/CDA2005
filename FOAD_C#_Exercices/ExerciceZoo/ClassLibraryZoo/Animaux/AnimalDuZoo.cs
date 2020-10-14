@@ -52,7 +52,10 @@ namespace ClassLibraryZoo.Animaux
         }
 
         public abstract bool SeDeplacer();
+<<<<<<< HEAD
 
         public abstract void Manger();
+=======
+>>>>>>> f468eff4d7c179340b296b1898726eedaa029684
     }
 }
