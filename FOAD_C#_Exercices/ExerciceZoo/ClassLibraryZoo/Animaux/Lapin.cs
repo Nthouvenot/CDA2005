@@ -34,7 +34,7 @@ namespace ClassLibraryZoo.Animaux
             }
         }
 
-        public void Manger()
+        public override void Manger()
         {
             Console.WriteLine("Je mange des carrotes");
             return;
