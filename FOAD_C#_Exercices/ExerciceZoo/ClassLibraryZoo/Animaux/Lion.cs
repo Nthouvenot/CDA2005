@@ -19,11 +19,7 @@ namespace ClassLibraryZoo.Animaux
 
         }
 
-<<<<<<< HEAD
         public override void Manger()
-=======
-        public void Manger()
->>>>>>> f468eff4d7c179340b296b1898726eedaa029684
         {
             throw new System.NotImplementedException();
         }
