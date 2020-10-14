@@ -45,11 +45,18 @@ namespace ClassLibraryForet
 
         public void PasserEnAutomne()
         {
-            if(this.couleurFeuille == EnumCouleur.Jaune)
+            if (this.couleurFeuille.Equals(EnumCouleur.Jaune))
+            {
+                this.couleurFeuille = EnumCouleur.Orange;
+            }
+            else if (this.couleurFeuille.Equals(EnumCouleur.Orange))
             {
                 this.couleurFeuille = EnumCouleur.Rouge;
             }
-            this.couleurFeuille = EnumCouleur.Jaune;
+            else
+            {
+                this.couleurFeuille = EnumCouleur.Jaune;
+            }
         }
 
         public override string ToString()
