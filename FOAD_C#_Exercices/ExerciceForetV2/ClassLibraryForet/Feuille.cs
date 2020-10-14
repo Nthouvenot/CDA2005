@@ -37,6 +37,10 @@ namespace ClassLibraryForet
         {
             if (this.couleurFeuille.Equals(EnumCouleur.Jaune))
             {
+                this.couleurFeuille = EnumCouleur.Orange;
+            }
+            else if(this.couleurFeuille.Equals(EnumCouleur.Orange))
+            {
                 this.couleurFeuille = EnumCouleur.Rouge;
             }
             else

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ClassLibraryForet
 {
-    public class Arbre : IList, ICollection
+    public class Arbre : IList
     {
         int hauteur;
         private List<Feuille> feuilles;
