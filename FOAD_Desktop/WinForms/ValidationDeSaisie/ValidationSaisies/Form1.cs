@@ -17,6 +17,26 @@ namespace ValidationSaisies
         public Form1()
         {
             InitializeComponent();
+            OtherInitialize();
+        }
+
+        private void OtherInitialize()
+        {
+            this.Closing += new CancelEventHandler(this.Form1_Closing);
+        }
+
+        /// <summary>
+        /// Intercept the exit message
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Form1_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            DialogResult dialogExit = MessageBox.Show("Voulez vous quittez l'application", "Quitter", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            if (dialogExit == DialogResult.No)
+            {
+                e.Cancel = true;
+            }
         }
 
         /// <summary>
@@ -80,7 +100,14 @@ namespace ValidationSaisies
 
         private void validate_Click(object sender, EventArgs e)
         {
-            string message = "Nom : " +  textBoxName.Text + "\n" + "Date : " + textBoxDate.Text + "\n" + "Montant : " + textBoxAmount.Text + "\n" + "Code : " + textBoxZipCode.Text;
+            string message;
+            if (!ClassChecks.CheckName(textBoxName.Text) || !ClassChecks.CheckDate(textBoxDate.Text) || !ClassChecks.CheckAmount(textBoxAmount.Text) || !ClassChecks.CheckZipCode(textBoxZipCode.Text))
+            {
+                message = "Donnée saisie invalide";
+            } else
+            {
+                message = "Nom : " + textBoxName.Text + "\n" + "Date : " + textBoxDate.Text + "\n" + "Montant : " + textBoxAmount.Text + "\n" + "Code : " + textBoxZipCode.Text;
+            }
             MessageBox.Show(message, "Validation saisie", MessageBoxButtons.OK);
 
         }

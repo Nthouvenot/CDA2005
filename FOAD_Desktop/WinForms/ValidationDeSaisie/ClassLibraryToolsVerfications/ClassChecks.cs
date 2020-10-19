@@ -21,13 +21,17 @@ namespace ClassLibraryToolsChecks
 
         public static bool CheckDate(string _date)
         {
-           // ToDo accpet multiple format use DateTime object => DateTime.ParseExact
+           // ToDo accept multiple format use DateTime object => DateTime.ParseExact
             if(_date.Length != 10)
             {
                 return false;
             }
-            DateTime billDate = Convert.ToDateTime(_date);
-            if(!(billDate < DateTime.Now))
+            DateTime billDate = new DateTime();
+            if(!DateTime.TryParseExact(_date, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.AssumeLocal, out billDate))
+            {
+                return false;
+            }
+            if(!(billDate <= DateTime.Today))
             {
                 return false;
             }

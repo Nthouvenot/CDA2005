@@ -1,4 +1,6 @@
-﻿namespace ValidationSaisies
+﻿using System.Windows.Forms;
+
+namespace ValidationSaisies
 {
     partial class Form1
     {
