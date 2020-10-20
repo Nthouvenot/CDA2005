@@ -1,4 +1,5 @@
-﻿using ClassLibraryToolsChecks;
+﻿using ClassLibraryFacture;
+using ClassLibraryToolsChecks;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -106,7 +107,19 @@ namespace ValidationSaisies
                 message = "Donnée saisie invalide";
             } else
             {
-                message = "Nom : " + textBoxName.Text + "\n" + "Date : " + textBoxDate.Text + "\n" + "Montant : " + textBoxAmount.Text + "\n" + "Code : " + textBoxZipCode.Text;
+                string editDateString = textBoxDate.Text;
+                float amount = 0;
+                DateTime editDate = new DateTime();
+                if(!DateTime.TryParseExact(textBoxDate.Text, "dd/MM/yyyy", null, System.Globalization.DateTimeStyles.AssumeLocal, out editDate)) 
+                {
+                    return;
+                }
+                if(!float.TryParse(textBoxAmount.Text, out amount))
+                {
+                    return;
+                }
+                Bill bill = new Bill(textBoxName.Text, editDate, amount, textBoxZipCode.Text);
+                message = bill.PrintBill();
             }
             MessageBox.Show(message, "Validation saisie", MessageBoxButtons.OK);
 

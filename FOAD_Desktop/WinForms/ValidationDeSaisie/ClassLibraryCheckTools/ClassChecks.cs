@@ -21,7 +21,6 @@ namespace ClassLibraryToolsChecks
 
         public static bool CheckDate(string _date)
         {
-           // ToDo accept multiple format use DateTime object => DateTime.ParseExact
             if(_date.Length != 10)
             {
                 return false;
