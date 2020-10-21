@@ -6,6 +6,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.Remoting.Messaging;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
@@ -15,10 +16,28 @@ namespace ValidationSaisies
 {
     public partial class Form1 : Form
     {
+        Bill currentBill;
+
         public Form1()
         {
+            currentBill = new Bill("undefined", DateTime.Today, 0, "undefined");
             InitializeComponent();
             OtherInitialize();
+        }
+
+        public Form1(Bill _bill)
+        {
+            currentBill = new Bill(_bill);
+            InitializeComponent();
+            OtherInitialize();
+        }
+
+        /// <summary>
+        /// Property of the currentBill field only in read mode
+        /// </summary>
+        public Bill CurrentBill
+        {
+            get => this.currentBill;
         }
 
         private void OtherInitialize()
@@ -33,11 +52,24 @@ namespace ValidationSaisies
         /// <param name="e"></param>
         private void Form1_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            DialogResult dialogExit = MessageBox.Show("Voulez vous quittez l'application", "Quitter", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+            DialogResult dialogExit = MessageBox.Show("Voulez vous fermer la fenêtre", "Quitter", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (dialogExit == DialogResult.No)
             {
                 e.Cancel = true;
             }
+        }
+
+        /// <summary>
+        /// When the windows are loaded we send the content of the bill into the TextBox
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void Form1_Load(object sender, EventArgs e)
+        {
+            textBoxName.Text = currentBill.Name;
+            textBoxDate.Text = currentBill.Date.ToString().Substring(0, 10);
+            textBoxAmount.Text = currentBill.Amount.ToString();
+            textBoxZipCode.Text = currentBill.ZipCode;
         }
 
         /// <summary>
@@ -118,8 +150,8 @@ namespace ValidationSaisies
                 {
                     return;
                 }
-                Bill bill = new Bill(textBoxName.Text, editDate, amount, textBoxZipCode.Text);
-                message = bill.PrintBill();
+                currentBill = new Bill(textBoxName.Text, editDate, amount, textBoxZipCode.Text);
+                message = currentBill.PrintBill();
             }
             MessageBox.Show(message, "Validation saisie", MessageBoxButtons.OK);
 

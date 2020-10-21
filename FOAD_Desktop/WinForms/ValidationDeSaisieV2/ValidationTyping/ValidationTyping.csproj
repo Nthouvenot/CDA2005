@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{71288B7F-F40D-4D01-975E-1348F346C4E5}</ProjectGuid>
+    <ProjectGuid>{0930240F-D9CB-4F5F-A426-CFA9DA2166BF}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <RootNamespace>ValidationSaisies</RootNamespace>
     <AssemblyName>ValidationSaisies</AssemblyName>
@@ -51,6 +51,12 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form2.Designer.cs">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -61,15 +67,18 @@
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form2.resx">
+      <DependentUpon>Form2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\ClassLibraryBill\ClassLibraryBill.csproj">
       <Project>{adc5cd28-67cc-4951-b629-068d07ce7c38}</Project>
-      <Name>ClassLibraryFacture</Name>
+      <Name>ClassLibraryBill</Name>
     </ProjectReference>
     <ProjectReference Include="..\ClassLibraryCheckTools\ClassLibraryChecksTools.csproj">
       <Project>{7ff156f9-0ea5-4bcb-8f28-fbb2e63ce097}</Project>
-      <Name>ClassLibraryToolsChecks</Name>
+      <Name>ClassLibraryChecksTools</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

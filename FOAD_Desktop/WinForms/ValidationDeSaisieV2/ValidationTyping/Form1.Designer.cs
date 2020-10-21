@@ -184,6 +184,7 @@ namespace ValidationSaisies
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "Form1";
             this.Text = "Les contrôles";
+            this.Load += new System.EventHandler(this.Form1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderNom)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderDate)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderAmount)).EndInit();
