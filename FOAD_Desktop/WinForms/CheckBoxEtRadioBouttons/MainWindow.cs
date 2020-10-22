@@ -69,6 +69,7 @@ namespace CheckBoxEtRadioBouttons
                             radioButtonBkgRed.Checked = false;
                             radioButtonBkgGreen.Checked = false;
                             radioButtonBkgBlue.Checked = false;
+                            labelResultTyping.BackColor = initialBkgColor;
                         }
                         groupBoxBackgroudColor.Enabled = checkBoxBackgroundColor.Checked;
                         break;
@@ -82,7 +83,8 @@ namespace CheckBoxEtRadioBouttons
                         {
                             radioButtonFontRed.Checked = false;
                             radioButtonFontWhite.Checked = false;
-                            radioButtonFontBlack.Checked = true;
+                            radioButtonFontBlack.Checked = false;
+                            labelResultTyping.ForeColor = initialFgColor;
                         }
                         groupBoxFontColor.Enabled = checkBoxFontColor.Checked;
                         break;
@@ -93,9 +95,7 @@ namespace CheckBoxEtRadioBouttons
                         {
                             string text = labelResultTyping.Text.ToLower();
                             labelResultTyping.Text = text;
-                        } else
-                        {
-                            radioButtonCaseLower.Checked = true;
+                            radioButtonCaseLower.Checked = false;
                             radioButtonCaseUpper.Checked = false;
                         }
                         groupBoxCase.Enabled = checkBoxCase.Checked;
