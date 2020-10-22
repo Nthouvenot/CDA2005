@@ -152,7 +152,7 @@ namespace ValidationSaisies
                 }
                 if(!float.TryParse(textBoxAmount.Text, out amount))
                 {
-                    return;
+                    float.TryParse(textBoxAmount.Text.Replace('.', ','), out amount);
                 }
                 currentBill = new Bill(textBoxName.Text, editDate, amount, textBoxZipCode.Text);
                 message = currentBill.PrintBill();
