@@ -5,13 +5,23 @@ VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Calculatrice", "Calculatrice\Calculatrice.csproj", "{414B4D03-D98B-4E6B-803B-6D7926AD2D79}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationSaisies", "ValidationSaisies\ValidationSaisies.csproj", "{71288B7F-F40D-4D01-975E-1348F346C4E5}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryFacture", "ClassLibraryFacture\ClassLibraryFacture.csproj", "{ADC5CD28-67CC-4951-B629-068D07CE7C38}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ValidationDeSaisie", "ValidationDeSaisie", "{956321F8-4ED0-4747-ABCC-7BE25402B437}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryToolsChecks", "ClassLibraryToolsVerfications\ClassLibraryToolsChecks.csproj", "{7FF156F9-0EA5-4BCB-8F28-FBB2E63CE097}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryBill", "ValidationDeSaisie\ClassLibraryBill\ClassLibraryBill.csproj", "{ADC5CD28-67CC-4951-B629-068D07CE7C38}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryChecksTools", "ValidationDeSaisie\ClassLibraryCheckTools\ClassLibraryChecksTools.csproj", "{7FF156F9-0EA5-4BCB-8F28-FBB2E63CE097}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationTyping", "ValidationDeSaisie\ValidationTyping\ValidationTyping.csproj", "{71288B7F-F40D-4D01-975E-1348F346C4E5}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ValidationDeSaisieV2", "ValidationDeSaisieV2", "{61B59964-8ECC-4509-B91B-66D2D5BDA124}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryBill", "ValidationDeSaisieV2\ClassLibraryBill\ClassLibraryBill.csproj", "{5AF7452F-462D-4BBE-8B3F-5C7B653EFB39}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryChecksTools", "ValidationDeSaisieV2\ClassLibraryCheckTools\ClassLibraryChecksTools.csproj", "{69AB0927-A069-4C45-B6CC-1886C94D4F13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ValidationTyping", "ValidationDeSaisieV2\ValidationTyping\ValidationTyping.csproj", "{0930240F-D9CB-4F5F-A426-CFA9DA2166BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CheckBoxEtRadioBouttons", "CheckBoxEtRadioBouttons\CheckBoxEtRadioBouttons.csproj", "{58409F86-1BB0-42F8-B8B4-8DC3B7D9FA9A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +33,6 @@ Global
 		{414B4D03-D98B-4E6B-803B-6D7926AD2D79}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{414B4D03-D98B-4E6B-803B-6D7926AD2D79}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{414B4D03-D98B-4E6B-803B-6D7926AD2D79}.Release|Any CPU.Build.0 = Release|Any CPU
-		{71288B7F-F40D-4D01-975E-1348F346C4E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{71288B7F-F40D-4D01-975E-1348F346C4E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{71288B7F-F40D-4D01-975E-1348F346C4E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{71288B7F-F40D-4D01-975E-1348F346C4E5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{ADC5CD28-67CC-4951-B629-068D07CE7C38}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{ADC5CD28-67CC-4951-B629-068D07CE7C38}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{ADC5CD28-67CC-4951-B629-068D07CE7C38}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -35,14 +41,37 @@ Global
 		{7FF156F9-0EA5-4BCB-8F28-FBB2E63CE097}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7FF156F9-0EA5-4BCB-8F28-FBB2E63CE097}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7FF156F9-0EA5-4BCB-8F28-FBB2E63CE097}.Release|Any CPU.Build.0 = Release|Any CPU
+		{71288B7F-F40D-4D01-975E-1348F346C4E5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{71288B7F-F40D-4D01-975E-1348F346C4E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{71288B7F-F40D-4D01-975E-1348F346C4E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{71288B7F-F40D-4D01-975E-1348F346C4E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5AF7452F-462D-4BBE-8B3F-5C7B653EFB39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5AF7452F-462D-4BBE-8B3F-5C7B653EFB39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5AF7452F-462D-4BBE-8B3F-5C7B653EFB39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5AF7452F-462D-4BBE-8B3F-5C7B653EFB39}.Release|Any CPU.Build.0 = Release|Any CPU
+		{69AB0927-A069-4C45-B6CC-1886C94D4F13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{69AB0927-A069-4C45-B6CC-1886C94D4F13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{69AB0927-A069-4C45-B6CC-1886C94D4F13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{69AB0927-A069-4C45-B6CC-1886C94D4F13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0930240F-D9CB-4F5F-A426-CFA9DA2166BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0930240F-D9CB-4F5F-A426-CFA9DA2166BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0930240F-D9CB-4F5F-A426-CFA9DA2166BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0930240F-D9CB-4F5F-A426-CFA9DA2166BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{58409F86-1BB0-42F8-B8B4-8DC3B7D9FA9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{58409F86-1BB0-42F8-B8B4-8DC3B7D9FA9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{58409F86-1BB0-42F8-B8B4-8DC3B7D9FA9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{58409F86-1BB0-42F8-B8B4-8DC3B7D9FA9A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{71288B7F-F40D-4D01-975E-1348F346C4E5} = {956321F8-4ED0-4747-ABCC-7BE25402B437}
 		{ADC5CD28-67CC-4951-B629-068D07CE7C38} = {956321F8-4ED0-4747-ABCC-7BE25402B437}
 		{7FF156F9-0EA5-4BCB-8F28-FBB2E63CE097} = {956321F8-4ED0-4747-ABCC-7BE25402B437}
+		{71288B7F-F40D-4D01-975E-1348F346C4E5} = {956321F8-4ED0-4747-ABCC-7BE25402B437}
+		{5AF7452F-462D-4BBE-8B3F-5C7B653EFB39} = {61B59964-8ECC-4509-B91B-66D2D5BDA124}
+		{69AB0927-A069-4C45-B6CC-1886C94D4F13} = {61B59964-8ECC-4509-B91B-66D2D5BDA124}
+		{0930240F-D9CB-4F5F-A426-CFA9DA2166BF} = {61B59964-8ECC-4509-B91B-66D2D5BDA124}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {A958D815-B0BE-4331-8240-B1138457B955}
