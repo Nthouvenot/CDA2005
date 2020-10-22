@@ -79,6 +79,7 @@
             this.groupBoxChoice.Controls.Add(this.checkBoxCase);
             this.groupBoxChoice.Controls.Add(this.checkBoxFontColor);
             this.groupBoxChoice.Controls.Add(this.checkBoxBackgroundColor);
+            this.groupBoxChoice.Enabled = false;
             this.groupBoxChoice.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBoxChoice.Location = new System.Drawing.Point(360, 13);
             this.groupBoxChoice.Name = "groupBoxChoice";

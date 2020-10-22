@@ -32,6 +32,7 @@ namespace CheckBoxEtRadioBouttons
             checkBoxFontColor.Checked = false;
             checkBoxFontColor.Checked = false;
             checkBoxCase.Checked = false;
+            groupBoxChoice.Enabled = false;
             groupBoxBackgroudColor.Enabled = false;
             groupBoxFontColor.Enabled = false;
             groupBoxCase.Enabled = false;
@@ -42,6 +43,13 @@ namespace CheckBoxEtRadioBouttons
         private void textBoxTyping_TextChanged(object sender, EventArgs e)
         {
             TextBox typing = (TextBox)sender;
+            if(typing.Text.Length > 0)
+            {
+                groupBoxChoice.Enabled = true;
+            } else
+            {
+                groupBoxChoice.Enabled = false;
+            }
             if(typing.TextLength >= 45)
             {
                 errorProviderTyping.SetError((Control)typing, "Le texte doit  faire moins de 45  caractères");
@@ -97,8 +105,9 @@ namespace CheckBoxEtRadioBouttons
                             labelResultTyping.Text = text;
                             radioButtonCaseLower.Checked = false;
                             radioButtonCaseUpper.Checked = false;
+                            groupBoxCase.Enabled = false;
                         }
-                        groupBoxCase.Enabled = checkBoxCase.Checked;
+                        groupBoxCase.Enabled = true;
                         break;
                     }
             }
@@ -157,14 +166,20 @@ namespace CheckBoxEtRadioBouttons
             {
                 case "radioButtonCaseLower":
                     {
-                        string text = labelResultTyping.Text.ToLower();
-                        labelResultTyping.Text = text;
+                        if(radioButtonCaseLower.Checked)
+                        {
+                            string text = labelResultTyping.Text.ToLower();
+                            labelResultTyping.Text = text;
+                        }
                         break;
                     }
                 case "radioButtonCaseUpper":
                     {
-                        string text = labelResultTyping.Text.ToUpper();
-                        labelResultTyping.Text = text;
+                        if(radioButtonCaseUpper.Checked)
+                        {
+                            string text = labelResultTyping.Text.ToUpper();
+                            labelResultTyping.Text = text;
+                        }
                         break;
                     }
             }
