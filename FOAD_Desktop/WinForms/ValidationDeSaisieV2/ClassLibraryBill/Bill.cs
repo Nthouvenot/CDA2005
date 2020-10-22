@@ -73,7 +73,7 @@ namespace ClassLibraryFacture
         {
             string printString = " ";
             printString = this.name + "\n";
-            printString += this.date.ToString() + "\n";
+            printString += this.date.ToString().Substring(0, 10) + "\n";
             printString += this.amount + "\n";
             printString += this.zipCode;
             return printString;

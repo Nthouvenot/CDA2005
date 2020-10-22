@@ -66,6 +66,10 @@ namespace ValidationSaisies
         /// <param name="e"></param>
         private void Form1_Load(object sender, EventArgs e)
         {
+            if(this.currentBill.Name == "undefined")
+            {
+                return;
+            }
             textBoxName.Text = currentBill.Name;
             textBoxDate.Text = currentBill.Date.ToString().Substring(0, 10);
             textBoxAmount.Text = currentBill.Amount.ToString();
