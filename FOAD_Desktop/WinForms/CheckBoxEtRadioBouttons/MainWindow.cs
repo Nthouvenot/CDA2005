@@ -69,10 +69,7 @@ namespace CheckBoxEtRadioBouttons
             {
                 case "checkBoxBackgroundColor":
                     {
-                        if(!checkBoxBackgroundColor.Checked)
-                        {
-                            labelResultTyping.BackColor = initialBkgColor;
-                        } else
+                        if (!checkBoxBackgroundColor.Checked)
                         {
                             radioButtonBkgRed.Checked = false;
                             radioButtonBkgGreen.Checked = false;
@@ -85,9 +82,6 @@ namespace CheckBoxEtRadioBouttons
                 case "checkBoxFontColor":
                     {
                         if (!checkBoxFontColor.Checked)
-                        {
-                            labelResultTyping.ForeColor = initialFgColor;
-                        } else
                         {
                             radioButtonFontRed.Checked = false;
                             radioButtonFontWhite.Checked = false;
