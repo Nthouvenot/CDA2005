@@ -48,7 +48,30 @@ namespace CheckBoxEtRadioBouttons
                 groupBoxChoice.Enabled = true;
             } else
             {
+                if(radioButtonBkgRed.Checked || radioButtonBkgGreen.Checked|| radioButtonBkgBlue.Checked)
+                {
+                    groupBoxBackgroudColor.Enabled = true;
+                } else
+                {
+                    groupBoxBackgroudColor.Enabled = false;
+                }
+                if(radioButtonFontRed.Checked || radioButtonFontWhite.Checked || radioButtonFontBlack.Checked)
+                {
+                    groupBoxFontColor.Enabled = true;
+                } else
+                {
+                    groupBoxFontColor.Enabled = false;
+                }
+                if(radioButtonCaseLower.Checked)
+                {
+                    groupBoxCase.Enabled = true;
+                } else if(radioButtonCaseUpper.Checked)
+                {
+                    radioButtonCase_CheckedChanged(radioButtonCaseUpper, EventArgs.Empty);
+                    groupBoxCase.Enabled = true;
+                }
                 groupBoxChoice.Enabled = false;
+                            
             }
             if(typing.TextLength >= 45)
             {
@@ -95,8 +118,6 @@ namespace CheckBoxEtRadioBouttons
                     {
                         if(!checkBoxCase.Checked)
                         {
-                            string text = labelResultTyping.Text.ToLower();
-                            labelResultTyping.Text = text;
                             radioButtonCaseLower.Checked = false;
                             radioButtonCaseUpper.Checked = false;
                             groupBoxCase.Enabled = false;
