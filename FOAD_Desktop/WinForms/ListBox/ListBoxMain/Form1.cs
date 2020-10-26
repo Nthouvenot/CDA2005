@@ -76,14 +76,11 @@ namespace ListBoxMain
         /// <param name="e"></param>
         private void listBoxName_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //int index = 0;
             ListBox listName = (ListBox)sender;
             textBoxSelectedIndex.Text = listName.SelectedIndex.ToString();
-            if(listName.SelectedItem == null)
+            if(listName.SelectedIndex == -1)
             {
                 textBoxSelectedIndex.Text = " ";
-                return;
-                
             } else
             {
                 textBoxTextName.Text = listBoxName.SelectedItem.ToString();
