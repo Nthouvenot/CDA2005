@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ListBox.Properties
+namespace ListBoxMain.Properties
 {
 
 

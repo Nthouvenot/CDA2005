@@ -1,4 +1,4 @@
-﻿namespace ListBox
+﻿namespace ListBoxMain
 {
     partial class mainWindow
     {
@@ -90,6 +90,7 @@
             // 
             // buttonSelect
             // 
+            this.buttonSelect.Enabled = false;
             this.buttonSelect.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSelect.Location = new System.Drawing.Point(304, 43);
             this.buttonSelect.Name = "buttonSelect";
@@ -97,9 +98,11 @@
             this.buttonSelect.TabIndex = 4;
             this.buttonSelect.Text = "Sélectionner";
             this.buttonSelect.UseVisualStyleBackColor = true;
+            this.buttonSelect.Click += new System.EventHandler(this.buttonSelect_Click);
             // 
             // buttonEmpty
             // 
+            this.buttonEmpty.Enabled = false;
             this.buttonEmpty.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEmpty.Location = new System.Drawing.Point(304, 79);
             this.buttonEmpty.Name = "buttonEmpty";
@@ -107,9 +110,11 @@
             this.buttonEmpty.TabIndex = 5;
             this.buttonEmpty.Text = "Vider la liste";
             this.buttonEmpty.UseVisualStyleBackColor = true;
+            this.buttonEmpty.Click += new System.EventHandler(this.buttonEmpty_Click);
             // 
             // buttonAddList
             // 
+            this.buttonAddList.Enabled = false;
             this.buttonAddList.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAddList.Location = new System.Drawing.Point(16, 79);
             this.buttonAddList.Name = "buttonAddList";
@@ -138,6 +143,7 @@
             this.listBoxName.Name = "listBoxName";
             this.listBoxName.Size = new System.Drawing.Size(150, 104);
             this.listBoxName.TabIndex = 8;
+            this.listBoxName.SelectedIndexChanged += new System.EventHandler(this.listBoxName_SelectedIndexChanged);
             // 
             // labelProporties
             // 
