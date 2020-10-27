@@ -112,6 +112,7 @@ namespace ListBoxMain
             textBoxItems.Clear();
             textBoxSelectedIndex.Clear();
             textBoxTextName.Clear();
-            buttonEmpty.Enabled = false;        }
+            buttonEmpty.Enabled = false;        
+        }
     }
 }

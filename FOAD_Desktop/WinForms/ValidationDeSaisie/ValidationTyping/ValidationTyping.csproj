@@ -65,11 +65,11 @@
   <ItemGroup>
     <ProjectReference Include="..\ClassLibraryBill\ClassLibraryBill.csproj">
       <Project>{adc5cd28-67cc-4951-b629-068d07ce7c38}</Project>
-      <Name>ClassLibraryFacture</Name>
+      <Name>ClassLibraryBill</Name>
     </ProjectReference>
     <ProjectReference Include="..\ClassLibraryCheckTools\ClassLibraryChecksTools.csproj">
       <Project>{7ff156f9-0ea5-4bcb-8f28-fbb2e63ce097}</Project>
-      <Name>ClassLibraryToolsChecks</Name>
+      <Name>ClassLibraryChecksTools</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
