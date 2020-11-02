@@ -48,6 +48,7 @@
             // 
             // hScrollBarRed
             // 
+            this.hScrollBarRed.LargeChange = 1;
             this.hScrollBarRed.Location = new System.Drawing.Point(90, 25);
             this.hScrollBarRed.Maximum = 255;
             this.hScrollBarRed.Name = "hScrollBarRed";
@@ -58,6 +59,7 @@
             // 
             // hScrollBarGreen
             // 
+            this.hScrollBarGreen.LargeChange = 1;
             this.hScrollBarGreen.Location = new System.Drawing.Point(90, 70);
             this.hScrollBarGreen.Maximum = 255;
             this.hScrollBarGreen.Name = "hScrollBarGreen";
@@ -68,6 +70,7 @@
             // 
             // hScrollBarBlue
             // 
+            this.hScrollBarBlue.LargeChange = 1;
             this.hScrollBarBlue.Location = new System.Drawing.Point(90, 111);
             this.hScrollBarBlue.Maximum = 255;
             this.hScrollBarBlue.Name = "hScrollBarBlue";
