@@ -121,6 +121,8 @@ namespace ListBoxEtComboBox
                         {
                             buttonAddAll.Enabled = true;
                         }
+                        buttonUp.Enabled = false;
+                        buttonDown.Enabled = false;
                         break;
                     }
             }
