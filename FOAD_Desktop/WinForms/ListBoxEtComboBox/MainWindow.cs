@@ -134,7 +134,7 @@ namespace ListBoxEtComboBox
         /// <param name="e"></param>
         private void comboBoxSource_DropDown(object sender, EventArgs e)
         {
-            if (comboBoxSource.Text.Length > 0 && !(comboBoxSource.Items.Contains(comboBoxSource.Text)))
+            if (comboBoxSource.Text.Length > 0 && !(comboBoxSource.Items.Contains(comboBoxSource.Text)) && !(listBoxTarget.Items.Contains(comboBoxSource.Text)))
             {
                 int index = comboBoxSource.Items.Add(comboBoxSource.Text);
                 comboBoxSource.SelectedItem = index;
