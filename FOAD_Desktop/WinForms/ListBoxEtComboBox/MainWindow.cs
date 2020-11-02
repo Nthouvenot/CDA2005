@@ -39,7 +39,7 @@ namespace ListBoxEtComboBox
         private void listBoxTarget_SelectedIndexChanged(object sender, EventArgs e)
         {
             buttonRemove.Enabled = true;
-            if(listBoxTarget.Items.Count >= 2)
+            if (listBoxTarget.Items.Count >= 2)
             {
                 buttonUp.Enabled = true;
                 buttonDown.Enabled = true;
@@ -70,6 +70,7 @@ namespace ListBoxEtComboBox
                             buttonRemove.Enabled = true;
                             buttonRemoveAll.Enabled = true;
                         }
+                        buttonAdd.Enabled = false;
                         break;
                     }
                 case "buttonAddAll":
@@ -101,6 +102,7 @@ namespace ListBoxEtComboBox
                             buttonAdd.Enabled = false;
                             buttonAddAll.Enabled = false;
                         }
+                        buttonRemove.Enabled = false;
                         break;
                     }
                 case "buttonRemoveAll":
@@ -154,7 +156,7 @@ namespace ListBoxEtComboBox
             if (index != -1 && index > 0)
             {
                 string stringIntoIndex = listBoxTarget.Items[index].ToString();
-                listBoxTarget.Items[index] =  listBoxTarget.Items[index - 1];
+                listBoxTarget.Items[index] = listBoxTarget.Items[index - 1];
                 listBoxTarget.Items[index - 1] = stringIntoIndex;
                 listBoxTarget.SelectedIndex = index - 1;
             }
