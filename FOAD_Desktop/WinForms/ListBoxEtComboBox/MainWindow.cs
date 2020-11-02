@@ -97,14 +97,17 @@ namespace ListBoxEtComboBox
                 case "buttonRemove":
                     {
                         selectedIndex = listBoxTarget.SelectedIndex;
-                        comboBoxSource.Items.Add(listBoxTarget.SelectedItem.ToString());
-                        listBoxTarget.Items.RemoveAt(selectedIndex);
-                        if (comboBoxSource.Items.Count == 0)
+                        if(selectedIndex != -1)
                         {
-                            buttonAdd.Enabled = false;
-                            buttonAddAll.Enabled = false;
+                            comboBoxSource.Items.Add(listBoxTarget.SelectedItem.ToString());
+                            listBoxTarget.Items.RemoveAt(selectedIndex);
+                            if (comboBoxSource.Items.Count == 0)
+                            {
+                                buttonAdd.Enabled = false;
+                                buttonAddAll.Enabled = false;
+                            }
+                            buttonRemove.Enabled = false;
                         }
-                        buttonRemove.Enabled = false;
                         break;
                     }
                 case "buttonRemoveAll":
