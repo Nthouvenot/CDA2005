@@ -82,7 +82,13 @@ namespace CheckBoxEtRadioBouttons
             {
                 errorProviderTyping.Clear();
             }
-            labelResultTyping.Text = typing.Text;
+            if (radioButtonCaseUpper.Checked)
+            {
+                labelResultTyping.Text = typing.Text.ToUpper();
+            } else
+            {
+                labelResultTyping.Text = typing.Text;
+            }
         }
 
         private void CheckBoxChoice_CheckedChanged(object sender, EventArgs e)
