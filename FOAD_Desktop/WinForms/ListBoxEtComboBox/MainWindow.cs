@@ -67,7 +67,6 @@ namespace ListBoxEtComboBox
                         comboBoxSource.Items.RemoveAt(selectedIndex);
                         if (!buttonRemove.Enabled || !buttonRemoveAll.Enabled)
                         {
-                            buttonRemove.Enabled = true;
                             buttonRemoveAll.Enabled = true;
                         }
                         buttonAdd.Enabled = false;
