@@ -171,7 +171,7 @@ namespace ListBoxEtComboBox
         private void buttonDown_Click(object sender, EventArgs e)
         {
             int index = listBoxTarget.SelectedIndex;
-            if (index != -1 && index < listBoxTarget.Items.Count)
+            if (index != -1 && index < listBoxTarget.Items.Count - 1)
             {
                 string stringIntoIndex = listBoxTarget.Items[index].ToString();
                 listBoxTarget.Items[index] = listBoxTarget.Items[index + 1];
