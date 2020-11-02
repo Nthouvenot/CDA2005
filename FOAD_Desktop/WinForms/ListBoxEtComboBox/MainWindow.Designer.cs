@@ -140,6 +140,7 @@
             this.buttonDown.Size = new System.Drawing.Size(42, 50);
             this.buttonDown.TabIndex = 9;
             this.buttonDown.UseVisualStyleBackColor = true;
+            this.buttonDown.Click += new System.EventHandler(this.buttonDown_Click);
             // 
             // buttonUp
             // 
@@ -150,6 +151,7 @@
             this.buttonUp.Size = new System.Drawing.Size(42, 50);
             this.buttonUp.TabIndex = 10;
             this.buttonUp.UseVisualStyleBackColor = true;
+            this.buttonUp.Click += new System.EventHandler(this.buttonUp_Click);
             // 
             // MainWindow
             // 
