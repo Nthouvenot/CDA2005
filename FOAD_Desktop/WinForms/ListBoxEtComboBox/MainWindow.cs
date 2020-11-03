@@ -76,7 +76,6 @@ namespace ListBoxEtComboBox
                             listBoxTarget.Items.Add(comboBoxSource.SelectedItem.ToString());
                             comboBoxSource.Items.RemoveAt(selectedIndex);
                             buttonRemoveAll.Enabled = true;
-                            //buttonAdd.Enabled = false;
                         }
                         // Select the following items and reset the Text if it has not other items
                         if (selectedIndex >= 0 && selectedIndex < comboBoxSource.Items.Count)
@@ -115,6 +114,7 @@ namespace ListBoxEtComboBox
                         {
                             comboBoxSource.Items.Add(listBoxTarget.SelectedItem.ToString());
                             listBoxTarget.Items.RemoveAt(selectedIndex);
+                            buttonAddAll.Enabled = true;
                             if (comboBoxSource.Items.Count == 0)
                             {
                                 buttonAdd.Enabled = false;
