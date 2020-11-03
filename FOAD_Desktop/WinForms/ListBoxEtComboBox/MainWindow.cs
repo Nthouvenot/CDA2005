@@ -39,11 +39,8 @@ namespace ListBoxEtComboBox
         private void listBoxTarget_SelectedIndexChanged(object sender, EventArgs e)
         {
             buttonRemove.Enabled = true;
-            if (listBoxTarget.Items.Count >= 2)
-            {
-                buttonUp.Enabled = true;
-                buttonDown.Enabled = true;
-            }
+            buttonUp.Enabled = true;
+            buttonDown.Enabled = true;
         }
 
         /// <summary>
@@ -67,12 +64,14 @@ namespace ListBoxEtComboBox
                         {
                             listBoxTarget.Items.Add(comboBoxSource.SelectedItem.ToString());
                             comboBoxSource.Items.RemoveAt(selectedIndex);
-                            if (!buttonRemove.Enabled || !buttonRemoveAll.Enabled)
-                            {
-                                buttonRemoveAll.Enabled = true;
-                            }
+                            buttonRemoveAll.Enabled = true;
                             buttonAdd.Enabled = false;
                         }
+                        if(selectedIndex != 0)
+                        {
+                            comboBoxSource.SelectedIndex = selectedIndex;
+                        }
+                        
                         break;
                     }
                 case "buttonAddAll":
@@ -88,10 +87,7 @@ namespace ListBoxEtComboBox
                         comboBoxSource.Items.Clear();
                         buttonAdd.Enabled = false;
                         buttonAddAll.Enabled = false;
-                        if (!buttonRemove.Enabled || !buttonRemoveAll.Enabled)
-                        {
-                            buttonRemoveAll.Enabled = true;
-                        }
+                        buttonRemoveAll.Enabled = true;
                         break;
                     }
                 case "buttonRemove":
@@ -107,6 +103,10 @@ namespace ListBoxEtComboBox
                                 buttonAddAll.Enabled = false;
                             }
                             buttonRemove.Enabled = false;
+                            if(selectedIndex != listBoxTarget.Items.Count)
+                            {
+                                listBoxTarget.SelectedIndex = selectedIndex;
+                            }
                         }
                         break;
                     }
@@ -122,10 +122,7 @@ namespace ListBoxEtComboBox
                         listBoxTarget.Items.Clear();
                         buttonRemove.Enabled = false;
                         buttonRemoveAll.Enabled = false;
-                        if (!buttonAdd.Enabled || !buttonAddAll.Enabled)
-                        {
-                            buttonAddAll.Enabled = true;
-                        }
+                        buttonAddAll.Enabled = true;
                         buttonUp.Enabled = false;
                         buttonDown.Enabled = false;
                         break;
@@ -144,11 +141,8 @@ namespace ListBoxEtComboBox
             {
                 int index = comboBoxSource.Items.Add(comboBoxSource.Text);
                 comboBoxSource.SelectedItem = index;
-                if (!buttonAdd.Enabled || !buttonAddAll.Enabled)
-                {
-                    buttonAdd.Enabled = true;
-                    buttonAddAll.Enabled = true;
-                }
+                buttonAdd.Enabled = true;
+                buttonAddAll.Enabled = true;
             }
         }
 
@@ -167,6 +161,10 @@ namespace ListBoxEtComboBox
                 listBoxTarget.Items[index - 1] = stringIntoIndex;
                 listBoxTarget.SelectedIndex = index - 1;
             }
+            if(index == 1)
+            {
+                buttonUp.Enabled = false;
+            }
         }
 
         /// <summary>
@@ -183,6 +181,10 @@ namespace ListBoxEtComboBox
                 listBoxTarget.Items[index] = listBoxTarget.Items[index + 1];
                 listBoxTarget.Items[index + 1] = stringIntoIndex;
                 listBoxTarget.SelectedIndex = index + 1;
+            }
+            if(index == listBoxTarget.Items.Count - 2)
+            {
+                buttonDown.Enabled = false;
             }
         }
     }
