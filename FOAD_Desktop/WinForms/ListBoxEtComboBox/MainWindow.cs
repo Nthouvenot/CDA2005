@@ -38,9 +38,20 @@ namespace ListBoxEtComboBox
         /// <param name="e"></param>
         private void listBoxTarget_SelectedIndexChanged(object sender, EventArgs e)
         {
-            buttonRemove.Enabled = true;
-            buttonUp.Enabled = true;
-            buttonDown.Enabled = true;
+            if(listBoxTarget.SelectedIndex != -1)
+            {
+                buttonRemove.Enabled = true;
+                buttonUp.Enabled = true;
+                buttonDown.Enabled = true;
+            }
+            else if(listBoxTarget.SelectedIndex == 0)
+            {
+                buttonUp.Enabled = false;
+            }
+            else if(listBoxTarget.SelectedIndex == listBoxTarget.Items.Count - 1)
+            {
+                buttonDown.Enabled = false;
+            }
         }
 
         /// <summary>
@@ -59,19 +70,26 @@ namespace ListBoxEtComboBox
             {
                 case "buttonAdd":
                     {
-                        selectedIndex = comboBoxSource.SelectedIndex;
-                        if(selectedIndex != -1)
+                        selectedIndex = (int)comboBoxSource.SelectedIndex;
+                        if (selectedIndex != -1)
                         {
                             listBoxTarget.Items.Add(comboBoxSource.SelectedItem.ToString());
                             comboBoxSource.Items.RemoveAt(selectedIndex);
                             buttonRemoveAll.Enabled = true;
-                            buttonAdd.Enabled = false;
+                            //buttonAdd.Enabled = false;
                         }
-                        if(selectedIndex != 0)
+                        // Select the following items and reset the Text if it has not other items
+                        if (selectedIndex >= 0 && selectedIndex < comboBoxSource.Items.Count)
                         {
                             comboBoxSource.SelectedIndex = selectedIndex;
+                            buttonAdd.Enabled = true;
                         }
-                        
+                        else
+                        {
+                            comboBoxSource.Text = "";
+                            buttonAdd.Enabled = false;
+                            buttonAddAll.Enabled = false;
+                        }
                         break;
                     }
                 case "buttonAddAll":
@@ -103,9 +121,18 @@ namespace ListBoxEtComboBox
                                 buttonAddAll.Enabled = false;
                             }
                             buttonRemove.Enabled = false;
-                            if(selectedIndex != listBoxTarget.Items.Count)
+                            // Select the following items and reset the Text if it has not other items
+                            if (selectedIndex >= 0 && selectedIndex < listBoxTarget.Items.Count)
                             {
                                 listBoxTarget.SelectedIndex = selectedIndex;
+                                buttonRemove.Enabled = true;
+                            }
+                            else
+                            {
+                                buttonRemove.Enabled = false;
+                                buttonRemoveAll.Enabled = false;
+                                buttonUp.Enabled = false;
+                                buttonDown.Enabled = false;
                             }
                         }
                         break;
