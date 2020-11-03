@@ -38,19 +38,22 @@ namespace ListBoxEtComboBox
         /// <param name="e"></param>
         private void listBoxTarget_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if(listBoxTarget.SelectedIndex != -1)
+            
+            if(listBoxTarget.SelectedIndex == 0)
+            {
+                buttonUp.Enabled = false;
+                buttonDown.Enabled = true;
+            }
+            else if(listBoxTarget.SelectedIndex == listBoxTarget.Items.Count - 1)
+            {
+                buttonUp.Enabled = true;
+                buttonDown.Enabled = false;
+            }
+            else if (listBoxTarget.SelectedIndex != -1)
             {
                 buttonRemove.Enabled = true;
                 buttonUp.Enabled = true;
                 buttonDown.Enabled = true;
-            }
-            else if(listBoxTarget.SelectedIndex == 0)
-            {
-                buttonUp.Enabled = false;
-            }
-            else if(listBoxTarget.SelectedIndex == listBoxTarget.Items.Count - 1)
-            {
-                buttonDown.Enabled = false;
             }
         }
 
