@@ -25,7 +25,6 @@ namespace Defilement
         {
             InitializeComponent();
             this.choosenColor = _color;
-            //labelColorResult.BackColor = this.choosenColor;
         }
 
         /// <summary>
