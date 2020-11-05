@@ -215,7 +215,7 @@
             this.Controls.Add(this.hScrollBarRed);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "FormDefilement";
-            this.Text = "Form1";
+            this.Text = "Defilement";
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownRed)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownGreen)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDownBlue)).EndInit();

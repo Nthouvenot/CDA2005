@@ -28,15 +28,27 @@ namespace Defilement
         }
 
         /// <summary>
+        /// Update the value of the control who has send the event
         /// Update the background color inside the label PrintRed, PrintGreen, PrintBlue and ColorResult
         /// </summary>
-        private void UpdateView()
+        private void UpdateView(object sender)
         {
+            if (sender.GetType().Name == "HScrollBar")
+            {
+                numericUpDownRed.Value = this.choosenColor.R;
+                numericUpDownGreen.Value = this.choosenColor.G;
+                numericUpDownBlue.Value = this.choosenColor.B;
+            }
+            else
+            {
+               hScrollBarRed.Value  = this.choosenColor.R;
+               hScrollBarGreen.Value  = this.choosenColor.G;
+               hScrollBarBlue.Value = this.choosenColor.B;
+            }
             labelPrintRed.BackColor = Color.FromArgb(this.choosenColor.R, 0, 0);
             labelPrintGreen.BackColor = Color.FromArgb(0, this.choosenColor.G, 0);
             labelPrintBlue.BackColor = Color.FromArgb(0, 0, this.choosenColor.B);
             labelColorResult.BackColor = choosenColor;
-
         }
 
         /// <summary>
@@ -51,23 +63,20 @@ namespace Defilement
             {
                 case "hScrollBarRed":
                     {
-                        numericUpDownRed.Value = hScrollBarRed.Value;
                         this.choosenColor = Color.FromArgb(hScrollBarRed.Value, this.choosenColor.G, this.choosenColor.B);
-                        this.UpdateView();
+                        this.UpdateView(sender);
                         break;
                     }
                 case "hScrollBarGreen":
                     {
-                        numericUpDownGreen.Value = hScrollBarGreen.Value;
                         this.choosenColor = Color.FromArgb(this.choosenColor.R, hScrollBarGreen.Value, this.choosenColor.B);
-                        this.UpdateView();
+                        this.UpdateView(sender);
                         break;
                     }
                 case "hScrollBarBlue":
                     {
-                        numericUpDownBlue.Value = hScrollBarBlue.Value;
                         this.choosenColor = Color.FromArgb(this.choosenColor.R, this.choosenColor.G, hScrollBarBlue.Value);
-                        this.UpdateView();
+                        this.UpdateView(sender);
                         break;
                     }
             }
@@ -85,23 +94,20 @@ namespace Defilement
             {
                 case "numericUpDownRed":
                     {
-                        hScrollBarRed.Value = (int)numericUpDownSender.Value;
-                        this.choosenColor = Color.FromArgb(hScrollBarRed.Value, this.choosenColor.G, this.choosenColor.B);
-                        this.UpdateView();
+                        this.choosenColor = Color.FromArgb((int)numericUpDownRed.Value, this.choosenColor.G, this.choosenColor.B);
+                        this.UpdateView(sender);
                         break;
                     }
                 case "numericUpDownGreen":
                     {
-                        hScrollBarGreen.Value = (int)numericUpDownGreen.Value;
-                        this.choosenColor = Color.FromArgb(this.choosenColor.R, hScrollBarGreen.Value, this.choosenColor.B);
-                        this.UpdateView();
+                        this.choosenColor = Color.FromArgb(this.choosenColor.R, (int)numericUpDownGreen.Value, this.choosenColor.B);
+                        this.UpdateView(sender);
                         break;
                     }
                 case "numericUpDownBlue":
                     {
-                        hScrollBarBlue.Value = (int)numericUpDownBlue.Value;
-                        this.choosenColor = Color.FromArgb(this.choosenColor.R, this.choosenColor.G, hScrollBarBlue.Value);
-                        this.UpdateView();
+                        this.choosenColor = Color.FromArgb(this.choosenColor.R, this.choosenColor.G, (int)numericUpDownBlue.Value);
+                        this.UpdateView(sender);
                         break;
                     }
             }
