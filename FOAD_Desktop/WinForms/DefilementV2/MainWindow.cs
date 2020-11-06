@@ -19,12 +19,14 @@ namespace Defilement
         {
             InitializeComponent();
             this.choosenColor = Color.Black;
+            this.UpdateView(this);
         }
 
         public FormDefilement(Color _color)
         {
             InitializeComponent();
             this.choosenColor = _color;
+            this.UpdateView(this);
         }
 
         /// <summary>
@@ -39,11 +41,20 @@ namespace Defilement
                 numericUpDownGreen.Value = this.choosenColor.G;
                 numericUpDownBlue.Value = this.choosenColor.B;
             }
-            else
+            else if(sender.GetType().Name == "NumericUpDown")
             {
                hScrollBarRed.Value  = this.choosenColor.R;
                hScrollBarGreen.Value  = this.choosenColor.G;
                hScrollBarBlue.Value = this.choosenColor.B;
+            }
+            else
+            {
+                hScrollBarRed.Value = this.choosenColor.R;
+                hScrollBarGreen.Value = this.choosenColor.G;
+                hScrollBarBlue.Value = this.choosenColor.B;
+                numericUpDownRed.Value = this.choosenColor.R;
+                numericUpDownGreen.Value = this.choosenColor.G;
+                numericUpDownBlue.Value = this.choosenColor.B;
             }
             labelPrintRed.BackColor = Color.FromArgb(this.choosenColor.R, 0, 0);
             labelPrintGreen.BackColor = Color.FromArgb(0, this.choosenColor.G, 0);
