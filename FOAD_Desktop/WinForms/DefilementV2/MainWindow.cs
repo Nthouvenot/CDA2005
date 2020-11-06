@@ -30,32 +30,17 @@ namespace Defilement
         }
 
         /// <summary>
-        /// Update the value of the control who has send the event
+        /// Update the value of the controls
         /// Update the background color inside the label PrintRed, PrintGreen, PrintBlue and ColorResult
         /// </summary>
         private void UpdateView(object sender)
         {
-            if (sender.GetType().Name == "HScrollBar")
-            {
-                numericUpDownRed.Value = this.choosenColor.R;
-                numericUpDownGreen.Value = this.choosenColor.G;
-                numericUpDownBlue.Value = this.choosenColor.B;
-            }
-            else if(sender.GetType().Name == "NumericUpDown")
-            {
-               hScrollBarRed.Value  = this.choosenColor.R;
-               hScrollBarGreen.Value  = this.choosenColor.G;
-               hScrollBarBlue.Value = this.choosenColor.B;
-            }
-            else
-            {
-                hScrollBarRed.Value = this.choosenColor.R;
-                hScrollBarGreen.Value = this.choosenColor.G;
-                hScrollBarBlue.Value = this.choosenColor.B;
-                numericUpDownRed.Value = this.choosenColor.R;
-                numericUpDownGreen.Value = this.choosenColor.G;
-                numericUpDownBlue.Value = this.choosenColor.B;
-            }
+            hScrollBarRed.Value = this.choosenColor.R;
+            hScrollBarGreen.Value = this.choosenColor.G;
+            hScrollBarBlue.Value = this.choosenColor.B;
+            numericUpDownRed.Value = this.choosenColor.R;
+            numericUpDownGreen.Value = this.choosenColor.G;
+            numericUpDownBlue.Value = this.choosenColor.B;
             labelPrintRed.BackColor = Color.FromArgb(this.choosenColor.R, 0, 0);
             labelPrintGreen.BackColor = Color.FromArgb(0, this.choosenColor.G, 0);
             labelPrintBlue.BackColor = Color.FromArgb(0, 0, this.choosenColor.B);
