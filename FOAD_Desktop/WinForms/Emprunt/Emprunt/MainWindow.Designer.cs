@@ -81,7 +81,7 @@
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(124, 26);
             this.textBoxName.TabIndex = 2;
-            this.textBoxName.TextChanged += new System.EventHandler(this.textBoxName_TextChanged);
+            this.textBoxName.TextChanged += new System.EventHandler(this.TextBoxName_TextChanged);
             // 
             // textBoxMoneyBoworred
             // 
@@ -90,7 +90,7 @@
             this.textBoxMoneyBoworred.Name = "textBoxMoneyBoworred";
             this.textBoxMoneyBoworred.Size = new System.Drawing.Size(124, 26);
             this.textBoxMoneyBoworred.TabIndex = 3;
-            this.textBoxMoneyBoworred.TextChanged += new System.EventHandler(this.textBoxMoneyBoworred_TextChanged);
+            this.textBoxMoneyBoworred.TextChanged += new System.EventHandler(this.TextBoxMoneyBoworred_TextChanged);
             // 
             // labelNumberOfMonths
             // 
@@ -113,7 +113,6 @@
             // 
             // hScrollBarNumberOfMonths
             // 
-            this.hScrollBarNumberOfMonths.LargeChange = 1;
             this.hScrollBarNumberOfMonths.Location = new System.Drawing.Point(233, 102);
             this.hScrollBarNumberOfMonths.Maximum = 300;
             this.hScrollBarNumberOfMonths.Minimum = 1;
@@ -121,7 +120,7 @@
             this.hScrollBarNumberOfMonths.Size = new System.Drawing.Size(106, 20);
             this.hScrollBarNumberOfMonths.TabIndex = 6;
             this.hScrollBarNumberOfMonths.Value = 1;
-            this.hScrollBarNumberOfMonths.ValueChanged += new System.EventHandler(this.hScrollBarNumberOfMonths_ValueChanged);
+            this.hScrollBarNumberOfMonths.ValueChanged += new System.EventHandler(this.HScrollBarNumberOfMonths_ValueChanged);
             // 
             // labelReimbursementPeriod
             // 
@@ -142,6 +141,7 @@
             this.listBoxReimbursementPeriod.Name = "listBoxReimbursementPeriod";
             this.listBoxReimbursementPeriod.Size = new System.Drawing.Size(233, 104);
             this.listBoxReimbursementPeriod.TabIndex = 8;
+            this.listBoxReimbursementPeriod.SelectedIndexChanged += new System.EventHandler(this.listBoxReimbursementPeriod_SelectedIndexChanged);
             // 
             // groupBoxInterestRate
             // 
@@ -166,6 +166,7 @@
             this.radioButtonNinePercent.TabStop = true;
             this.radioButtonNinePercent.Text = "9%";
             this.radioButtonNinePercent.UseVisualStyleBackColor = true;
+            this.radioButtonNinePercent.CheckedChanged += new System.EventHandler(this.RadioButtonPercent_CheckedChanged);
             // 
             // radioButtonEightPercent
             // 
@@ -177,6 +178,7 @@
             this.radioButtonEightPercent.TabStop = true;
             this.radioButtonEightPercent.Text = "8%";
             this.radioButtonEightPercent.UseVisualStyleBackColor = true;
+            this.radioButtonEightPercent.CheckedChanged += new System.EventHandler(this.RadioButtonPercent_CheckedChanged);
             // 
             // radioButtonSevenPercent
             // 
@@ -188,6 +190,7 @@
             this.radioButtonSevenPercent.TabStop = true;
             this.radioButtonSevenPercent.Text = "7%";
             this.radioButtonSevenPercent.UseVisualStyleBackColor = false;
+            this.radioButtonSevenPercent.CheckedChanged += new System.EventHandler(this.RadioButtonPercent_CheckedChanged);
             // 
             // buttonOk
             // 
@@ -199,7 +202,7 @@
             this.buttonOk.TabIndex = 10;
             this.buttonOk.Text = "Ok";
             this.buttonOk.UseVisualStyleBackColor = true;
-            this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
+            this.buttonOk.Click += new System.EventHandler(this.ButtonOk_Click);
             // 
             // buttonCancel
             // 
@@ -210,7 +213,7 @@
             this.buttonCancel.TabIndex = 11;
             this.buttonCancel.Text = "Annuler";
             this.buttonCancel.UseVisualStyleBackColor = true;
-            this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
+            this.buttonCancel.Click += new System.EventHandler(this.ButtonCancel_Click);
             // 
             // labelMonths
             // 
