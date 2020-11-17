@@ -17,6 +17,7 @@ namespace Emprunt
             InitializeComponent();
             string[] periodReimbursement = { "Mensuelle", "Bimensuelle", "Trimestrielle", "Semestrielle", "Anuelle" };
             listBoxReimbursementPeriod.Items.AddRange(periodReimbursement);
+            listBoxReimbursementPeriod.SelectedIndex = 0;
             radioButtonSevenPercent.Checked = true;
         }
 
@@ -50,13 +51,20 @@ namespace Emprunt
         private void textBoxMoneyBoworred_TextChanged(object sender, EventArgs e)
         {
             TextBox currentTextBox = (TextBox)sender;
-            if (!ClassLibraryLoan.CheckTools.CheckMoneyBoworred(currentTextBox.Text))
+            if(textBoxMoneyBoworred.Text.Length == 0)
+            {
+                errorProviderMoneyBoworred.Clear();
+                buttonOk.Enabled = false;
+            }
+            else if (!ClassLibraryLoan.CheckTools.CheckMoneyBoworred(currentTextBox.Text))
             {
                 errorProviderMoneyBoworred.SetError((Control)currentTextBox, "la somme emprunté doit être au minimun de 4 chiffres et faire 10 au maximum");
+                buttonOk.Enabled = false;
             }
             else
             {
                 errorProviderMoneyBoworred.Clear();
+                buttonOk.Enabled = true;
             }
         }
 
@@ -85,7 +93,7 @@ namespace Emprunt
             textBoxName.Clear();
             textBoxMoneyBoworred.Clear();
             hScrollBarNumberOfMonths.Value = 1;
-            listBoxReimbursementPeriod.SelectedItem = 1;
+            listBoxReimbursementPeriod.SelectedIndex = 0;
             radioButtonSevenPercent.Checked = true;
             radioButtonEightPercent.Checked = false;
             radioButtonNinePercent.Checked = false;
