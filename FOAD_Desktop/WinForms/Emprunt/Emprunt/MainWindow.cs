@@ -7,18 +7,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static ClassLibraryLoan.Loan;
 
 namespace Emprunt
 {
     public partial class MainWindow : Form
     {
+        ClassLibraryLoan.Loan loan;
         public MainWindow()
         {
+            loan = new ClassLibraryLoan.Loan();
             InitializeComponent();
             string[] periodReimbursement = { "Mensuelle", "Bimensuelle", "Trimestrielle", "Semestrielle", "Anuelle" };
             listBoxReimbursementPeriod.Items.AddRange(periodReimbursement);
             listBoxReimbursementPeriod.SelectedIndex = 0;
             radioButtonSevenPercent.Checked = true;
+            this.UpdateView();
+
         }
 
         /// <summary>
@@ -26,7 +31,7 @@ namespace Emprunt
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void textBoxName_TextChanged(object sender, EventArgs e)
+        private void TextBoxName_TextChanged(object sender, EventArgs e)
         {
             TextBox currentTextBox = (TextBox)sender;
             if (currentTextBox.Text.Length == 0)
@@ -48,7 +53,7 @@ namespace Emprunt
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void textBoxMoneyBoworred_TextChanged(object sender, EventArgs e)
+        private void TextBoxMoneyBoworred_TextChanged(object sender, EventArgs e)
         {
             TextBox currentTextBox = (TextBox)sender;
             if(textBoxMoneyBoworred.Text.Length == 0)
@@ -65,6 +70,8 @@ namespace Emprunt
             {
                 errorProviderMoneyBoworred.Clear();
                 buttonOk.Enabled = true;
+                loan.Amount = Int32.Parse(currentTextBox.Text);
+                this.UpdateView();
             }
         }
 
@@ -73,12 +80,79 @@ namespace Emprunt
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void hScrollBarNumberOfMonths_ValueChanged(object sender, EventArgs e)
+        private void HScrollBarNumberOfMonths_ValueChanged(object sender, EventArgs e)
         {
-            labelMonthValue.Text = hScrollBarNumberOfMonths.Value.ToString();
+            this.loan.NumberOfMonth = hScrollBarNumberOfMonths.Value;
+            this.UpdateView();
         }
-        
-        private void buttonOk_Click(object sender, EventArgs e)
+
+        private void listBoxReimbursementPeriod_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            ListBox currentListBox = (ListBox)sender;
+            switch (currentListBox.SelectedIndex)
+            {
+                case 0:
+                    {
+                        this.loan.CurrentReimbursementPeriod = reimbursementPeriod.monthly;
+                        this.loan.NumberOfMonth = 1;
+                        break;
+                    }
+                case 1:
+                    {
+                        this.loan.CurrentReimbursementPeriod = reimbursementPeriod.biMonthly;
+                        this.loan.NumberOfMonth = 2;
+                        break;
+                    }
+                case 2:
+                    {
+                        this.loan.CurrentReimbursementPeriod = reimbursementPeriod.triMonthly;
+                        this.loan.NumberOfMonth = 3;
+                        break;
+                    }
+                case 3:
+                    {
+                        this.loan.CurrentReimbursementPeriod = reimbursementPeriod.biAnnual;
+                        this.loan.NumberOfMonth = 6;
+                        break;
+                    }
+                case 4:
+                    {
+                        this.loan.CurrentReimbursementPeriod = reimbursementPeriod.annual;
+                        this.loan.NumberOfMonth = 12;
+                        break;
+                    }
+            }
+            this.UpdateView();
+        }
+
+        private void RadioButtonPercent_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton currentRadioButton = (RadioButton)sender;
+            if(currentRadioButton.Checked)
+            {
+                switch (currentRadioButton.Name)
+                {
+                    case "radioButtonSevenPercent":
+                        {
+                            this.loan.Rate = 7;
+                            break;
+                        }
+                    case "radioButtonEightPercent":
+                        {
+                            this.loan.Rate = 8;
+                            break;
+                        }
+                    case "radioButtonNinePercent":
+                        {
+                            this.loan.Rate = 9;
+                            break;
+                        }
+                }
+            }
+            this.UpdateView();
+        }
+
+        private void ButtonOk_Click(object sender, EventArgs e)
         {
 
         }
@@ -88,7 +162,7 @@ namespace Emprunt
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void buttonCancel_Click(object sender, EventArgs e)
+        private void ButtonCancel_Click(object sender, EventArgs e)
         {
             textBoxName.Clear();
             textBoxMoneyBoworred.Clear();
@@ -100,5 +174,19 @@ namespace Emprunt
             labelMonths.Text = "0";
             labelAmountPerMonth.Text = "0";
         }
+
+        private void UpdateView()
+        {
+            labelMonthValue.Text = this.loan.NumberOfMonth.ToString();
+            labelAmountPerMonth.Text = this.loan.Calculate().ToString();
+            labelMonths.Text = this.loan.CalculateNumberOfMonth().ToString();
+            if((int)loan.CurrentReimbursementPeriod != hScrollBarNumberOfMonths.SmallChange)
+            {
+                hScrollBarNumberOfMonths.Minimum = (int)this.loan.CurrentReimbursementPeriod;
+                hScrollBarNumberOfMonths.SmallChange = (int)this.loan.CurrentReimbursementPeriod;
+                labelMonthValue.Text = this.loan.NumberOfMonth.ToString();
+            }            
+        }
+
     }
 }
