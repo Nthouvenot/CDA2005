@@ -113,6 +113,7 @@
             // 
             // hScrollBarNumberOfMonths
             // 
+            this.hScrollBarNumberOfMonths.LargeChange = 12;
             this.hScrollBarNumberOfMonths.Location = new System.Drawing.Point(233, 102);
             this.hScrollBarNumberOfMonths.Maximum = 300;
             this.hScrollBarNumberOfMonths.Minimum = 1;

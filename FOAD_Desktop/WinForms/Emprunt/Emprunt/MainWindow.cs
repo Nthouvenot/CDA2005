@@ -180,6 +180,8 @@ namespace Emprunt
             labelMonthValue.Text = this.loan.NumberOfMonth.ToString();
             labelAmountPerMonth.Text = this.loan.Calculate().ToString();
             labelMonths.Text = this.loan.CalculateNumberOfMonth().ToString();
+            hScrollBarNumberOfMonths.Minimum = (int)loan.CurrentReimbursementPeriod;
+            hScrollBarNumberOfMonths.Value = loan.NumberOfMonth;
             if((int)loan.CurrentReimbursementPeriod != hScrollBarNumberOfMonths.SmallChange)
             {
                 hScrollBarNumberOfMonths.Minimum = (int)this.loan.CurrentReimbursementPeriod;
