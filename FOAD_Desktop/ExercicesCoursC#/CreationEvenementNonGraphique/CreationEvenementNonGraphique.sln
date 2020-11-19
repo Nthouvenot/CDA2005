@@ -3,9 +3,19 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30711.63
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryPersonne", "ClassLibraryPersonne\ClassLibraryPersonne.csproj", "{2FB8E5C0-ABB2-4DF2-A083-A7FEE52F61E8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExercicePersonne", "ExercicePersonne", "{FA0D4AE4-1322-4A89-B4DC-EF109D6B5D85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppTestEvenementMajorite", "ConsoleAppTestEvenementMajorite\ConsoleAppTestEvenementMajorite.csproj", "{7EF2B33E-BC07-4A64-8594-4814A48DF8CF}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ExerciceMeteo", "ExerciceMeteo", "{E840CC2B-1D19-4AFB-84F1-C7AB24515395}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryTemp", "ExerciceMeteo\ClassLibraryMeteo\ClassLibraryTemp.csproj", "{0F52B9BF-FFE9-4805-92ED-FFC5852A54AA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppHumain", "ExerciceMeteo\ConsoleAppHumain\ConsoleAppHumain.csproj", "{99F660C9-838C-4F27-BE26-F6EAF010727D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ConsoleAppMeteo", "ExerciceMeteo\ConsoleAppMeteo\ConsoleAppMeteo.csproj", "{6EE06E4F-93C5-4633-92C9-C819F4C452BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryPersonne", "ExercicePersonne\ClassLibraryPersonne\ClassLibraryPersonne.csproj", "{2FB8E5C0-ABB2-4DF2-A083-A7FEE52F61E8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ConsoleAppTestEvenementMajorite", "ExercicePersonne\ConsoleAppTestEvenementMajorite\ConsoleAppTestEvenementMajorite.csproj", "{7EF2B33E-BC07-4A64-8594-4814A48DF8CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,6 +23,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{0F52B9BF-FFE9-4805-92ED-FFC5852A54AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F52B9BF-FFE9-4805-92ED-FFC5852A54AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F52B9BF-FFE9-4805-92ED-FFC5852A54AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F52B9BF-FFE9-4805-92ED-FFC5852A54AA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99F660C9-838C-4F27-BE26-F6EAF010727D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{99F660C9-838C-4F27-BE26-F6EAF010727D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99F660C9-838C-4F27-BE26-F6EAF010727D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{99F660C9-838C-4F27-BE26-F6EAF010727D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6EE06E4F-93C5-4633-92C9-C819F4C452BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6EE06E4F-93C5-4633-92C9-C819F4C452BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6EE06E4F-93C5-4633-92C9-C819F4C452BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6EE06E4F-93C5-4633-92C9-C819F4C452BA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2FB8E5C0-ABB2-4DF2-A083-A7FEE52F61E8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2FB8E5C0-ABB2-4DF2-A083-A7FEE52F61E8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2FB8E5C0-ABB2-4DF2-A083-A7FEE52F61E8}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -24,6 +46,13 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{0F52B9BF-FFE9-4805-92ED-FFC5852A54AA} = {E840CC2B-1D19-4AFB-84F1-C7AB24515395}
+		{99F660C9-838C-4F27-BE26-F6EAF010727D} = {E840CC2B-1D19-4AFB-84F1-C7AB24515395}
+		{6EE06E4F-93C5-4633-92C9-C819F4C452BA} = {E840CC2B-1D19-4AFB-84F1-C7AB24515395}
+		{2FB8E5C0-ABB2-4DF2-A083-A7FEE52F61E8} = {FA0D4AE4-1322-4A89-B4DC-EF109D6B5D85}
+		{7EF2B33E-BC07-4A64-8594-4814A48DF8CF} = {FA0D4AE4-1322-4A89-B4DC-EF109D6B5D85}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {634694EC-5A20-414E-85F9-9A4BB743BB78}
