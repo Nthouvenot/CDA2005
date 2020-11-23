@@ -11,17 +11,15 @@ namespace ClassLibraryLoan
         private float rate;
         int numberOfMonth;
         private int amount;
-        private float amountPerMonth;
-        public enum reimbursementPeriod { monthly = 1, biMonthly = 2, triMonthly = 3, biAnnual = 6, annual = 12 };
-        private reimbursementPeriod currentReimbursementPeriod;
+        public enum ReimbursementPeriod { monthly = 1, biMonthly = 2, triMonthly = 3, biAnnual = 6, annual = 12 };
+        private ReimbursementPeriod currentReimbursementPeriod;
 
         public Loan()
         {
             this.rate = 7;
-            this.numberOfMonth = 1;
+            this.numberOfMonth = 0;
             this.amount = 0;
-            this.amountPerMonth = 0;
-            this.currentReimbursementPeriod = reimbursementPeriod.monthly;
+            this.currentReimbursementPeriod = ReimbursementPeriod.monthly;
         }
 
         /// <summary>
@@ -43,7 +41,7 @@ namespace ClassLibraryLoan
             get => numberOfMonth;
             set
             {
-                if (value > (25 * 12))
+                if (value > 300)
                 {
                     return;
                 }
@@ -55,7 +53,7 @@ namespace ClassLibraryLoan
         /// Property of the currentReimbursementPeriod attribute
         /// Check if the value is superior than the numberOfMonth
         /// </summary>
-        public reimbursementPeriod CurrentReimbursementPeriod
+        public ReimbursementPeriod CurrentReimbursementPeriod
         {
             get => this.currentReimbursementPeriod;
             set => this.currentReimbursementPeriod = value;
@@ -70,7 +68,7 @@ namespace ClassLibraryLoan
             get => amount;
             set
             {
-                if (value > Int32.MaxValue)
+                if (value < 0)
                 {
                     return;
                 }
@@ -82,11 +80,11 @@ namespace ClassLibraryLoan
         /// Calculate the amount that the borrower that he must pay at each reimbursement
         /// </summary>
         /// <returns></returns>
-        public float Calculate()
+        public double Calculate()
         {
-            float ratePerMonth = (rate / 1200) * (int)this.currentReimbursementPeriod;
-            this.amountPerMonth = (float)(amount * (ratePerMonth / (1 - Math.Pow((1 + ratePerMonth), -this.numberOfMonth))));
-            return amountPerMonth;
+            double ratePerMonth = (rate * (int)this.currentReimbursementPeriod) / 1200;
+            double amountPerMonth = (float)(amount * (ratePerMonth / (1 - Math.Pow((1 + ratePerMonth), -this.CalculateNumberOfMonth()))));
+            return Math.Round(amountPerMonth, 2);
         }
 
         /// <summary>
