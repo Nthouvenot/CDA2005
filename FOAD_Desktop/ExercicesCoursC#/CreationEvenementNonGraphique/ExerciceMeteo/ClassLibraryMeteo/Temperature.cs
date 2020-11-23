@@ -27,6 +27,13 @@ namespace ClassLibraryTemp
         public Temperature()
         {
             this.temperatureCourante = -273.15f;
+            this.temperatureDAlertes = null;
+        }
+
+        public Temperature(float[] _temperatureDAlertes)
+        {
+            this.temperatureCourante = -273.15f;
+            this.temperatureDAlertes = (float[])_temperatureDAlertes.Clone();
         }
 
         public float TemperatureCourante
@@ -53,7 +60,7 @@ namespace ClassLibraryTemp
         /// <param name="temperature"></param>
         public void Monter(float temperature)
         {
-            if (temperature > 5526f && temperature > this.temperatureCourante)
+            if (temperature > 5526f && temperature < this.temperatureCourante)
             {
                 return;
             }
@@ -62,10 +69,13 @@ namespace ClassLibraryTemp
             {
                 this.Fievre(this);
             }
-            //else if (temperatureDAlertes.Contains(temperature) && Alerte != null)
-            //{
-            //    this.Alerte(this);
-            //}
+            else if (this.temperatureDAlertes != null)
+            {
+                if(temperatureDAlertes.Contains(temperature) && Alerte != null)
+                {
+                    this.Alerte(this);
+                }
+            }
         }
 
         /// <summary>
@@ -74,7 +84,7 @@ namespace ClassLibraryTemp
         /// <param name="_temperature"></param>
         public void Diminuer(float temperature)
         {
-            if (temperature < -273.15f && temperature < this.TemperatureCourante)
+            if (temperature < -273.15f && temperature > this.TemperatureCourante)
             {
                 return;
             }
@@ -83,10 +93,13 @@ namespace ClassLibraryTemp
             {
                 this.Gel(this);
             }
-            //else if (temperatureDAlertes.Contains(temperature) && Alerte != null)
-            //{
-            //    this.Alerte(this);
-            //}
+            else if (this.temperatureDAlertes != null)
+            {
+                if(temperatureDAlertes.Contains(temperature) && Alerte != null)
+                {
+                    this.Alerte(this);
+                }
+            }
         }
     }
 }
