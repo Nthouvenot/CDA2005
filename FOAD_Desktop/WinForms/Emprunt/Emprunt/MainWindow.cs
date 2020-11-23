@@ -38,10 +38,10 @@ namespace Emprunt
             {
                 errorProviderName.Clear();
             }
-            else if(!ClassLibraryLoan.CheckTools.CheckName(currentTextBox.Text))
+            else if (!ClassLibraryLoan.CheckTools.CheckName(currentTextBox.Text))
             {
                 errorProviderName.SetError((Control)currentTextBox, "Un nom ne doit comporter que des lettre et faire au moins 4 caractéres");
-            } 
+            }
             else
             {
                 errorProviderName.Clear();
@@ -56,7 +56,7 @@ namespace Emprunt
         private void TextBoxMoneyBoworred_TextChanged(object sender, EventArgs e)
         {
             TextBox currentTextBox = (TextBox)sender;
-            if(textBoxMoneyBoworred.Text.Length == 0)
+            if (textBoxMoneyBoworred.Text.Length == 0)
             {
                 errorProviderMoneyBoworred.Clear();
                 buttonOk.Enabled = false;
@@ -93,32 +93,27 @@ namespace Emprunt
             {
                 case 0:
                     {
-                        this.loan.CurrentReimbursementPeriod = reimbursementPeriod.monthly;
-                        this.loan.NumberOfMonth = 1;
+                        this.loan.CurrentReimbursementPeriod = ReimbursementPeriod.monthly;
                         break;
                     }
                 case 1:
                     {
-                        this.loan.CurrentReimbursementPeriod = reimbursementPeriod.biMonthly;
-                        this.loan.NumberOfMonth = 2;
+                        this.loan.CurrentReimbursementPeriod = ReimbursementPeriod.biMonthly;
                         break;
                     }
                 case 2:
                     {
-                        this.loan.CurrentReimbursementPeriod = reimbursementPeriod.triMonthly;
-                        this.loan.NumberOfMonth = 3;
+                        this.loan.CurrentReimbursementPeriod = ReimbursementPeriod.triMonthly;
                         break;
                     }
                 case 3:
                     {
-                        this.loan.CurrentReimbursementPeriod = reimbursementPeriod.biAnnual;
-                        this.loan.NumberOfMonth = 6;
+                        this.loan.CurrentReimbursementPeriod = ReimbursementPeriod.biAnnual;
                         break;
                     }
                 case 4:
                     {
-                        this.loan.CurrentReimbursementPeriod = reimbursementPeriod.annual;
-                        this.loan.NumberOfMonth = 12;
+                        this.loan.CurrentReimbursementPeriod = ReimbursementPeriod.annual;
                         break;
                     }
             }
@@ -128,7 +123,7 @@ namespace Emprunt
         private void RadioButtonPercent_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton currentRadioButton = (RadioButton)sender;
-            if(currentRadioButton.Checked)
+            if (currentRadioButton.Checked)
             {
                 switch (currentRadioButton.Name)
                 {
@@ -154,7 +149,6 @@ namespace Emprunt
 
         private void ButtonOk_Click(object sender, EventArgs e)
         {
-
         }
 
         /// <summary>
@@ -177,17 +171,34 @@ namespace Emprunt
 
         private void UpdateView()
         {
-            labelMonthValue.Text = this.loan.NumberOfMonth.ToString();
-            labelAmountPerMonth.Text = this.loan.Calculate().ToString();
-            labelMonths.Text = this.loan.CalculateNumberOfMonth().ToString();
-            hScrollBarNumberOfMonths.Minimum = (int)loan.CurrentReimbursementPeriod;
-            hScrollBarNumberOfMonths.Value = loan.NumberOfMonth;
-            if((int)loan.CurrentReimbursementPeriod != hScrollBarNumberOfMonths.SmallChange)
+            if (hScrollBarNumberOfMonths.Value < (int)this.loan.CurrentReimbursementPeriod)
+            {
+                hScrollBarNumberOfMonths.Value = (int)this.loan.CurrentReimbursementPeriod;
+            } 
+            else
+            {
+                hScrollBarNumberOfMonths.Value = (hScrollBarNumberOfMonths.Value / (int)this.loan.CurrentReimbursementPeriod) * (int)this.loan.CurrentReimbursementPeriod;
+            }
+            if (textBoxMoneyBoworred.Text.Length > 0 && this.loan.NumberOfMonth !=0 )
+            {
+                labelMonthValue.Text = this.loan.NumberOfMonth.ToString();
+                labelAmountPerMonth.Text = this.loan.Calculate().ToString();
+                labelMonths.Text = this.loan.CalculateNumberOfMonth().ToString();
+            }
+            else
+            {
+                labelMonthValue.Text = "0";
+            }
+            if(loan.NumberOfMonth > 0)
+            {
+                hScrollBarNumberOfMonths.Value = loan.NumberOfMonth;
+            }
+            if ((int)loan.CurrentReimbursementPeriod != hScrollBarNumberOfMonths.SmallChange)
             {
                 hScrollBarNumberOfMonths.Minimum = (int)this.loan.CurrentReimbursementPeriod;
                 hScrollBarNumberOfMonths.SmallChange = (int)this.loan.CurrentReimbursementPeriod;
                 labelMonthValue.Text = this.loan.NumberOfMonth.ToString();
-            }            
+            }
         }
 
     }
