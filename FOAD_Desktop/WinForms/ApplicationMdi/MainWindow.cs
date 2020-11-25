@@ -12,8 +12,12 @@ namespace ApplicationMdi
 {
     public partial class MainWindow : Form
     {
+        private int numberOfCalculatorInstance;
+        private bool isConnected;
         public MainWindow()
         {
+            this.numberOfCalculatorInstance = 0;
+            this.isConnected = false;
             InitializeComponent();
             stage1ToolStripMenuItem.Enabled = false;
             Stage2ToolStripMenuItem.Enabled = false;
@@ -67,7 +71,15 @@ namespace ApplicationMdi
                 stage3ToolStripMenuItem.Enabled = true;
                 WindowToolStripMenuItem.Enabled = true;
                 toolStripDropDownButtonStage3.Enabled = true;
-                MessageBox.Show(this, "Bienvenue");
+                if (!isConnected)
+                {
+                    MessageBox.Show(this, "Bienvenue");
+                    this.isConnected = true;
+                }
+                else
+                {
+                    MessageBox.Show(this, "Déja connecté");
+                }
             }
             else if (menuItem.Name == "ExitToolStripMenuItem")
             {
@@ -75,7 +87,7 @@ namespace ApplicationMdi
             }
             else if (menuItem.Name == "stage1ToolStripMenuItem")
             {
-                Calculatrice.Form1 mdiCalculatrice = new Calculatrice.Form1();
+                Calculatrice.Form1 mdiCalculatrice = new Calculatrice.Form1("calculatrice N°" + this.numberOfCalculatorInstance++);
                 mdiCalculatrice.MdiParent = this;
                 mdiCalculatrice.Show();
             }
@@ -118,7 +130,15 @@ namespace ApplicationMdi
             stage3ToolStripMenuItem.Enabled = true;
             WindowToolStripMenuItem.Enabled = true;
             toolStripDropDownButtonStage3.Enabled = true;
-            MessageBox.Show(this, "Bienvenue");
+            if (!isConnected)
+            {
+                MessageBox.Show(this, "Bienvenue");
+                this.isConnected = true;
+            }
+            else
+            {
+                MessageBox.Show(this, "Déja connecté");
+            }
         }
 
         /// <summary>

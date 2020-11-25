@@ -35,7 +35,7 @@ namespace ApplicationMdi
 
         private void buttonValidate_Click(object sender, EventArgs e)
         {
-            CheckBoxEtRadioBouttons.MainWindow mdiCheckBoxRadioButton = new CheckBoxEtRadioBouttons.MainWindow();
+            CheckBoxEtRadioBouttons.MainWindow mdiCheckBoxRadioButton = new CheckBoxEtRadioBouttons.MainWindow(textBoxTyping.Text);
             mdiCheckBoxRadioButton.Show();
         }
     }
