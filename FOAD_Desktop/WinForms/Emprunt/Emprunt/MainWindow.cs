@@ -174,12 +174,12 @@ namespace Emprunt
             if (hScrollBarNumberOfMonths.Value < (int)this.loan.CurrentReimbursementPeriod)
             {
                 hScrollBarNumberOfMonths.Value = (int)this.loan.CurrentReimbursementPeriod;
-            } 
+            }
             else
             {
                 hScrollBarNumberOfMonths.Value = (hScrollBarNumberOfMonths.Value / (int)this.loan.CurrentReimbursementPeriod) * (int)this.loan.CurrentReimbursementPeriod;
             }
-            if (textBoxMoneyBoworred.Text.Length > 0 && this.loan.NumberOfMonth !=0 )
+            if (textBoxMoneyBoworred.Text.Length > 0 && this.loan.NumberOfMonth != 0)
             {
                 labelMonthValue.Text = this.loan.NumberOfMonth.ToString();
                 labelAmountPerMonth.Text = this.loan.Calculate().ToString();
@@ -189,7 +189,7 @@ namespace Emprunt
             {
                 labelMonthValue.Text = "0";
             }
-            if(loan.NumberOfMonth > 0)
+            if (loan.NumberOfMonth > 0)
             {
                 hScrollBarNumberOfMonths.Value = loan.NumberOfMonth;
             }
@@ -200,5 +200,5 @@ namespace Emprunt
                 labelMonthValue.Text = this.loan.NumberOfMonth.ToString();
             }
         }
-
+    }
     }

@@ -277,7 +277,7 @@
             this.Controls.Add(this.labelName);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "MainWindow";
-            this.Text = "Ok";
+            this.Text = "Emprunt";
             this.groupBoxInterestRate.ResumeLayout(false);
             this.groupBoxInterestRate.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderName)).EndInit();
