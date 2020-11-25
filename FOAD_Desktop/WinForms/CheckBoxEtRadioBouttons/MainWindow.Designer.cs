@@ -293,7 +293,6 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "MainWindow";
             this.Text = "CheckBox et RadioButtons";
-            this.Load += new System.EventHandler(this.MainWindow_Load);
             this.groupBoxChoice.ResumeLayout(false);
             this.groupBoxChoice.PerformLayout();
             this.groupBoxBackgroudColor.ResumeLayout(false);

@@ -19,35 +19,24 @@ namespace CheckBoxEtRadioBouttons
             InitializeComponent();
             initialBkgColor = this.BackColor;
             initialFgColor = this.ForeColor;
-        }
-
-        public MainWindow(string text) : this ()
-        {
-            textBoxTyping.Text = text;
-            textBoxTyping_TextChanged(textBoxTyping, EventArgs.Empty);
-        }
-
-        /// <summary>
-        /// Event trigger when the window are loaded
-        /// Set the initialize parameters
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void MainWindow_Load(object sender, EventArgs e)
-        {
             checkBoxFontColor.Checked = false;
             checkBoxFontColor.Checked = false;
             checkBoxCase.Checked = false;
             groupBoxChoice.Enabled = false;
             groupBoxBackgroudColor.Enabled = false;
             groupBoxFontColor.Enabled = false;
-            groupBoxCase.Enabled = false; 
+            groupBoxCase.Enabled = false;
+        }
+
+        public MainWindow(string text) : this ()
+        {
+            textBoxTyping.Text = text;
         }
 
         private void textBoxTyping_TextChanged(object sender, EventArgs e)
         {
             TextBox typing = (TextBox)sender;
-            if(typing.Text.Length > 0)
+            if (typing.Text.Length > 0)
             {
                 groupBoxChoice.Enabled = true;
             }
@@ -92,7 +81,8 @@ namespace CheckBoxEtRadioBouttons
             if (radioButtonCaseUpper.Checked)
             {
                 labelResultTyping.Text = typing.Text.ToUpper();
-            } else
+            }
+            else
             {
                 labelResultTyping.Text = typing.Text;
             }
