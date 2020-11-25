@@ -9,6 +9,26 @@ namespace ClassLibraryMdi
 {
     public static class CheckTools
     {
+        private static string login = "admin1";
+        private static string password = "jdh57oeicdncdelmlqkxq8";
+
+        /// <summary>
+        /// property of the login attribute
+        /// </summary>
+        public static string Login 
+        { get => login; 
+          //set => login = value; 
+        }
+
+        /// <summary>
+        /// property of the password attribute
+        /// </summary>
+        public static string Password 
+        { 
+            get => password; 
+            //set => password = value;
+        }
+
         /// <summary>
         /// accept the parameter if he contains minimum 8 characters and respect the rules of password
         /// </summary>

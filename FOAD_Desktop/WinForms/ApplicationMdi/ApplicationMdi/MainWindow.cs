@@ -14,6 +14,7 @@ namespace ApplicationMdi
     {
         private int numberOfCalculatorInstance;
         private bool isConnected;
+
         public MainWindow()
         {
             this.numberOfCalculatorInstance = 0;
@@ -69,6 +70,7 @@ namespace ApplicationMdi
                 if (!isConnected)
                 {
                     LoginWindow dialogLogin = new LoginWindow();
+                    dialogLogin.Success += DialogLogin_Success;
                     dialogLogin.ShowDialog();
                 }
                 else
@@ -157,6 +159,16 @@ namespace ApplicationMdi
             {
                 MessageBox.Show(this, "Déja connecté");
             }
+        }
+
+        private void DialogLogin_Success(object sender)
+        {
+            this.isConnected = true;
+            stage1ToolStripMenuItem.Enabled = true;
+            stage2ToolStripMenuItem.Enabled = true;
+            stage3ToolStripMenuItem.Enabled = true;
+            WindowToolStripMenuItem.Enabled = true;
+            toolStripDropDownButtonStage3.Enabled = true;
         }
 
         /// <summary>
