@@ -21,6 +21,11 @@ namespace Calculatrice
             InitializeComponent();
         }
 
+        public Form1(string title) : this()
+        {
+            this.Text = title;
+        }
+
         private void MakeSum(object sender, EventArgs e)
         {
             Button button = (Button)sender;
