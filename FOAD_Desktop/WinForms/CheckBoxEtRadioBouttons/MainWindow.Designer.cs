@@ -269,9 +269,9 @@
             this.labelResultTyping.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelResultTyping.Location = new System.Drawing.Point(13, 89);
             this.labelResultTyping.Name = "labelResultTyping";
-            this.labelResultTyping.Size = new System.Drawing.Size(42, 20);
+            this.labelResultTyping.Size = new System.Drawing.Size(13, 20);
             this.labelResultTyping.TabIndex = 7;
-            this.labelResultTyping.Text = "label";
+            this.labelResultTyping.Text = " ";
             // 
             // errorProviderTyping
             // 

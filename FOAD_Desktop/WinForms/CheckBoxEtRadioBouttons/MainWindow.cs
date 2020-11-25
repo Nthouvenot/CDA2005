@@ -21,6 +21,12 @@ namespace CheckBoxEtRadioBouttons
             initialFgColor = this.ForeColor;
         }
 
+        public MainWindow(string text) : this ()
+        {
+            textBoxTyping.Text = text;
+            textBoxTyping_TextChanged(textBoxTyping, EventArgs.Empty);
+        }
+
         /// <summary>
         /// Event trigger when the window are loaded
         /// Set the initialize parameters
@@ -35,9 +41,7 @@ namespace CheckBoxEtRadioBouttons
             groupBoxChoice.Enabled = false;
             groupBoxBackgroudColor.Enabled = false;
             groupBoxFontColor.Enabled = false;
-            groupBoxCase.Enabled = false;
-            labelResultTyping.Text = " ";
-            
+            groupBoxCase.Enabled = false; 
         }
 
         private void textBoxTyping_TextChanged(object sender, EventArgs e)
@@ -46,34 +50,37 @@ namespace CheckBoxEtRadioBouttons
             if(typing.Text.Length > 0)
             {
                 groupBoxChoice.Enabled = true;
-            } else
+            }
+            else
             {
-                if(radioButtonBkgRed.Checked || radioButtonBkgGreen.Checked|| radioButtonBkgBlue.Checked)
+                if (radioButtonBkgRed.Checked || radioButtonBkgGreen.Checked || radioButtonBkgBlue.Checked)
                 {
                     groupBoxBackgroudColor.Enabled = true;
-                } else
+                }
+                else
                 {
                     groupBoxBackgroudColor.Enabled = false;
                 }
-                if(radioButtonFontRed.Checked || radioButtonFontWhite.Checked || radioButtonFontBlack.Checked)
+                if (radioButtonFontRed.Checked || radioButtonFontWhite.Checked || radioButtonFontBlack.Checked)
                 {
                     groupBoxFontColor.Enabled = true;
-                } else
+                }
+                else
                 {
                     groupBoxFontColor.Enabled = false;
                 }
-                if(radioButtonCaseLower.Checked)
+                if (radioButtonCaseLower.Checked)
                 {
                     groupBoxCase.Enabled = true;
-                } else if(radioButtonCaseUpper.Checked)
+                }
+                else if (radioButtonCaseUpper.Checked)
                 {
                     radioButtonCase_CheckedChanged(radioButtonCaseUpper, EventArgs.Empty);
                     groupBoxCase.Enabled = true;
                 }
                 groupBoxChoice.Enabled = false;
-                            
             }
-            if(typing.TextLength >= 45)
+            if (typing.TextLength >= 45)
             {
                 errorProviderTyping.SetError((Control)typing, "Le texte doit  faire moins de 45  caractères");
                 return;
