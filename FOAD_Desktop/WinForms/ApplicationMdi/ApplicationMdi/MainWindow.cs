@@ -65,20 +65,7 @@ namespace ApplicationMdi
         {
             ToolStripMenuItem menuItem = (ToolStripMenuItem)sender;
             toolStripStatusLabelStatus.Text = menuItem.Text;
-            if (menuItem.Name == "identificationToolStripMenuItem")
-            {
-                if (!isConnected)
-                {
-                    LoginWindow dialogLogin = new LoginWindow();
-                    dialogLogin.Success += DialogLogin_Success;
-                    dialogLogin.ShowDialog();
-                }
-                else
-                {
-                    MessageBox.Show(this, "Déja connecté");
-                }
-            }
-            else if (menuItem.Name == "ExitToolStripMenuItem")
+            if (menuItem.Name == "ExitToolStripMenuItem")
             {
                 Application.Exit();
             }
@@ -138,22 +125,13 @@ namespace ApplicationMdi
             parentForm.Close();
         }
 
-        /// <summary>
-        /// Method for the toolStripButtonIdentification event click
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void toolStripButtonIdentification_Click(object sender, EventArgs e)
+        private void Connexion_Click(object sender, EventArgs e)
         {
-            stage1ToolStripMenuItem.Enabled = true;
-            stage2ToolStripMenuItem.Enabled = true;
-            stage3ToolStripMenuItem.Enabled = true;
-            WindowToolStripMenuItem.Enabled = true;
-            toolStripDropDownButtonStage3.Enabled = true;
             if (!isConnected)
             {
-                MessageBox.Show(this, "Bienvenue");
-                this.isConnected = true;
+                LoginWindow dialogLogin = new LoginWindow();
+                dialogLogin.Success += DialogLogin_Success;
+                dialogLogin.ShowDialog();
             }
             else
             {
@@ -180,7 +158,5 @@ namespace ApplicationMdi
         {
             statusStrip.Items[0].Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
         }
-
-        
     }
 }
