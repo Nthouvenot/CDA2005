@@ -52,6 +52,12 @@
     <Compile Include="LoginWindow.Designer.cs">
       <DependentUpon>LoginWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="SplashSreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashSreen.Designer.cs">
+      <DependentUpon>SplashSreen.cs</DependentUpon>
+    </Compile>
     <Compile Include="TypingWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,6 +87,9 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="SplashSreen.resx">
+      <DependentUpon>SplashSreen.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="TypingWindow.resx">
       <DependentUpon>TypingWindow.cs</DependentUpon>
     </EmbeddedResource>

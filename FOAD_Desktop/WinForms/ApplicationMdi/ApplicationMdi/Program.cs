@@ -16,7 +16,7 @@ namespace ApplicationMdi
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainWindow());
+            Application.Run(new SplashSreen());
         }
     }
 }

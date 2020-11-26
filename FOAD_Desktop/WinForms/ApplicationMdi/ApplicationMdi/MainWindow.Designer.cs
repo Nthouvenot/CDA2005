@@ -93,19 +93,19 @@ namespace ApplicationMdi
             // identificationToolStripMenuItem
             // 
             this.identificationToolStripMenuItem.Name = "identificationToolStripMenuItem";
-            this.identificationToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.identificationToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
             this.identificationToolStripMenuItem.Text = "S\'identifier";
             this.identificationToolStripMenuItem.Click += new System.EventHandler(this.Connexion_Click);
             // 
             // toolStripSeparatorConnexion
             // 
             this.toolStripSeparatorConnexion.Name = "toolStripSeparatorConnexion";
-            this.toolStripSeparatorConnexion.Size = new System.Drawing.Size(177, 6);
+            this.toolStripSeparatorConnexion.Size = new System.Drawing.Size(152, 6);
             // 
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
             this.ExitToolStripMenuItem.Text = "Quitter";
             this.ExitToolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem_Click);
             // 
@@ -301,6 +301,7 @@ namespace ApplicationMdi
             this.Text = "Créer des formulaires";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MainWindow_Closing);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainWindow_FormClosed);
             this.menuStrip.ResumeLayout(false);
             this.menuStrip.PerformLayout();
             this.toolStrip.ResumeLayout(false);
