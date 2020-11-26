@@ -283,7 +283,6 @@ namespace ApplicationMdi
             // timerDateHour
             // 
             this.timerDateHour.Enabled = true;
-            this.timerDateHour.Interval = 60000;
             this.timerDateHour.Tick += new System.EventHandler(this.timerDateHour_Tick);
             // 
             // MainWindow

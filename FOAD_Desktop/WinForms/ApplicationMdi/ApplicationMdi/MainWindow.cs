@@ -14,6 +14,7 @@ namespace ApplicationMdi
     {
         private int numberOfCalculatorInstance;
         private bool isConnected;
+        private System.Globalization.CultureInfo currentCulture;
 
         public MainWindow()
         {
@@ -39,7 +40,8 @@ namespace ApplicationMdi
             }
             toolStripDropDownButtonStage3.DropDownItems[3].Visible = true;
             toolStripDropDownButtonStage3.Enabled = false;
-            statusStrip.Items[0].Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+            this.currentCulture = System.Globalization.CultureInfo.GetCultureInfo(System.Globalization.CultureInfo.CurrentCulture.ToString());
+            this.currentTime();
         }
 
         /// <summary>
@@ -159,13 +161,21 @@ namespace ApplicationMdi
         }
 
         /// <summary>
+        /// 
+        /// </summary>
+        private void currentTime()
+        {
+            statusStrip.Items[0].Text = DateTime.Now.ToString(this.currentCulture.DateTimeFormat);
+        }
+
+        /// <summary>
         /// Timer for refresh the StatusBar time zone
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void timerDateHour_Tick(object sender, EventArgs e)
         {
-            statusStrip.Items[0].Text = DateTime.Now.ToString("dd/MM/yyyy HH:mm");
+            this.currentTime();
         }
     }
 }
