@@ -125,6 +125,11 @@ namespace ApplicationMdi
             parentForm.Close();
         }
 
+        /// <summary>
+        /// Method for the connexion to the application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Connexion_Click(object sender, EventArgs e)
         {
             if (!isConnected)
@@ -139,6 +144,10 @@ namespace ApplicationMdi
             }
         }
 
+        /// <summary>
+        /// When the login Form send the event Success the connexion to the app is authorized
+        /// </summary>
+        /// <param name="sender"></param>
         private void DialogLogin_Success(object sender)
         {
             this.isConnected = true;
