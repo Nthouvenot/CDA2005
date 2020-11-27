@@ -87,41 +87,47 @@ namespace ApplicationMdi
             this.toolStripSeparatorConnexion,
             this.ExitToolStripMenuItem});
             this.ApplicationToolStripMenuItem.Name = "ApplicationToolStripMenuItem";
+            this.ApplicationToolStripMenuItem.ShortcutKeyDisplayString = "";
             this.ApplicationToolStripMenuItem.Size = new System.Drawing.Size(101, 25);
             this.ApplicationToolStripMenuItem.Text = "Connection";
             // 
             // identificationToolStripMenuItem
             // 
             this.identificationToolStripMenuItem.Name = "identificationToolStripMenuItem";
-            this.identificationToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
+            this.identificationToolStripMenuItem.ShortcutKeyDisplayString = "";
+            this.identificationToolStripMenuItem.ShowShortcutKeys = false;
+            this.identificationToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
             this.identificationToolStripMenuItem.Text = "S\'identifier";
             this.identificationToolStripMenuItem.Click += new System.EventHandler(this.Connexion_Click);
             // 
             // toolStripSeparatorConnexion
             // 
             this.toolStripSeparatorConnexion.Name = "toolStripSeparatorConnexion";
-            this.toolStripSeparatorConnexion.Size = new System.Drawing.Size(152, 6);
+            this.toolStripSeparatorConnexion.Size = new System.Drawing.Size(142, 6);
             // 
             // ExitToolStripMenuItem
             // 
             this.ExitToolStripMenuItem.Name = "ExitToolStripMenuItem";
-            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(155, 26);
+            this.ExitToolStripMenuItem.ShowShortcutKeys = false;
+            this.ExitToolStripMenuItem.Size = new System.Drawing.Size(145, 26);
             this.ExitToolStripMenuItem.Text = "Quitter";
-            this.ExitToolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem_Click);
+            this.ExitToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
             // stage1ToolStripMenuItem
             // 
             this.stage1ToolStripMenuItem.Name = "stage1ToolStripMenuItem";
+            this.stage1ToolStripMenuItem.ShowShortcutKeys = false;
             this.stage1ToolStripMenuItem.Size = new System.Drawing.Size(76, 25);
             this.stage1ToolStripMenuItem.Text = "Phase 1";
-            this.stage1ToolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem_Click);
+            this.stage1ToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
             // stage2ToolStripMenuItem
             // 
             this.stage2ToolStripMenuItem.Name = "stage2ToolStripMenuItem";
+            this.stage2ToolStripMenuItem.ShowShortcutKeys = false;
             this.stage2ToolStripMenuItem.Size = new System.Drawing.Size(76, 25);
             this.stage2ToolStripMenuItem.Text = "Phase 2";
-            this.stage2ToolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem_Click);
+            this.stage2ToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
             // stage3ToolStripMenuItem
             // 
@@ -132,41 +138,46 @@ namespace ApplicationMdi
             this.toolStripSeparatorStage3,
             this.summaryToolStripMenuItem});
             this.stage3ToolStripMenuItem.Name = "stage3ToolStripMenuItem";
+            this.stage3ToolStripMenuItem.ShowShortcutKeys = false;
             this.stage3ToolStripMenuItem.Size = new System.Drawing.Size(76, 25);
             this.stage3ToolStripMenuItem.Text = "Phase 3";
             // 
             // casesToolStripMenuItem
             // 
             this.casesToolStripMenuItem.Name = "casesToolStripMenuItem";
-            this.casesToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
+            this.casesToolStripMenuItem.ShowShortcutKeys = false;
+            this.casesToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
             this.casesToolStripMenuItem.Text = "Cases";
-            this.casesToolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem_Click);
+            this.casesToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
             // comboBoxToolStripMenuItem
             // 
             this.comboBoxToolStripMenuItem.Name = "comboBoxToolStripMenuItem";
-            this.comboBoxToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
+            this.comboBoxToolStripMenuItem.ShowShortcutKeys = false;
+            this.comboBoxToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
             this.comboBoxToolStripMenuItem.Text = "ComboBox";
-            this.comboBoxToolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem_Click);
+            this.comboBoxToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
             // scrollToolStripMenuItem
             // 
             this.scrollToolStripMenuItem.Name = "scrollToolStripMenuItem";
-            this.scrollToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
+            this.scrollToolStripMenuItem.ShowShortcutKeys = false;
+            this.scrollToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
             this.scrollToolStripMenuItem.Text = "Défilement";
-            this.scrollToolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem_Click);
+            this.scrollToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
             // toolStripSeparatorStage3
             // 
             this.toolStripSeparatorStage3.Name = "toolStripSeparatorStage3";
-            this.toolStripSeparatorStage3.Size = new System.Drawing.Size(153, 6);
+            this.toolStripSeparatorStage3.Size = new System.Drawing.Size(143, 6);
             // 
             // summaryToolStripMenuItem
             // 
             this.summaryToolStripMenuItem.Name = "summaryToolStripMenuItem";
-            this.summaryToolStripMenuItem.Size = new System.Drawing.Size(156, 26);
+            this.summaryToolStripMenuItem.ShowShortcutKeys = false;
+            this.summaryToolStripMenuItem.Size = new System.Drawing.Size(146, 26);
             this.summaryToolStripMenuItem.Text = "Synthése";
-            this.summaryToolStripMenuItem.Click += new System.EventHandler(this.toolStripMenuItem_Click);
+            this.summaryToolStripMenuItem.Click += new System.EventHandler(this.ToolStripMenuItem_Click);
             // 
             // WindowToolStripMenuItem
             // 
@@ -177,37 +188,45 @@ namespace ApplicationMdi
             this.toolStripSeparatorWIndow,
             this.EnterToolStripMenuItem});
             this.WindowToolStripMenuItem.Name = "WindowToolStripMenuItem";
+            this.WindowToolStripMenuItem.ShowShortcutKeys = false;
             this.WindowToolStripMenuItem.Size = new System.Drawing.Size(81, 25);
             this.WindowToolStripMenuItem.Text = "Fenêtres";
             // 
             // cascadeToolStripMenuItem
             // 
             this.cascadeToolStripMenuItem.Name = "cascadeToolStripMenuItem";
-            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.cascadeToolStripMenuItem.ShowShortcutKeys = false;
+            this.cascadeToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.cascadeToolStripMenuItem.Text = "Cascade";
+            this.cascadeToolStripMenuItem.Click += new System.EventHandler(this.WindowToolStripMenuItem_Click);
             // 
             // horizontalToolStripMenuItem
             // 
             this.horizontalToolStripMenuItem.Name = "horizontalToolStripMenuItem";
-            this.horizontalToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.horizontalToolStripMenuItem.ShowShortcutKeys = false;
+            this.horizontalToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.horizontalToolStripMenuItem.Text = "Horizontal";
+            this.horizontalToolStripMenuItem.Click += new System.EventHandler(this.WindowToolStripMenuItem_Click);
             // 
             // verticalToolStripMenuItem
             // 
             this.verticalToolStripMenuItem.Name = "verticalToolStripMenuItem";
-            this.verticalToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.verticalToolStripMenuItem.ShowShortcutKeys = false;
+            this.verticalToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.verticalToolStripMenuItem.Text = "Vertical";
+            this.verticalToolStripMenuItem.Click += new System.EventHandler(this.WindowToolStripMenuItem_Click);
             // 
             // toolStripSeparatorWIndow
             // 
             this.toolStripSeparatorWIndow.Name = "toolStripSeparatorWIndow";
-            this.toolStripSeparatorWIndow.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparatorWIndow.Size = new System.Drawing.Size(177, 6);
             // 
             // EnterToolStripMenuItem
             // 
             this.EnterToolStripMenuItem.CheckOnClick = true;
             this.EnterToolStripMenuItem.Name = "EnterToolStripMenuItem";
-            this.EnterToolStripMenuItem.Size = new System.Drawing.Size(152, 26);
+            this.EnterToolStripMenuItem.ShowShortcutKeys = false;
+            this.EnterToolStripMenuItem.Size = new System.Drawing.Size(180, 26);
             this.EnterToolStripMenuItem.Text = "1 Saisie";
             // 
             // toolStrip
@@ -219,7 +238,7 @@ namespace ApplicationMdi
             this.toolStrip.Name = "toolStrip";
             this.toolStrip.Padding = new System.Windows.Forms.Padding(0, 0, 2, 0);
             this.toolStrip.Size = new System.Drawing.Size(1200, 28);
-            this.toolStrip.TabIndex = 2;
+            this.toolStrip.TabIndex = 1;
             this.toolStrip.Text = "toolStrip1";
             // 
             // toolStripButtonIdentification

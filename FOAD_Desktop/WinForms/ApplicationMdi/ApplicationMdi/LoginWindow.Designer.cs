@@ -68,7 +68,7 @@ namespace ApplicationMdi
             this.textBoxPassword.Location = new System.Drawing.Point(97, 85);
             this.textBoxPassword.Name = "textBoxPassword";
             this.textBoxPassword.Size = new System.Drawing.Size(100, 26);
-            this.textBoxPassword.TabIndex = 2;
+            this.textBoxPassword.TabIndex = 1;
             // 
             // textBoxLogin
             // 
@@ -76,7 +76,7 @@ namespace ApplicationMdi
             this.textBoxLogin.Location = new System.Drawing.Point(97, 42);
             this.textBoxLogin.Name = "textBoxLogin";
             this.textBoxLogin.Size = new System.Drawing.Size(100, 26);
-            this.textBoxLogin.TabIndex = 3;
+            this.textBoxLogin.TabIndex = 0;
             this.textBoxLogin.TextChanged += new System.EventHandler(this.textBox_TextChanged);
             // 
             // buttonOk
@@ -85,7 +85,7 @@ namespace ApplicationMdi
             this.buttonOk.Location = new System.Drawing.Point(238, 85);
             this.buttonOk.Name = "buttonOk";
             this.buttonOk.Size = new System.Drawing.Size(75, 26);
-            this.buttonOk.TabIndex = 4;
+            this.buttonOk.TabIndex = 2;
             this.buttonOk.Text = "Ok";
             this.buttonOk.UseVisualStyleBackColor = true;
             this.buttonOk.Click += new System.EventHandler(this.buttonOk_Click);
@@ -96,7 +96,7 @@ namespace ApplicationMdi
             this.buttonCancel.Location = new System.Drawing.Point(238, 118);
             this.buttonCancel.Name = "buttonCancel";
             this.buttonCancel.Size = new System.Drawing.Size(75, 26);
-            this.buttonCancel.TabIndex = 5;
+            this.buttonCancel.TabIndex = 3;
             this.buttonCancel.Text = "Annuler";
             this.buttonCancel.UseVisualStyleBackColor = true;
             this.buttonCancel.Click += new System.EventHandler(this.buttonCancel_Click);
@@ -109,7 +109,7 @@ namespace ApplicationMdi
             // 
             this.errorProviderPassword.ContainerControl = this;
             // 
-            // LoginWindow4
+            // LoginWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -121,7 +121,7 @@ namespace ApplicationMdi
             this.Controls.Add(this.labelPassword);
             this.Controls.Add(this.labelLogin);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
-            this.Name = "LoginWindow4";
+            this.Name = "LoginWindow";
             this.Text = "S\'identifier";
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderLogin)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderPassword)).EndInit();

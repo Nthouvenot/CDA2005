@@ -30,7 +30,7 @@ namespace ApplicationMdi
             {
                 if (menuItems is ToolStripMenuItem)
                 {
-                    toolStripDropDownButtonStage3.DropDownItems.Add(new ToolStripMenuItem(menuItems.Text, null, toolStripMenuItem_Click, "toolBarmenuItem" + i));
+                    toolStripDropDownButtonStage3.DropDownItems.Add(new ToolStripMenuItem(menuItems.Text, null, ToolStripMenuItem_Click, "toolBarmenuItem" + i));
                 }
                 else if (menuItems is ToolStripSeparator)
                 {
@@ -63,7 +63,7 @@ namespace ApplicationMdi
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private void toolStripMenuItem_Click(object sender, EventArgs e)
+        private void ToolStripMenuItem_Click(object sender, EventArgs e)
         {
             ToolStripMenuItem menuItem = (ToolStripMenuItem)sender;
             toolStripStatusLabelStatus.Text = menuItem.Text;
@@ -103,11 +103,79 @@ namespace ApplicationMdi
                 mdiScroll.MdiParent = this;
                 mdiScroll.Show();
             }
-            else if(menuItem.Name == "summaryToolStripMenuItem" || menuItem.Name == "toolBarmenuItem4")
+            else if (menuItem.Name == "summaryToolStripMenuItem" || menuItem.Name == "toolBarmenuItem4")
             {
                 Emprunt.MainWindow mdiSummary = new Emprunt.MainWindow();
                 mdiSummary.MdiParent = this;
                 mdiSummary.Show();
+            }
+        }
+
+        /// <summary>
+        /// Method the events for the window menu
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void WindowToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ToolStripMenuItem menuItem = (ToolStripMenuItem)sender;
+            switch (menuItem.Name)
+            {
+                case "cascadeToolStripMenuItem":
+                    {
+                        int distanceTop = 0;
+                        int distanceLeft = 0;
+                        foreach (Form childrenForm in this.MdiChildren)
+                        {
+                            if(distanceTop + 500 > this.Height)
+                            {
+                                distanceTop = 0;
+                                distanceLeft = 0;
+                            }
+                            childrenForm.Top = distanceTop;
+                            childrenForm.Left = distanceLeft;
+                            childrenForm.Activate();
+                            distanceTop += 30;
+                            distanceLeft += 30;
+                        }
+                        break;
+                    }
+                case "horizontalToolStripMenuItem":
+                    { 
+                        int positonLeft = 0;
+                        int positionTop = 0;
+                        foreach (Form childrenForm in this.MdiChildren)
+                        {
+                            if ((positonLeft + childrenForm.Width) > this.Width)
+                            {
+                                positionTop += 30;
+                                positonLeft = 0;
+                            }
+                            childrenForm.Top = positionTop;
+                            childrenForm.Left = positonLeft;
+                            childrenForm.Activate();
+                            positonLeft += childrenForm.Width;
+                        }
+                        break;
+                    }
+                case "verticalToolStripMenuItem":
+                    {
+                        int positionTop = 0;
+                        int positionLeft = 0;
+                        foreach (Form childrenForm in this.MdiChildren)
+                        {
+                            if ((positionTop + childrenForm.Height) > this.Height + 500)
+                            {
+                                positionLeft += 30;
+                                positionTop = 0;
+                            }
+                            childrenForm.Top = positionTop;
+                            childrenForm.Left = positionLeft;
+                            childrenForm.Activate();
+                            positionTop += 30;
+                        }
+                        break;
+                    }
             }
         }
 
