@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="NameAndType">
+  <Class Name="ClassLibraryToutEmbal.WoodBoxProduction">
+    <Position X="4.25" Y="1.25" Width="5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Enum Name="ClassLibraryToutEmbal.WoodBoxProduction.ProductionState">
+        <TypeIdentifier>
+          <NewMemberFileName>WoodBox.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Enum>
+      <Delegate Name="ClassLibraryToutEmbal.WoodBoxProduction.WoodProductionEventDelagateWithArgs">
+        <TypeIdentifier>
+          <NewMemberFileName>WoodBox.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="ClassLibraryToutEmbal.WoodBoxProduction.WoodProductionEventDelagateWithoutArgs">
+        <TypeIdentifier>
+          <NewMemberFileName>WoodBox.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAEAAAAggAEAAAAkAAAAAAAACAMBAAAAABAQEBAAkLA=</HashCode>
+      <FileName>WoodBox.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
