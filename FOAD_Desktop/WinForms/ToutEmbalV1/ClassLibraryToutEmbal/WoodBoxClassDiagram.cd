@@ -11,14 +11,19 @@
           <NewMemberFileName>WoodBox.cs</NewMemberFileName>
         </TypeIdentifier>
       </Enum>
-      <Delegate Name="ClassLibraryToutEmbal.WoodBoxProduction.WoodProductionEventDelagate">
+      <Delegate Name="ClassLibraryToutEmbal.WoodBoxProduction.WoodProductionEventDelagateWithArgs">
+        <TypeIdentifier>
+          <NewMemberFileName>WoodBox.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+      <Delegate Name="ClassLibraryToutEmbal.WoodBoxProduction.WoodProductionEventDelagateWithoutArgs">
         <TypeIdentifier>
           <NewMemberFileName>WoodBox.cs</NewMemberFileName>
         </TypeIdentifier>
       </Delegate>
     </NestedTypes>
     <TypeIdentifier>
-      <HashCode>AAEAAAAggAAAAAAkAAAAAAAACAMBAAAAABAQEBAAkLA=</HashCode>
+      <HashCode>AAEAAAAggAEAAAAkAAAAAAAACAMBAAAAABAQEBAAkLA=</HashCode>
       <FileName>WoodBox.cs</FileName>
     </TypeIdentifier>
   </Class>
