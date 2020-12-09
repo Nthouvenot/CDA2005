@@ -37,7 +37,7 @@ namespace Papyrus
             this.buttonDsiconect = new System.Windows.Forms.Button();
             this.buttonExit = new System.Windows.Forms.Button();
             this.labelConnexionState = new System.Windows.Forms.Label();
-            this.textBoxDbMessage = new System.Windows.Forms.TextBox();
+            this.richTextBoxDbMessage = new System.Windows.Forms.RichTextBox();
             this.SuspendLayout();
             // 
             // labelServeur
@@ -69,10 +69,11 @@ namespace Papyrus
             this.buttonConnect.TabIndex = 2;
             this.buttonConnect.Text = "Connexion";
             this.buttonConnect.UseVisualStyleBackColor = true;
-            this.buttonConnect.Click += new System.EventHandler(this.ButtonConnect_Click);
+            this.buttonConnect.Click += new System.EventHandler(this.ButtonConnection_Click);
             // 
             // textBoxServeurName
             // 
+            this.textBoxServeurName.ForeColor = System.Drawing.SystemColors.WindowText;
             this.textBoxServeurName.Location = new System.Drawing.Point(252, 28);
             this.textBoxServeurName.Name = "textBoxServeurName";
             this.textBoxServeurName.Size = new System.Drawing.Size(210, 20);
@@ -94,6 +95,7 @@ namespace Papyrus
             this.buttonDsiconect.TabIndex = 5;
             this.buttonDsiconect.Text = "Deconnexion";
             this.buttonDsiconect.UseVisualStyleBackColor = true;
+            this.buttonDsiconect.Click += new System.EventHandler(this.ButtonConnection_Click);
             // 
             // buttonExit
             // 
@@ -116,21 +118,21 @@ namespace Papyrus
             this.labelConnexionState.TabIndex = 8;
             this.labelConnexionState.Text = "Etat de la connexion : Closed";
             // 
-            // textBoxDbMessage
+            // richTextBoxDbMessage
             // 
-            this.textBoxDbMessage.Location = new System.Drawing.Point(37, 270);
-            this.textBoxDbMessage.Multiline = true;
-            this.textBoxDbMessage.Name = "textBoxDbMessage";
-            this.textBoxDbMessage.ReadOnly = true;
-            this.textBoxDbMessage.Size = new System.Drawing.Size(425, 159);
-            this.textBoxDbMessage.TabIndex = 9;
+            this.richTextBoxDbMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBoxDbMessage.Location = new System.Drawing.Point(33, 269);
+            this.richTextBoxDbMessage.Name = "richTextBoxDbMessage";
+            this.richTextBoxDbMessage.Size = new System.Drawing.Size(425, 209);
+            this.richTextBoxDbMessage.TabIndex = 10;
+            this.richTextBoxDbMessage.Text = "";
             // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(513, 450);
-            this.Controls.Add(this.textBoxDbMessage);
+            this.ClientSize = new System.Drawing.Size(513, 491);
+            this.Controls.Add(this.richTextBoxDbMessage);
             this.Controls.Add(this.labelConnexionState);
             this.Controls.Add(this.buttonExit);
             this.Controls.Add(this.buttonDsiconect);
@@ -139,6 +141,7 @@ namespace Papyrus
             this.Controls.Add(this.buttonConnect);
             this.Controls.Add(this.labelDatabase);
             this.Controls.Add(this.labelServeur);
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "MainWindow";
             this.Text = "Connexion a la base de données";
@@ -157,7 +160,7 @@ namespace Papyrus
         private System.Windows.Forms.Button buttonDsiconect;
         private System.Windows.Forms.Button buttonExit;
         private System.Windows.Forms.Label labelConnexionState;
-        private System.Windows.Forms.TextBox textBoxDbMessage;
+        private System.Windows.Forms.RichTextBox richTextBoxDbMessage;
     }
 }
 

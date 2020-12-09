@@ -13,40 +13,74 @@ namespace Papyrus
 {
     public partial class MainWindow : Form
     {
+        private SqlConnectionStringBuilder connectionBuilder;
         private SqlConnection dbConnection;
+        private bool isConnected;
 
         public MainWindow()
         {
             InitializeComponent();
+            connectionBuilder = new SqlConnectionStringBuilder();
+            dbConnection = new SqlConnection();
+            textBoxServeurName.Text = "(localdb)\\MSSQLLocalDB";
+            textBoxDataBaseName.Text = "PapyrusNicolas";
         }
 
+        /// <summary>
+        /// Exit the application
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ButtonExit_Click(object sender, EventArgs e)
         {
-            if(dbConnection.State == ConnectionState.Open)
+            if (dbConnection.State == ConnectionState.Open)
             {
                 dbConnection.Close();
             }
             this.Close();
         }
 
-        private void ButtonConnect_Click(object sender, EventArgs e)
+        /// <summary>
+        /// try to connect to the Sql Server
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void ButtonConnection_Click(object sender, EventArgs e)
         {
-            dbConnection = new SqlConnection();
-            dbConnection.ConnectionString = "Data Source = " + textBoxServeurName.Text + "; Initial Catalog = " + textBoxDataBaseName.Text + "; Integrated Security = True; Pooling = False";
-            try
+            Button button = (Button)sender;
+            if(button.Name == "buttonConnect")
             {
-                dbConnection.Open();
-                labelConnexionState.Text = "Etat de la connexion : " + dbConnection.State.ToString();
+                connectionBuilder.DataSource = textBoxServeurName.Text;
+                connectionBuilder.IntegratedSecurity = true;
+                connectionBuilder.Pooling = false;
+                dbConnection.ConnectionString = connectionBuilder.ConnectionString;
+                try
+                {
+                    dbConnection.Open();
+                    isConnected = true;
+                    richTextBoxDbMessage.Text = "connection success";
+                    richTextBoxDbMessage.ForeColor = Color.Green;
+                }
+                catch (Exception error)
+                {
+                    isConnected = true;
+                    richTextBoxDbMessage.Text = error.Message;
+                    richTextBoxDbMessage.ForeColor = Color.Red;
+                }
+                finally
+                {
+                    if (!isConnected)
+                    {
+                        dbConnection.Close();
+                    }
+                }
             }
-            catch(Exception error)
-            {
-                labelConnexionState.Text = "Etat de la connexion : " + dbConnection.State.ToString();
-                textBoxDbMessage.Text = error.Message;
-            }
-            finally
+            else
             {
                 dbConnection.Close();
+                richTextBoxDbMessage.Clear();
             }
+            labelConnexionState.Text = "Etat de la connexion : " + dbConnection.State.ToString();
         }
     }
 }
