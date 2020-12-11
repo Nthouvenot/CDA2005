@@ -150,6 +150,7 @@ namespace Papyrus
             this.buttonReturn.TabIndex = 11;
             this.buttonReturn.Text = "Retour";
             this.buttonReturn.UseVisualStyleBackColor = true;
+            this.buttonReturn.Click += new System.EventHandler(this.ButtonReturn_Click);
             // 
             // PrintSupplierDataWindow
             // 

@@ -8,6 +8,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FF5525C4-2052-44AD-A7C4-2785788BD525}"
 	ProjectSection(SolutionItems) = preProject
 		SqlQuery_CreateBdd.sql = SqlQuery_CreateBdd.sql
+		SqlQuery_CreateDataSet.sql = SqlQuery_CreateDataSet.sql
 	EndProjectSection
 EndProject
 Global

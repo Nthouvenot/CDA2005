@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Data.SqlClient;
+using System.Configuration;
 
 namespace Papyrus
 {
@@ -22,8 +23,9 @@ namespace Papyrus
             InitializeComponent();
             connectionBuilder = new SqlConnectionStringBuilder();
             dbConnection = new SqlConnection();
-            textBoxServeurName.Text = "(localdb)\\MSSQLLocalDB";
-            textBoxDataBaseName.Text = "PapyrusNicolas";
+            this.connectionBuilder.ConnectionString = ConfigurationManager.ConnectionStrings["PapyrusDB"].ToString();
+            textBoxServeurName.Text = this.connectionBuilder.DataSource;
+            textBoxDataBaseName.Text = this.connectionBuilder.InitialCatalog;
         }
 
         /// <summary>
@@ -51,8 +53,13 @@ namespace Papyrus
             if(button.Name == "buttonConnect")
             {
                 connectionBuilder.DataSource = textBoxServeurName.Text;
+                connectionBuilder.InitialCatalog = textBoxDataBaseName.Text;
                 connectionBuilder.IntegratedSecurity = true;
-                connectionBuilder.Pooling = false;
+                connectionBuilder.Pooling = true;
+                if(dbConnection.State == ConnectionState.Open && (textBoxDataBaseName.Text != connectionBuilder.DataSource || textBoxDataBaseName.Text != connectionBuilder.InitialCatalog))
+                {
+                    dbConnection.Close();
+                }
                 dbConnection.ConnectionString = connectionBuilder.ConnectionString;
                 try
                 {

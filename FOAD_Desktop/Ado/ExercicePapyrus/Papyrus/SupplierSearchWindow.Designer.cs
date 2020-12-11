@@ -78,6 +78,7 @@ namespace Papyrus
             this.buttonExit.TabIndex = 3;
             this.buttonExit.Text = "Quitter";
             this.buttonExit.UseVisualStyleBackColor = true;
+            this.buttonExit.Click += new System.EventHandler(this.buttonExit_Click);
             // 
             // errorProviderCode
             // 

@@ -21,7 +21,6 @@ namespace Papyrus
         private void ButtonOk_Click(object sender, EventArgs e)
         {
             PrintSupplierDataWindow form = new PrintSupplierDataWindow(textBoxSupplierCode.Text);
-            form.Parent = this;
             form.Show();
         }
 
@@ -38,6 +37,11 @@ namespace Papyrus
                 errorProviderCode.Clear();
                 buttonOk.Enabled = true;
             }
+        }
+
+        private void buttonExit_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
