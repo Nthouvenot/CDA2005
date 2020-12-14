@@ -47,6 +47,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="OrderListWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrderListWindow.Designer.cs">
+      <DependentUpon>OrderListWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="PrintSupplierDataWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -69,6 +75,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="MainWindow.resx">
       <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="OrderListWindow.resx">
+      <DependentUpon>OrderListWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PrintSupplierDataWindow.resx">
       <DependentUpon>PrintSupplierDataWindow.cs</DependentUpon>

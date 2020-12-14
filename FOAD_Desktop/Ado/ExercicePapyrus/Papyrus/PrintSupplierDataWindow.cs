@@ -32,15 +32,15 @@ namespace Papyrus
                 while(dataReader.Read())
                 {
                     textBoxName.Text = dataReader.GetString(1);
-                    textBoxAdress.Text = dataReader.GetByte(2).ToString() + " " + dataReader.GetString(3);
-                    textBoxZipCode.Text = dataReader.GetInt32(4).ToString();
+                    textBoxAdress.Text = dataReader.GetValue(2).ToString() + " " + dataReader.GetValue(3).ToString();
+                    textBoxZipCode.Text = dataReader.GetValue(4).ToString();
                     textBoxCity.Text = dataReader.GetString(5);
                     textBoxContact.Text = dataReader.GetString(6);
-                    textBoxSatisfaction.Text = dataReader.GetInt32(7).ToString();
+                    textBoxSatisfaction.Text = dataReader.GetValue(7).ToString();
                 }
                
             }
-            catch (Exception error)
+            catch (SqlException error)
             {
                 MessageBox.Show(error.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.dbConnection.Close();

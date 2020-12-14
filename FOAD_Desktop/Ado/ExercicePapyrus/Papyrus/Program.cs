@@ -16,7 +16,7 @@ namespace Papyrus
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SupplierSearchWindow());
+            Application.Run(new OrderListWindow());
         }
     }
 }
