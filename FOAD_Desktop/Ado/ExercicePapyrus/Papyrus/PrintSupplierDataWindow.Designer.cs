@@ -169,6 +169,7 @@ namespace Papyrus
             this.Controls.Add(this.labelZipCodeCity);
             this.Controls.Add(this.labelAdress);
             this.Controls.Add(this.labelName);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Name = "PrintSupplierDataWindow";
             this.Text = "Affichage Fournisseur";
             this.ResumeLayout(false);
