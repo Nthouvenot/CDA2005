@@ -36,7 +36,6 @@ namespace Papyrus
                 {
                     comboBoxSuplier.Items.Add(dataReader.GetString(1));
                 }
-
             }
             catch (SqlException error)
             {
@@ -86,7 +85,7 @@ namespace Papyrus
             }
         }
 
-        private void buttonExit_Click(object sender, EventArgs e)
+        private void ButtonExit_Click(object sender, EventArgs e)
         {
             dbConnection.Close();
             this.Close();
