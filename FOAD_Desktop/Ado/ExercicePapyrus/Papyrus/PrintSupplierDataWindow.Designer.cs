@@ -125,11 +125,11 @@ namespace Papyrus
             this.textBoxCity.Size = new System.Drawing.Size(153, 26);
             this.textBoxCity.TabIndex = 8;
             // 
-            // textBoxContact
+            // textBoxSuplierContact
             // 
             this.textBoxContact.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxContact.Location = new System.Drawing.Point(150, 124);
-            this.textBoxContact.Name = "textBoxContact";
+            this.textBoxContact.Name = "textBoxSuplierContact";
             this.textBoxContact.Size = new System.Drawing.Size(211, 26);
             this.textBoxContact.TabIndex = 9;
             // 
