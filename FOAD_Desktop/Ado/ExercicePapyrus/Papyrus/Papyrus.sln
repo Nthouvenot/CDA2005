@@ -8,10 +8,10 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{FF5525C4-2052-44AD-A7C4-2785788BD525}"
 	ProjectSection(SolutionItems) = preProject
 		SqlCreateStoredProcedure.sql = SqlCreateStoredProcedure.sql
-		SqlQuery_1.sql = SqlQuery_1.sql
-		SqlQuery_2.sql = SqlQuery_2.sql
+		SqlProcedureTest.sql = SqlProcedureTest.sql
 		SqlQuery_CreateBdd.sql = SqlQuery_CreateBdd.sql
 		SqlQuery_CreateDataSet.sql = SqlQuery_CreateDataSet.sql
+		SqlQuerySuplierRead.sql = SqlQuerySuplierRead.sql
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryPapyrus", "..\ClassLibraryPapyrus\ClassLibraryPapyrus.csproj", "{B237001F-BBCF-480B-8DB9-910E6B54344E}"
