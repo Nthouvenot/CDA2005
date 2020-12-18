@@ -48,7 +48,13 @@ namespace Papyrus
             this.errorProviderFournisseur = new System.Windows.Forms.ErrorProvider(this.components);
             this.textBoxSuplierAdress = new System.Windows.Forms.TextBox();
             this.labelZipCodeCity = new System.Windows.Forms.Label();
+            this.errorProviderName = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderAdress = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderCpCity = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFournisseur)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderName)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderAdress)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCpCity)).BeginInit();
             this.SuspendLayout();
             // 
             // labelSuplier
@@ -68,7 +74,7 @@ namespace Papyrus
             this.textBoxSuplier.Name = "textBoxSuplier";
             this.textBoxSuplier.Size = new System.Drawing.Size(183, 26);
             this.textBoxSuplier.TabIndex = 1;
-            this.textBoxSuplier.TextChanged += new System.EventHandler(this.TextBoxSuplier_TextChanged);
+            this.textBoxSuplier.TextChanged += new System.EventHandler(this.TextBoxSuplierCode_TextChanged);
             // 
             // buttonSearch
             // 
@@ -98,7 +104,7 @@ namespace Papyrus
             this.textBoxSuplierName.Name = "textBoxSuplierName";
             this.textBoxSuplierName.Size = new System.Drawing.Size(272, 26);
             this.textBoxSuplierName.TabIndex = 4;
-            this.textBoxSuplierName.TextChanged += new System.EventHandler(this.TextBoxSuplierName_TextChanged);
+            this.textBoxSuplierName.TextChanged += new System.EventHandler(this.TextBoxSuplier_TextChanged);
             // 
             // textBoxSuplierZipCode
             // 
@@ -107,6 +113,7 @@ namespace Papyrus
             this.textBoxSuplierZipCode.Name = "textBoxSuplierZipCode";
             this.textBoxSuplierZipCode.Size = new System.Drawing.Size(62, 26);
             this.textBoxSuplierZipCode.TabIndex = 5;
+            this.textBoxSuplierZipCode.TextChanged += new System.EventHandler(this.TextBoxSuplier_TextChanged);
             // 
             // textBoxSuplierContact
             // 
@@ -205,7 +212,7 @@ namespace Papyrus
             this.textBoxSuplierAdress.Name = "textBoxSuplierAdress";
             this.textBoxSuplierAdress.Size = new System.Drawing.Size(272, 26);
             this.textBoxSuplierAdress.TabIndex = 15;
-            this.textBoxSuplierAdress.TextChanged += new System.EventHandler(this.textBoxSuplierAdress_TextChanged);
+            this.textBoxSuplierAdress.TextChanged += new System.EventHandler(this.TextBoxSuplier_TextChanged);
             // 
             // labelZipCodeCity
             // 
@@ -216,6 +223,18 @@ namespace Papyrus
             this.labelZipCodeCity.Size = new System.Drawing.Size(70, 20);
             this.labelZipCodeCity.TabIndex = 16;
             this.labelZipCodeCity.Text = "Cp / Ville";
+            // 
+            // errorProviderName
+            // 
+            this.errorProviderName.ContainerControl = this;
+            // 
+            // errorProviderAdress
+            // 
+            this.errorProviderAdress.ContainerControl = this;
+            // 
+            // errorProviderCpCity
+            // 
+            this.errorProviderCpCity.ContainerControl = this;
             // 
             // PrintUpdateDeleteSupplierDataWindow
             // 
@@ -245,6 +264,9 @@ namespace Papyrus
             this.Text = "Fournisseur";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PrintUpdateDeleteSupplierDataWindow_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFournisseur)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderName)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderAdress)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCpCity)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -270,5 +292,8 @@ namespace Papyrus
         private System.Windows.Forms.ErrorProvider errorProviderFournisseur;
         private System.Windows.Forms.TextBox textBoxSuplierAdress;
         private System.Windows.Forms.Label labelZipCodeCity;
+        private System.Windows.Forms.ErrorProvider errorProviderName;
+        private System.Windows.Forms.ErrorProvider errorProviderAdress;
+        private System.Windows.Forms.ErrorProvider errorProviderCpCity;
     }
 }

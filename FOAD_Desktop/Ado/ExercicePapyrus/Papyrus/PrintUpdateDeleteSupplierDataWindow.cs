@@ -23,6 +23,7 @@ namespace Papyrus
         {
             InitializeComponent();
             buttonSearch.Enabled = false;
+            buttonUpdate.Enabled = false;
             this.connectionBuilder = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["PapyrusDB"].ToString());
             this.dbConnection = new SqlConnection();
             this.dbConnection.ConnectionString = connectionBuilder.ConnectionString;
@@ -39,27 +40,7 @@ namespace Papyrus
             }
         }
 
-        private void TextBoxSuplier_TextChanged(object sender, EventArgs e)
-        {
-            if(textBoxSuplier.Text.Length == 0)
-            {
-                errorProviderFournisseur.Clear();
-                this.buttonSearch.Enabled = false;
-            }
-            else if(!CheckTools.CheckSuplierCode(textBoxSuplier.Text))
-            {
-                errorProviderFournisseur.SetError(textBoxSuplier, "le code fournisseur est composé de 1 a 10 chiffres");
-                buttonSearch.Enabled = false;
-            }
-            else
-            {
-                errorProviderFournisseur.Clear();
-                buttonSearch.Enabled = true;
-            }
-            
-        }
-
-        private void ButtonSearch_Click(object sender, EventArgs e)
+            private void ButtonSearch_Click(object sender, EventArgs e)
         {
             try
             {
@@ -237,14 +218,68 @@ namespace Papyrus
             }
         }
 
-        private void TextBoxSuplierName_TextChanged(object sender, EventArgs e)
+        private void TextBoxSuplierCode_TextChanged(object sender, EventArgs e)
         {
-
+            if (textBoxSuplier.Text.Length == 0)
+            {
+                errorProviderFournisseur.Clear();
+                this.buttonSearch.Enabled = false;
+            }
+            else if (!CheckTools.CheckSuplierCode(textBoxSuplier.Text))
+            {
+                errorProviderFournisseur.SetError(textBoxSuplier, "le code fournisseur est composé de 1 a 10 chiffres");
+                buttonSearch.Enabled = false;
+            }
+            else
+            {
+                errorProviderFournisseur.Clear();
+                buttonSearch.Enabled = true;
+            }
         }
 
-        private void textBoxSuplierAdress_TextChanged(object sender, EventArgs e)
+        private void TextBoxSuplier_TextChanged(object sender, EventArgs e)
         {
-
+            TextBox currentTextBox = (TextBox)sender;
+            switch(currentTextBox.Name)
+            {
+                case "textBoxSuplierName":
+                    {
+                        if(!CheckTools.CheckSuplierString(currentTextBox.Text) && currentTextBox.Text.Length != 0)
+                        {
+                            errorProviderName.SetError(textBoxSuplierName, "le nom de fournisseur est composé de 1 a  lettres");
+                        }
+                        else
+                        {
+                            errorProviderName.Clear();
+                        }
+                        break;
+                    }
+                case "textBoxSuplierAdress":
+                    {
+                        if (!CheckTools.CheckSuplierAdress(currentTextBox.Text) && currentTextBox.Text.Length != 0)
+                        {
+                            errorProviderAdress.SetError(textBoxSuplierAdress, "l'adresse de fournisseur est composé de 1 a 3 chifrre suivi d'un espace et de 3 a 47 lettres");
+                        }
+                        else
+                        {
+                            errorProviderAdress.Clear();
+                        }
+                        break;
+                    }
+                case "textBoxSuplierZipCode":
+                    {
+                        if (!CheckTools.CheckZipCode(currentTextBox.Text) && currentTextBox.Text.Length != 0)
+                        {
+                            errorProviderCpCity.SetError(textBoxSuplierZipCode, "le code postal est composé de 5 chiffre positif est inférieur a 96000");
+                        }
+                        else
+                        {
+                            errorProviderCpCity.Clear();
+                        }
+                        break;
+                    }
+                    
+            }
         }
     }
 }
