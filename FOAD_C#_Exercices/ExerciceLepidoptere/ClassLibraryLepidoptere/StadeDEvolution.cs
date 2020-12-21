@@ -1,0 +1,15 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace ClassLibraryLepidoptere
+{
+    public abstract class StadeDEvolution
+    {
+        public abstract bool SeDeplacer();
+
+        public abstract StadeDEvolution SeMetamorphoser();
+    }
+}
