@@ -28,20 +28,10 @@ namespace ClassLibraryPapyrus
             }
             return true;
         }
-
-        public static bool CheckSuplierSatisfaction(string suplierSatisfaction)
-        {
-            Regex suplierCodeRegex = new Regex(@"^[0-10]$");
-            if (!suplierCodeRegex.IsMatch(suplierSatisfaction))
-            {
-                return false;
-            }
-            return true;
-        }
-        
+ 
         public static bool CheckSuplierAdress(string adress)
         {
-            Regex suplierCodeRegex = new Regex(@"^[0-9]{1,3}\s[a-zA-Z]{1,47}$");
+            Regex suplierCodeRegex = new Regex(@"^[0-9]{1,3}\s([a-zA-Z]{2,10}\s?){1,10}$");
             if (!suplierCodeRegex.IsMatch(adress))
             {
                 return false;
@@ -61,6 +51,34 @@ namespace ClassLibraryPapyrus
             {
                 Int32.TryParse(zipCode, out code);
                 if (code < 0 || code > 96000)
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+
+        public static bool CheckSuplierdCityName(string adressOrCityName)
+        {
+            Regex adressOrCityNameRegex = new Regex(@"^([a-zA-Z]{2,10}\s?){1,10}$");
+            if(!adressOrCityNameRegex.IsMatch(adressOrCityName))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        public static bool CheckSuplierSatisfaction(string suplierSatisfaction)
+        {
+            Regex suplierCodeRegex = new Regex(@"^[0-9]{1,2}$");
+            if (!suplierCodeRegex.IsMatch(suplierSatisfaction))
+            {
+                return false;
+            }
+            else
+            {
+                int number = Int32.Parse(suplierSatisfaction);
+                if (number < 0 || number > 10)
                 {
                     return false;
                 }
