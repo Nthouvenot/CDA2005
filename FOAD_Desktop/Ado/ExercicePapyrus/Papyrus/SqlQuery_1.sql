@@ -1,4 +1,0 @@
-USE PapyrusNicolas;
-SELECT Commandes.NUMERO_COMMANDE ,CONVERT(Date, Commandes.DATE_COMMANDE, 103) AS commande_date, Commandes.OBSERVATION_COMMANDE FROM Liste_Commandes, Produits_a_Vendre, Fournisseurs, Commandes WHERE Liste_Commandes.CODE_ARTICLE = Produits_a_Vendre.CODE_ARTICLE GROUP BY Commandes.NUMERO_COMMANDE, Commandes.DATE_COMMANDE, Commandes.OBSERVATION_COMMANDE;
-
-SELECT Commandes.NUMERO_COMMANDE ,CONVERT(Date, Commandes.DATE_COMMANDE, 103) AS commande_date, Commandes.OBSERVATION_COMMANDE FROM Liste_Commandes, Produits_a_Vendre, Fournisseurs, Commandes WHERE Fournisseurs.NUMERO_FOURNISSEUR = Produits_a_Vendre.NUMERO_FOURNISSEUR AND Liste_Commandes.CODE_ARTICLE = Produits_a_Vendre.CODE_ARTICLE AND Liste_Commandes.NUMERO_COMMANDE = Commandes.NUMERO_COMMANDE AND Fournisseurs.NUMERO_FOURNISSEUR = 1;
