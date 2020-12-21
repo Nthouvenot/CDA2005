@@ -23,7 +23,6 @@ namespace Papyrus
         {
             InitializeComponent();
             buttonSearch.Enabled = false;
-            buttonUpdate.Enabled = false;
             this.connectionBuilder = new SqlConnectionStringBuilder(ConfigurationManager.ConnectionStrings["PapyrusDB"].ToString());
             this.dbConnection = new SqlConnection();
             this.dbConnection.ConnectionString = connectionBuilder.ConnectionString;
@@ -33,14 +32,43 @@ namespace Papyrus
             {
                 this.dbConnection.Open();
             }
-            catch(SqlException sqlError)
+            catch (SqlException sqlError)
             {
                 MessageBox.Show(sqlError.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.dbConnection.Close();
             }
         }
 
-            private void ButtonSearch_Click(object sender, EventArgs e)
+        private bool CheckValidEntries()
+        {
+            if (!CheckTools.CheckSuplierString(textBoxSuplierName.Text))
+            {
+                return false;
+            }
+            else if (!CheckTools.CheckSuplierAdress(textBoxSuplierAdress.Text))
+            {
+                return false;
+            }
+            else if (!CheckTools.CheckZipCode(textBoxSuplierZipCode.Text))
+            {
+                return false;
+            }
+            else if (!CheckTools.CheckSuplierdCityName(textBoxSuplierCity.Text))
+            {
+                return false;
+            }
+            else if (!CheckTools.CheckSuplierString(textBoxSuplierContact.Text))
+            {
+                return false;
+            }
+            else if (!CheckTools.CheckSuplierSatisfaction(textBoxSuplierSatisfaction.Text))
+            {
+                return false;
+            }
+            return true;
+        }
+
+        private void ButtonSearch_Click(object sender, EventArgs e)
         {
             try
             {
@@ -48,14 +76,14 @@ namespace Papyrus
                 parameter.SqlDbType = SqlDbType.Int;
                 parameter.Direction = ParameterDirection.Input;
                 parameter.ParameterName = "@suplier_code";
-                parameter.Value = Int32.Parse(textBoxSuplier.Text);
+                parameter.Value = Int32.Parse(textBoxSuplierNumber.Text);
                 this.command = new SqlCommand();
                 this.command.Connection = dbConnection;
                 this.command.CommandType = CommandType.Text;
                 this.command.CommandText = "SELECT * FROM Fournisseurs WHERE NUMERO_FOURNISSEUR = @suplier_code";
                 this.command.Parameters.Add(parameter);
                 this.dataReader = command.ExecuteReader();
-                if(dataReader.Read())
+                if (dataReader.Read())
                 {
                     textBoxSuplierName.Text = dataReader.GetString(1);
                     textBoxSuplierAdress.Text = dataReader.GetValue(2).ToString() + " " + dataReader.GetValue(3).ToString();
@@ -82,7 +110,7 @@ namespace Papyrus
 
         private void ButtonNew_Click(object sender, EventArgs e)
         {
-            textBoxSuplier.Clear();
+            textBoxSuplierNumber.Clear();
             textBoxSuplierName.Clear();
             textBoxSuplierAdress.Clear();
             textBoxSuplierZipCode.Clear();
@@ -93,7 +121,7 @@ namespace Papyrus
 
         private void PrintUpdateDeleteSupplierDataWindow_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if(this.dbConnection.State == ConnectionState.Open)
+            if (this.dbConnection.State == ConnectionState.Open)
             {
                 this.dbConnection.Close();
             }
@@ -101,9 +129,14 @@ namespace Papyrus
 
         private void ButtonUpdate_Click(object sender, EventArgs e)
         {
+            if (!this.CheckValidEntries())
+            {
+                MessageBox.Show("Veuillez entrez des données valide", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
             string[] splitedAdress = textBoxSuplierAdress.Text.Split(' ');
             string street = textBoxSuplierAdress.Text.Substring(splitedAdress[0].Length + 1, textBoxSuplierAdress.Text.Length - (splitedAdress[0].Length + 1));
-            string sqlCommandText =" ";
+            string sqlCommandText = " ";
             bool update = false;
             SqlParameter parameterName = this.command.CreateParameter();
             SqlParameter parameterStreetNumber = this.command.CreateParameter();
@@ -175,7 +208,7 @@ namespace Papyrus
                 dataReader.Close();
                 this.command.Parameters.Clear();
             }
-            catch(Exception exception)
+            catch (SqlException exception)
             {
                 MessageBox.Show(exception.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.dbConnection.Close();
@@ -211,7 +244,7 @@ namespace Papyrus
                 }
                 this.command.Parameters.Clear();
             }
-            catch (Exception exception)
+            catch (SqlException exception)
             {
                 MessageBox.Show(exception.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 this.dataReader.Close();
@@ -220,14 +253,14 @@ namespace Papyrus
 
         private void TextBoxSuplierCode_TextChanged(object sender, EventArgs e)
         {
-            if (textBoxSuplier.Text.Length == 0)
+            if (textBoxSuplierNumber.Text.Length == 0)
             {
                 errorProviderFournisseur.Clear();
                 this.buttonSearch.Enabled = false;
             }
-            else if (!CheckTools.CheckSuplierCode(textBoxSuplier.Text))
+            else if (!CheckTools.CheckSuplierCode(textBoxSuplierNumber.Text))
             {
-                errorProviderFournisseur.SetError(textBoxSuplier, "le code fournisseur est composé de 1 a 10 chiffres");
+                errorProviderFournisseur.SetError(textBoxSuplierNumber, "le code fournisseur est composé de 1 a 10 chiffres");
                 buttonSearch.Enabled = false;
             }
             else
@@ -240,13 +273,13 @@ namespace Papyrus
         private void TextBoxSuplier_TextChanged(object sender, EventArgs e)
         {
             TextBox currentTextBox = (TextBox)sender;
-            switch(currentTextBox.Name)
+            switch (currentTextBox.Name)
             {
                 case "textBoxSuplierName":
                     {
-                        if(!CheckTools.CheckSuplierString(currentTextBox.Text) && currentTextBox.Text.Length != 0)
+                        if (!CheckTools.CheckSuplierString(currentTextBox.Text) && currentTextBox.Text.Length != 0)
                         {
-                            errorProviderName.SetError(textBoxSuplierName, "le nom de fournisseur est composé de 1 a  lettres");
+                            errorProviderName.SetError(textBoxSuplierName, "le nom de fournisseur est composé de 1 a 50 lettres");
                         }
                         else
                         {
@@ -278,7 +311,78 @@ namespace Papyrus
                         }
                         break;
                     }
-                    
+                case "textBoxSuplierCity":
+                    {
+                        if (!CheckTools.CheckSuplierdCityName(currentTextBox.Text) && currentTextBox.Text.Length != 0)
+                        {
+                            errorProviderCity.SetError(textBoxSuplierCity, "Un nom de ville est composé de caractéres");
+                        }
+                        else
+                        {
+                            errorProviderCity.Clear();
+                        }
+                        break;
+                    }
+                case "textBoxSuplierContact":
+                    {
+                        if (!CheckTools.CheckSuplierString(currentTextBox.Text) && currentTextBox.Text.Length != 0)
+                        {
+                            errorProviderContact.SetError(textBoxSuplierContact, "le nom de contact est composé de 1 a 50 caractéres");
+                        }
+                        else
+                        {
+                            errorProviderContact.Clear();
+                        }
+                        break;
+                    }
+                case "textBoxSuplierSatisfaction":
+                    if (!CheckTools.CheckSuplierSatisfaction(currentTextBox.Text) && currentTextBox.Text.Length != 0)
+                    {
+                        errorProviderSatisfaction.SetError(textBoxSuplierSatisfaction, "La satisfaction contient 1 chiffre de 0 a 10");
+                    }
+                    else
+                    {
+                        errorProviderSatisfaction.Clear();
+                    }
+                    break;
+            }
+        }
+
+        private void ButtonDelete_Click(object sender, EventArgs e)
+        {
+            SqlParameter parameterId = this.command.CreateParameter();
+            int id = 0;
+            int affectedRowNumber = 0;
+            Int32.TryParse(textBoxSuplierNumber.Text, out id);
+            //parameter number of the id suplier
+            parameterId.SqlDbType = SqlDbType.Int;
+            parameterId.Direction = ParameterDirection.Input;
+            parameterId.ParameterName = "@id_suplier";
+            parameterId.Value = id;
+            //Delete the row
+            try
+            {
+                this.command = new SqlCommand();
+                this.command.Connection = dbConnection;
+                this.command.CommandType = CommandType.Text;
+                this.command.CommandText = "DELETE FROM Fournisseurs WHERE NUMERO_FOURNISSEUR = @id_suplier";
+                this.command.Parameters.Add(parameterId);
+                affectedRowNumber = this.command.ExecuteNonQuery();
+                if (affectedRowNumber == 1)
+                {
+                    MessageBox.Show("Fournisseur supprimé", "succés", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("Fournisseur inconnu", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    this.command.Parameters.Clear();
+                }
+            }
+            catch (Exception exception)
+            {
+                MessageBox.Show(exception.Message, "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.dbConnection.Close();
+                return;
             }
         }
     }
