@@ -31,7 +31,7 @@ namespace Papyrus
         {
             this.components = new System.ComponentModel.Container();
             this.labelSuplier = new System.Windows.Forms.Label();
-            this.textBoxSuplier = new System.Windows.Forms.TextBox();
+            this.textBoxSuplierNumber = new System.Windows.Forms.TextBox();
             this.buttonSearch = new System.Windows.Forms.Button();
             this.labelSuplierName = new System.Windows.Forms.Label();
             this.textBoxSuplierName = new System.Windows.Forms.TextBox();
@@ -51,10 +51,16 @@ namespace Papyrus
             this.errorProviderName = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderAdress = new System.Windows.Forms.ErrorProvider(this.components);
             this.errorProviderCpCity = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderContact = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderCity = new System.Windows.Forms.ErrorProvider(this.components);
+            this.errorProviderSatisfaction = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderFournisseur)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderName)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderAdress)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCpCity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderContact)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCity)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderSatisfaction)).BeginInit();
             this.SuspendLayout();
             // 
             // labelSuplier
@@ -69,12 +75,12 @@ namespace Papyrus
             // 
             // textBoxSuplier
             // 
-            this.textBoxSuplier.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSuplier.Location = new System.Drawing.Point(169, 22);
-            this.textBoxSuplier.Name = "textBoxSuplier";
-            this.textBoxSuplier.Size = new System.Drawing.Size(183, 26);
-            this.textBoxSuplier.TabIndex = 1;
-            this.textBoxSuplier.TextChanged += new System.EventHandler(this.TextBoxSuplierCode_TextChanged);
+            this.textBoxSuplierNumber.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxSuplierNumber.Location = new System.Drawing.Point(169, 22);
+            this.textBoxSuplierNumber.Name = "textBoxSuplier";
+            this.textBoxSuplierNumber.Size = new System.Drawing.Size(183, 26);
+            this.textBoxSuplierNumber.TabIndex = 1;
+            this.textBoxSuplierNumber.TextChanged += new System.EventHandler(this.TextBoxSuplierCode_TextChanged);
             // 
             // buttonSearch
             // 
@@ -122,6 +128,7 @@ namespace Papyrus
             this.textBoxSuplierContact.Name = "textBoxSuplierContact";
             this.textBoxSuplierContact.Size = new System.Drawing.Size(272, 26);
             this.textBoxSuplierContact.TabIndex = 6;
+            this.textBoxSuplierContact.TextChanged += new System.EventHandler(this.TextBoxSuplier_TextChanged);
             // 
             // textBoxSuplierCity
             // 
@@ -130,6 +137,7 @@ namespace Papyrus
             this.textBoxSuplierCity.Name = "textBoxSuplierCity";
             this.textBoxSuplierCity.Size = new System.Drawing.Size(203, 26);
             this.textBoxSuplierCity.TabIndex = 7;
+            this.textBoxSuplierCity.TextChanged += new System.EventHandler(this.TextBoxSuplier_TextChanged);
             // 
             // labelSuplierAdress
             // 
@@ -168,6 +176,7 @@ namespace Papyrus
             this.textBoxSuplierSatisfaction.Name = "textBoxSuplierSatisfaction";
             this.textBoxSuplierSatisfaction.Size = new System.Drawing.Size(27, 26);
             this.textBoxSuplierSatisfaction.TabIndex = 11;
+            this.textBoxSuplierSatisfaction.TextChanged += new System.EventHandler(this.TextBoxSuplier_TextChanged);
             // 
             // buttonDelete
             // 
@@ -178,6 +187,7 @@ namespace Papyrus
             this.buttonDelete.TabIndex = 12;
             this.buttonDelete.Text = "Supprimer";
             this.buttonDelete.UseVisualStyleBackColor = true;
+            this.buttonDelete.Click += new System.EventHandler(this.ButtonDelete_Click);
             // 
             // buttonNew
             // 
@@ -204,6 +214,7 @@ namespace Papyrus
             // errorProviderFournisseur
             // 
             this.errorProviderFournisseur.ContainerControl = this;
+            this.errorProviderFournisseur.RightToLeft = true;
             // 
             // textBoxSuplierAdress
             // 
@@ -227,14 +238,30 @@ namespace Papyrus
             // errorProviderName
             // 
             this.errorProviderName.ContainerControl = this;
+            this.errorProviderName.RightToLeft = true;
             // 
             // errorProviderAdress
             // 
             this.errorProviderAdress.ContainerControl = this;
+            this.errorProviderAdress.RightToLeft = true;
             // 
             // errorProviderCpCity
             // 
             this.errorProviderCpCity.ContainerControl = this;
+            this.errorProviderCpCity.RightToLeft = true;
+            // 
+            // errorProviderContact
+            // 
+            this.errorProviderContact.ContainerControl = this;
+            this.errorProviderContact.RightToLeft = true;
+            // 
+            // errorProviderCity
+            // 
+            this.errorProviderCity.ContainerControl = this;
+            // 
+            // errorProviderSatisfaction
+            // 
+            this.errorProviderSatisfaction.ContainerControl = this;
             // 
             // PrintUpdateDeleteSupplierDataWindow
             // 
@@ -256,7 +283,7 @@ namespace Papyrus
             this.Controls.Add(this.textBoxSuplierName);
             this.Controls.Add(this.labelSuplierName);
             this.Controls.Add(this.buttonSearch);
-            this.Controls.Add(this.textBoxSuplier);
+            this.Controls.Add(this.textBoxSuplierNumber);
             this.Controls.Add(this.labelSuplier);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
@@ -267,6 +294,9 @@ namespace Papyrus
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderName)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderAdress)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProviderCpCity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderContact)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderCity)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProviderSatisfaction)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -275,7 +305,7 @@ namespace Papyrus
         #endregion
 
         private System.Windows.Forms.Label labelSuplier;
-        private System.Windows.Forms.TextBox textBoxSuplier;
+        private System.Windows.Forms.TextBox textBoxSuplierNumber;
         private System.Windows.Forms.Button buttonSearch;
         private System.Windows.Forms.Label labelSuplierName;
         private System.Windows.Forms.TextBox textBoxSuplierName;
@@ -295,5 +325,8 @@ namespace Papyrus
         private System.Windows.Forms.ErrorProvider errorProviderName;
         private System.Windows.Forms.ErrorProvider errorProviderAdress;
         private System.Windows.Forms.ErrorProvider errorProviderCpCity;
+        private System.Windows.Forms.ErrorProvider errorProviderContact;
+        private System.Windows.Forms.ErrorProvider errorProviderCity;
+        private System.Windows.Forms.ErrorProvider errorProviderSatisfaction;
     }
 }
