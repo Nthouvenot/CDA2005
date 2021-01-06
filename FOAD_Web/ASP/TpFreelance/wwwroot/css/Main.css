@@ -1,0 +1,133 @@
+/***********Common************/
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    max-width: 960px;
+    margin: 0px auto 0px auto;
+}
+
+a {
+    color: #111;
+    text-decoration: none;
+    font-family: Tahoma;
+}
+
+.dot {
+    font-size: 1.5em;
+}
+
+/***********Header************/
+
+header {
+    display: flex;
+    height: 78px;
+    margin: 0px;
+    flex-direction: row;
+    align-items: stretch;
+}
+
+    header a {
+        border: 2px solid black;
+        border-radius: 4px;
+    }
+
+        header a:hover {
+            background-color: #3809DD;
+        }
+
+#flex-left {
+    order: 1;
+    width: 160px;
+    height: 100%;
+    margin: 10px 0px;
+    padding: 0px;
+}
+
+#flex-void {
+    order: 2;
+    height: 100%;
+    margin: 10px 0px;
+    flex: auto;
+}
+
+header > nav {
+    order: 3;
+    width: 360px;
+    height: 30px;
+    margin: 10px 0px;
+}
+
+header nav > ul {
+    width: 100%;
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+    list-style: none;
+}
+
+header > nav > ul > li, header > nav > ul > li > a {
+    display: inline-block;
+    width: 100px;
+    height: 100%;
+}
+
+    header > nav > ul > li > a {
+        padding: 4px 0px 4px 4px;
+    }
+
+#bill-link {
+    width: 150px;
+    height: 100%;
+    background-color: #38DD09;
+}
+
+    #bill-link:hover {
+        background-color: #3809DD;
+    }
+
+/***********Footer************/
+
+footer {
+    width: 100%;
+    height: 250px;
+    margin: 0px;
+    padding: 0px;
+}
+
+    footer > nav {
+        width: 100%;
+        height: 75px;
+        background-color: #FAF7F5;
+    }
+
+        footer > nav > ul {
+            width: 490px;
+            height: 100%;
+            margin: 0px auto 0px auto;
+            padding: 20px 0px;
+            list-style: none;
+        }
+
+            footer > nav > ul > li, footer > nav > ul > li > a {
+                display: inline-block;
+                height: 40px;
+                padding: 2px;
+            }
+
+                footer > nav > ul > li > i {
+                    padding: 0px 8px 0px 0px;
+                }
+
+                footer > p {
+                    width: 100%;
+                    height: 40px;
+                    margin:  0px;
+                    padding: 5px;
+                    background-color: #45505E;
+                    color: white;
+                    text-align: center;
+                }
+
