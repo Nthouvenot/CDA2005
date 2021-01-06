@@ -21,6 +21,7 @@ p {
 }
 
 header {
+    height: 150px;
     display: flex;
     flex-direction: row;
     align-items: stretch;
@@ -54,7 +55,7 @@ header {
         }
 
             header > nav > ul > li {
-                height: 26px;
+                height: 30px;
                 text-align: center;
             }
 
