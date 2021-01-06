@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="ClassLibraryMetier.DemandeurDEmploi">
+    <Position X="1.5" Y="1.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAgEAACAAAAAAAAIAAAAAAAIAAAAAAAAAAAAAE=</HashCode>
+      <FileName>DemandeurDEmploi.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="diplomes" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Enum Name="ClassLibraryMetier.EnumDiplomes">
+    <Position X="5.75" Y="1.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAIAAAhAAAAAAAAgAAAAAAABCAAAAAAAAAAAAQA=</HashCode>
+      <FileName>EnumDiplomes.cs</FileName>
+    </TypeIdentifier>
+  </Enum>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
