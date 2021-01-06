@@ -1,0 +1,64 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30717.126
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{FF5525C4-2052-44AD-A7C4-2785788BD525}"
+	ProjectSection(SolutionItems) = preProject
+		SolutionItems\SqlCreateStoredProcedure.sql = SolutionItems\SqlCreateStoredProcedure.sql
+		SolutionItems\SqlProcedureTest.sql = SolutionItems\SqlProcedureTest.sql
+		SolutionItems\SqlQuery_CreateBdd.sql = SolutionItems\SqlQuery_CreateBdd.sql
+		SolutionItems\SqlQuery_CreateDataSet.sql = SolutionItems\SqlQuery_CreateDataSet.sql
+		SolutionItems\SqlQuerySuplierRead.sql = SolutionItems\SqlQuerySuplierRead.sql
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryPapyrus", "ClassLibraryPapyrus\ClassLibraryPapyrus.csproj", "{B237001F-BBCF-480B-8DB9-910E6B54344E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Papyrus", "Papyrus\Papyrus.csproj", "{AF61B350-2DBB-43FB-8687-0483F4916B45}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryDomain", "ClassLibraryDomain\ClassLibraryDomain.csproj", "{8B9BC25A-38DC-4BD8-8CB8-EB151B4B685F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryDataPersistence", "ClassLibraryDataPersistence\ClassLibraryDataPersistence.csproj", "{44F9B71F-CACC-4DAC-9C9C-872F4DF93772}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ClassLibraryDomainPersistence", "ClassLibraryDomainPersistence\ClassLibraryDomainPersistence.csproj", "{9AE2525F-2F7F-4FAD-8DC5-6C9C3C4CA0F6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTestDataPersistence", "UnitTest\UnitTestDataPersistence.csproj", "{D4377B4A-6816-4674-A3B7-DD1B5445F74F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B237001F-BBCF-480B-8DB9-910E6B54344E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B237001F-BBCF-480B-8DB9-910E6B54344E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B237001F-BBCF-480B-8DB9-910E6B54344E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B237001F-BBCF-480B-8DB9-910E6B54344E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AF61B350-2DBB-43FB-8687-0483F4916B45}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AF61B350-2DBB-43FB-8687-0483F4916B45}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AF61B350-2DBB-43FB-8687-0483F4916B45}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AF61B350-2DBB-43FB-8687-0483F4916B45}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B9BC25A-38DC-4BD8-8CB8-EB151B4B685F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B9BC25A-38DC-4BD8-8CB8-EB151B4B685F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B9BC25A-38DC-4BD8-8CB8-EB151B4B685F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B9BC25A-38DC-4BD8-8CB8-EB151B4B685F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{44F9B71F-CACC-4DAC-9C9C-872F4DF93772}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{44F9B71F-CACC-4DAC-9C9C-872F4DF93772}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{44F9B71F-CACC-4DAC-9C9C-872F4DF93772}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{44F9B71F-CACC-4DAC-9C9C-872F4DF93772}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AE2525F-2F7F-4FAD-8DC5-6C9C3C4CA0F6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AE2525F-2F7F-4FAD-8DC5-6C9C3C4CA0F6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AE2525F-2F7F-4FAD-8DC5-6C9C3C4CA0F6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AE2525F-2F7F-4FAD-8DC5-6C9C3C4CA0F6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D4377B4A-6816-4674-A3B7-DD1B5445F74F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D4377B4A-6816-4674-A3B7-DD1B5445F74F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D4377B4A-6816-4674-A3B7-DD1B5445F74F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D4377B4A-6816-4674-A3B7-DD1B5445F74F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {0A59CFEC-68F6-4FA9-9AF8-2650CC121955}
+	EndGlobalSection
+EndGlobal
