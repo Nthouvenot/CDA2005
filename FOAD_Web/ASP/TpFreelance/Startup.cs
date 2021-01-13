@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
+using TpFreelancer.Data;
 
 namespace TpFreelance
 {
@@ -25,6 +26,9 @@ namespace TpFreelance
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+
+            services.AddDbContext<TpFreelancerContext>(options =>
+                    options.UseSqlServer(Configuration.GetConnectionString("TpFreelancerContext")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

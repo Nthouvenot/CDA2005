@@ -12,6 +12,7 @@ namespace TpFreelancer.Models
     {
         [Key]
         [Column("customer_id")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int CustomerId { get; set; }
 
         [Column("customer_name")]
@@ -23,5 +24,13 @@ namespace TpFreelancer.Models
         [DataType(DataType.EmailAddress)]
         [MaxLength(255)]
         public string CustomerEmail { get; set; }
+
+        [ForeignKey("FK_customers_cats")]
+        [Column("cat_id")]
+        [Required]
+        public int CatId { get; set; }
+        public CustomerCatsModel CustomersCats { get; set; }
+
+        public ICollection<JobsModel> JobsModels { get; set; }
     }
 }

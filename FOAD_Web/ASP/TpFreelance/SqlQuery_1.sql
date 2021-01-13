@@ -1,0 +1,3 @@
+USE Master;
+DROP DATABASE  IF EXISTS "TP_Freelancer"
+GO

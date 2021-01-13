@@ -8,10 +8,11 @@ using System.Threading.Tasks;
 namespace TpFreelancer.Models
 {
     [Table("jobs")]
-    public class Jobs
+    public class JobsModel
     {
         [Key]
         [Column("job_id")]
+        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int JobId { get; set; }
 
         [Column("job_state")]
@@ -36,9 +37,12 @@ namespace TpFreelancer.Models
         [DataType(DataType.MultilineText)]
         public string JobDescription { get; set; }
 
-        [ForeignKey("customer_id")]
+        [ForeignKey("FK_customers")]
         [Column("customer_id")]
         [Required]
         public int CustomerId { get; set; }
+        public CustomersModel CustomersModel { get; set; }
+
+        public ICollection<QuotesModel> QuotesModels;
     }
 }

@@ -1,0 +1,66 @@
+﻿@model IEnumerable<TpFreelancer.Models.QuotesModel>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.QuoteState)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuoteDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuoteAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuoteFinalDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QuoteFinalAmount)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jobid)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuoteState)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuoteDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuoteAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuoteFinalDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QuoteFinalAmount)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Jobid)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.QuoteId">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.QuoteId">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.QuoteId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
