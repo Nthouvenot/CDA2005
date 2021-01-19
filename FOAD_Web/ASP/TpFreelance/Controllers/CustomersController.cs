@@ -22,7 +22,12 @@ namespace TpFreelancer.Controllers
         // GET: Customers
         public async Task<IActionResult> Index()
         {
-            return View(await _context.CustomersModel.ToListAsync());
+            List<CustomersModel> customers = await _context.CustomersModel.ToListAsync();
+            if (customers.Count != 0)
+            {
+                @ViewBag.lastCustomer = customers.Last();
+            }
+            return View(customers);
         }
 
         // GET: Customers/Details/5
@@ -46,6 +51,13 @@ namespace TpFreelancer.Controllers
         // GET: Customers/Create
         public IActionResult Create()
         {
+            List<CustomerCatsModel> customerCats = _context.CustomersCatsModel.ToList();
+            List<string> customercatsListName = new List<string>();
+            foreach (var item in customerCats)
+            {
+                customercatsListName.Add(item.CatName.ToString());
+            }
+            @ViewBag.ListCustomerCats = customercatsListName;
             return View();
         }
 

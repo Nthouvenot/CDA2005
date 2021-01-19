@@ -24,6 +24,12 @@ namespace TpFreelancer.Controllers
         {
             return View(await _context.CustomersCatsModel.ToListAsync());
         }
+        
+        // GET: CustomersCats to list
+        //public async Task<IActionResult> ListCategory()
+        //{
+        //    return (IActionResult)await _context.CustomersCatsModel.ToListAsync();
+        //}
 
         // GET: CustomersCats/Details/5
         public async Task<IActionResult> Details(int? id)

@@ -25,10 +25,16 @@ namespace TpFreelancer.Models
         [MaxLength(255)]
         public string CustomerEmail { get; set; }
 
-        [ForeignKey("FK_customers_cats")]
+        [Column("customer_registration_date")]
+        [Required]
+        [DataType(DataType.DateTime)]
+        public DateTime CustomerRegistraitionDate { get; set; }
+
         [Column("cat_id")]
+        [ForeignKey("FK_cat_id")]
         [Required]
         public int CatId { get; set; }
+        
         public CustomerCatsModel CustomersCats { get; set; }
 
         public ICollection<JobsModel> JobsModels { get; set; }

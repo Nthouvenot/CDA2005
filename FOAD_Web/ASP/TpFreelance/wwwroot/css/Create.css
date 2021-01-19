@@ -1,0 +1,77 @@
+/***********Common************/
+
+* {
+    box-sizing: border-box;
+    font-family: Tahoma;
+}
+
+/************Main*************/
+
+main > h1 {
+    margin-bottom: 20px;
+    font-size: 2em;
+    color: #45505E;
+    text-align: center;
+}
+
+.row {
+    margin-top: 0px;
+}
+
+    .row > form {
+        width: 50%;
+        margin: 0px auto;
+        padding: 10px;
+        background-color: #FAF7F5;
+    }
+
+.form-group > label {
+    display: inline-block;
+    width: 20%;
+    margin-bottom: 15px;
+}
+
+.form-group > input {
+    display: inline-block;
+    width: calc(80% - 5px);
+    margin-bottom: 15px;
+}
+
+    .form-group > input:last-child {
+        display: block;
+        width: 20%;
+        height: 25px;
+        margin: 0px;
+        padding-bottom: 2px;
+        background-color: #45505E;
+        color: #FAF7F5;
+        border: 1px solid #111;
+        font-size: 0.8em;
+    }
+
+#button-void {
+    float: left;
+    display: block;
+    width: 60%;
+    height: 25px;
+    margin-bottom: 0px;
+}
+
+.form-group > a:first-child {
+    float: left;
+    display: block;
+    width: 20%;
+    height: 25px;
+    margin-bottom: 0px;
+    padding-top: 2px;
+    background-color: #45505E;
+    color: #FAF7F5;
+    border: 1px solid #111;
+    border-radius: 2px;
+    font-size: 0.8em;
+    text-align: center;
+}
+
+    .form-group > a:first-child:hover, .form-group > input:last-child:hover {
+        background-color: #3809DD;
+    }

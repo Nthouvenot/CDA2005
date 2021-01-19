@@ -2,45 +2,53 @@
 
 @{
     ViewData["Title"] = "Index";
+    ViewBag.Css = "../css/Customer.css";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h1>Index</h1>
-
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+<div>
+    <h1>Gestions des clients</h1>
+    <p>
+        Dernier client ajouté/modifié :
+        @if (@ViewBag.lastCustomer != null)
+        {
+            @ViewBag.lastCustomer.CustomerName
+        }
+    </p>
+    <p><a asp-action="Create"><i class="fa fa-plus"></i> Ajouter un nouveau client</a></p>
+    <h2>Clients enregistrés</h2>
+</div>  
 <table class="table">
     <thead>
         <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CatId)
+            </th>
             <th>
                 @Html.DisplayNameFor(model => model.CustomerName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.CustomerEmail)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.CatId)
-            </th>
-            <th></th>
+            <th> Actions </th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model) {
         <tr>
             <td>
+                @Html.DisplayFor(modelItem => item.CatId)
+            </td>
+            <td>
                 @Html.DisplayFor(modelItem => item.CustomerName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.CustomerEmail)
             </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.CatId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.CustomerId">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.CustomerId">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.CustomerId">Delete</a>
+            <td class="actions">
+                <p>
+                    <a asp-action="Edit" asp-route-id="@item.CustomerId"><i class="fa fa-edit"></i></a>
+                    <a asp-action="Delete" asp-route-id="@item.CustomerId"><i class="fa fa-times"></i></a>
+                </p>
             </td>
         </tr>
 }

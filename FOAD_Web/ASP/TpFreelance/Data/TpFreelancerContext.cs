@@ -29,11 +29,11 @@ namespace TpFreelancer.Data
             modelBuilder.Entity<CustomersModel>()
                 .HasIndex(p => new { p.CustomerName, p.CustomerEmail })
                 .IsUnique(true);
-
+            
             // Add unique constraint to the customers_cats table
             modelBuilder.Entity<CustomerCatsModel>()
                 .HasIndex(p => new { p.CatName })
                 .IsUnique(true);
-        }
+         }
     }
 }
