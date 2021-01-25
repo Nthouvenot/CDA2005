@@ -49,5 +49,11 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CompositeLibrary\CompositeLibrary.csproj">
+      <Project>{d43bb93b-6e25-4d07-855a-b29e738bef6a}</Project>
+      <Name>CompositeLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

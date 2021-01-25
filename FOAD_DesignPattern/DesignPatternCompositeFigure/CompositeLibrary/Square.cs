@@ -6,14 +6,16 @@ namespace CompositeLibrary
 {
     public class Square : Figure
     {
-        public Square(Coordinate coordinate):base(coordinate)
-        {
+        int width;
 
+        public Square(Coordinate coordinate, int width):base(coordinate)
+        {
+            this.width = width;
         }
 
-        public override void Draw()
+        public override string Draw()
         {
-            throw new NotImplementedException();
+            return "Je suis un carré dont le point d'origine est " + this.coordinate.ToString() + " et de coté " + this.width.ToString();
         }
     }
 }

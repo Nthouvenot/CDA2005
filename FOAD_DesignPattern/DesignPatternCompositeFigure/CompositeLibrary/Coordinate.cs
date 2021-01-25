@@ -20,5 +20,10 @@ namespace CompositeLibrary
             this.xCoordinnate = coordinate.xCoordinnate;
             this.yCoordinnate = coordinate.yCoordinnate;
         }
+
+        public override string ToString()
+        {
+            return this.xCoordinnate.ToString() + "," + this.yCoordinnate.ToString();
+        }
     }
 }

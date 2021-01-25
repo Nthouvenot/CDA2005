@@ -6,13 +6,13 @@ namespace CompositeLibrary
 {
     public abstract class Figure
     {
-        private Coordinate coordinate;
+        protected Coordinate coordinate;
 
         public Figure(Coordinate coordinate)
         {
             this.coordinate = new Coordinate(coordinate);
         }
 
-        public abstract void Draw();
+        public abstract string Draw();
     }
 }

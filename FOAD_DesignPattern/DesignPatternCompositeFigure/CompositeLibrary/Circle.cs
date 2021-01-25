@@ -2,11 +2,19 @@
 
 namespace CompositeLibrary
 {
-    public abstract class Circle : Figure
+    public  class Circle : Figure
     {
-        public override void Draw()
+        private int radius;
+
+        public Circle(Coordinate coordinate, int radius) : base(coordinate)
         {
-            throw new NotImplementedException();
+            this.coordinate = new Coordinate(coordinate);
+            this.radius = radius;
+        }
+
+        public override string Draw()
+        {
+            return "Je suis un cercle de centre " + this.coordinate.ToString() + " et de rayon " + this.radius.ToString();
         }
     }
 }
