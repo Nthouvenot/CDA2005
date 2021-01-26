@@ -6,18 +6,25 @@ namespace CompositeLibrary
 {
     public class Figures : Figure
     {
-        private Figure figureToDraw;
+        private List<Figure> figuresToDraw;
 
         public Figures(Coordinate coordinate) : base(coordinate)
         {
-
+            this.figuresToDraw = new List<Figure>();
         }
 
-        public Figure FigureToDraw { get => figureToDraw; /*set => figureToDraw = value;*/ }
-
-        public override string Draw()
+        public void AddFigure(Figure figure)
         {
-            throw new NotImplementedException();
+            this.figuresToDraw.Add(figure);
+        }
+
+        public override void Draw()
+        {
+               foreach(Figure figure in figuresToDraw)
+            {
+                figure.Draw();
+            }
         }
     }
 }
+

@@ -13,9 +13,9 @@ namespace CompositeLibrary
             this.coordianteSecondDot = new Coordinate(coordianteSecondDot);
         }
 
-        public override string Draw()
+        public override void Draw()
         {
-            return "Je suis un rectangle d'origine " + this.coordinate.ToString() + " et de deuxiéme point " + this.coordianteSecondDot.ToString();
+            Console.WriteLine("Je suis un rectangle d'origine " + this.coordinate.ToString() + " et de deuxiéme point " + this.coordianteSecondDot.ToString());
         }
     }
 }

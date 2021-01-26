@@ -13,6 +13,6 @@ namespace CompositeLibrary
             this.coordinate = new Coordinate(coordinate);
         }
 
-        public abstract string Draw();
+        public abstract void Draw();
     }
 }

@@ -11,14 +11,32 @@ namespace DesignPatternCompositeFigure
     {
         static void Main(string[] args)
         {
+            //test figure
+            Console.WriteLine("test méthode figure :");
             Circle circle = new Circle(new Coordinate(4, 5), 10);
-            Console.WriteLine(circle.Draw());
-
+            circle.Draw();
             Square square = new Square(new Coordinate(1, 2), 5);
-            Console.WriteLine(square.Draw());
-
+            square.Draw();
             Rectangle rectangle = new Rectangle(new Coordinate(4, 5), new Coordinate(10, 10));
-            Console.WriteLine(rectangle.Draw());
+            rectangle.Draw();
+            Console.ReadLine();
+
+            //instantiate second figures
+            Rectangle rectangle2 = new Rectangle(new Coordinate(6, 5), new Coordinate(12, 7));
+            Circle circle2= new Circle(new Coordinate(4, 2), 5);
+            Figures figures2 = new Figures(new Coordinate(2, 2));
+            figures2.AddFigure(rectangle2);
+            figures2.AddFigure(circle2);
+
+
+            //test print figures
+            Console.WriteLine("test méthodes figures (3 figures + 1 figures composé de 2 figures :");
+            Figures figures = new Figures(new Coordinate(0,0));
+            figures.AddFigure(circle);
+            figures.AddFigure(square);
+            figures.AddFigure(rectangle);
+            figures.AddFigure(figures2);
+            figures.Draw();
             Console.ReadLine();
         }
     }

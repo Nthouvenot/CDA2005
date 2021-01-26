@@ -12,9 +12,9 @@ namespace CompositeLibrary
             this.radius = radius;
         }
 
-        public override string Draw()
+        public override void Draw()
         {
-            return "Je suis un cercle de centre " + this.coordinate.ToString() + " et de rayon " + this.radius.ToString();
+            Console.WriteLine("Je suis un cercle de centre " + this.coordinate.ToString() + " et de rayon " + this.radius.ToString());
         }
     }
 }

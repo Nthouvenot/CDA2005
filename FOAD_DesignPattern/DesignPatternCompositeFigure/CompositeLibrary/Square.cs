@@ -13,9 +13,9 @@ namespace CompositeLibrary
             this.width = width;
         }
 
-        public override string Draw()
+        public override void Draw()
         {
-            return "Je suis un carré dont le point d'origine est " + this.coordinate.ToString() + " et de coté " + this.width.ToString();
+            Console.WriteLine("Je suis un carré dont le point d'origine est " + this.coordinate.ToString() + " et de coté " + this.width.ToString());
         }
     }
 }

@@ -38,7 +38,7 @@
   <Class Name="CompositeLibrary.Figures">
     <Position X="11.25" Y="4" Width="2.5" />
     <TypeIdentifier>
-      <HashCode>AQAAAAAAAAAAAgAAAAAAAAAAAAABAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AEAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
       <FileName>Figures.cs</FileName>
     </TypeIdentifier>
   </Class>
