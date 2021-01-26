@@ -13,6 +13,8 @@ namespace DesignPatternCompositeFigure
         {
             //test figure
             Console.WriteLine("test méthode figure :");
+            Triangle triangle = new Triangle(new Coordinate(5, 5), new Coordinate(7, 12), new Coordinate(9, 5));
+            triangle.Draw();
             Circle circle = new Circle(new Coordinate(4, 5), 10);
             circle.Draw();
             Square square = new Square(new Coordinate(1, 2), 5);
