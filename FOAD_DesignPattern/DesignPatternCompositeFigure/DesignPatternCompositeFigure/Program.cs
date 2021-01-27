@@ -32,6 +32,7 @@ namespace DesignPatternCompositeFigure
 
 
             //test print figures
+            //test print figures
             Console.WriteLine("test méthodes figures (3 figures + 1 figures composé de 2 figures :");
             Figures figures = new Figures(new Coordinate(0,0));
             figures.AddFigure(circle);

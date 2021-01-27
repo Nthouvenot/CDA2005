@@ -1,28 +1,39 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="CompositeLibrary.Circle">
-    <Position X="4.25" Y="4" Width="1.5" />
+    <Position X="0.5" Y="4.25" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAACAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Circle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CompositeLibrary.Square">
-    <Position X="6.25" Y="4" Width="2.5" />
+    <Position X="3.75" Y="4.25" Width="3" />
+    <InheritanceLine Type="CompositeLibrary.Figure" FixedToPoint="true">
+      <Path>
+        <Point X="6.125" Y="1.796" />
+        <Point X="6.125" Y="3.875" />
+        <Point X="5.25" Y="3.875" />
+        <Point X="5.25" Y="4.25" />
+      </Path>
+    </InheritanceLine>
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Square.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CompositeLibrary.Figure">
-    <Position X="7.5" Y="0.5" Width="2.25" />
+    <Position X="5" Y="0.5" Width="2.25" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Figure.cs</FileName>
     </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="coordinate" />
+    </ShowAsAssociation>
   </Class>
   <Class Name="CompositeLibrary.Rectangle">
-    <Position X="9.25" Y="4" Width="1.5" />
+    <Position X="7" Y="4.25" Width="5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Rectangle.cs</FileName>
@@ -36,11 +47,21 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CompositeLibrary.Figures">
-    <Position X="11.25" Y="4" Width="2.5" />
+    <Position X="12.25" Y="4.25" Width="2.5" />
+    <AssociationLine Name="figuresToDraw" Type="CompositeLibrary.Figure" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="14.375" Y="4.25" />
+        <Point X="14.375" Y="1.148" />
+        <Point X="7.25" Y="1.148" />
+      </Path>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AEAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <HashCode>AEAAAAAAAAAAAgAAAAAAAAAAAAAAAAACAAAAAAAAAAA=</HashCode>
       <FileName>Figures.cs</FileName>
     </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="figuresToDraw" />
+    </ShowAsCollectionAssociation>
   </Class>
   <Font Name="Segoe UI" Size="9" />
 </ClassDiagram>
