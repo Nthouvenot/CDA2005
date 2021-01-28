@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="CompositeLibrary.Circle">
+    <Position X="0.5" Y="4.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAAACAAABAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Circle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CompositeLibrary.Square">
+    <Position X="3.75" Y="4.25" Width="3" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAABAAgQAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Square.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CompositeLibrary.Figure">
+    <Position X="7.75" Y="0.75" Width="2.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAgAAQAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Figure.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="coordinate" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="CompositeLibrary.Rectangle">
+    <Position X="7" Y="4.25" Width="5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAIAABAAgAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Rectangle.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CompositeLibrary.Coordinate">
+    <Position X="3.25" Y="0.5" Width="3.25" />
+    <TypeIdentifier>
+      <HashCode>AAAAgAAAAAAAAAAEAAAAAAEAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Coordinate.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="CompositeLibrary.Figures">
+    <Position X="12.25" Y="4.25" Width="2.5" />
+    <AssociationLine Name="figuresToDraw" Type="CompositeLibrary.Figure" FixedFromPoint="true" FixedToPoint="true">
+      <Path>
+        <Point X="14.375" Y="4.25" />
+        <Point X="14.375" Y="0.968" />
+        <Point X="10" Y="0.968" />
+      </Path>
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="0.131" Y="0.154" />
+      </MemberNameLabel>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AEAAAAAAAAAABAAgAAAAAAAAAAAAAAACAAAAAABAAAA=</HashCode>
+      <FileName>Figures.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Field Name="figuresToDraw" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Interface Name="CompositeLibrary.IVisitor">
+    <Position X="0.5" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Visitor.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
