@@ -9,7 +9,6 @@ namespace CompositeLibrary
         private List<Figure> figuresToDraw;
 
         public Coordinate Coordinate { get => coordinate; protected set => coordinate = value; }
-        public List<Figure> FiguresToDraw { get => figuresToDraw; protected set => figuresToDraw = value; }
 
         public Figures(Coordinate coordinate) : base(coordinate)
         {
@@ -24,6 +23,10 @@ namespace CompositeLibrary
         public override void AcceptVisitor(IVisitor visitor)
         {
             visitor.Visit(this);
+            foreach (Figure figure in figuresToDraw)
+            {
+                figure.AcceptVisitor(visitor);
+            }
         }
     }
 }

@@ -16,10 +16,7 @@ namespace DesignPatternCompositeFigure
 
         public void Visit(Figures figures)
         {
-            foreach (Figure figure in figures.FiguresToDraw)
-            {
-                figure.AcceptVisitor(this);
-            }
+            Console.WriteLine("Je suis un ensemble de figure a la position " + figures.Coordinate);
         }
         
         public void Visit(Rectangle rectangle)
