@@ -1,27 +1,27 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 
 namespace CompositeLibrary
 {
-    public class FiguresEnumerator : IEnumerator, IEnumerator<Figure>
+    // When you implement IEnumerable, you must also implement IEnumerator.
+    public class FiguresEnumeratorByRectangle : IEnumerator
     {
-
         private Figures figures;
         // Enumerators are positioned before the first element
-        // until the first MoveNext() call.
+        // until the first MoveNext() call
         private int position = -1;
 
-        public FiguresEnumerator(Figures figures)
+        public FiguresEnumeratorByRectangle(Figures figures)
         {
-            this.figures = figures;
-        }
-
-        //provide an mechanism for relase unmanaged ressource
-        public void Dispose()
-        {
-            
+            this.figures = new Figures(figures.Coordinate);
+            foreach (Figure figure in figures)
+            {
+                if(figure is Rectangle)
+                {
+                    this.figures.AddFigure(new Rectangle((Rectangle)figure));
+                }
+            }
         }
 
         object IEnumerator.Current

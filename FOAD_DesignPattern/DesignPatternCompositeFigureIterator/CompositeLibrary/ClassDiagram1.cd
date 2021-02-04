@@ -1,22 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
   <Class Name="CompositeLibrary.Circle">
-    <Position X="0.5" Y="4.25" Width="3" />
+    <Position X="0.5" Y="3.75" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAACAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Circle.cs</FileName>
     </TypeIdentifier>
   </Class>
   <Class Name="CompositeLibrary.Square">
-    <Position X="3.75" Y="4.25" Width="3" />
-    <InheritanceLine Type="CompositeLibrary.Figure" FixedToPoint="true">
-      <Path>
-        <Point X="6.125" Y="1.796" />
-        <Point X="6.125" Y="3.875" />
-        <Point X="5.25" Y="3.875" />
-        <Point X="5.25" Y="4.25" />
-      </Path>
-    </InheritanceLine>
+    <Position X="3.75" Y="3.75" Width="3" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Square.cs</FileName>
@@ -33,7 +25,7 @@
     </ShowAsAssociation>
   </Class>
   <Class Name="CompositeLibrary.Rectangle">
-    <Position X="7" Y="4.25" Width="5" />
+    <Position X="7" Y="3.75" Width="5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAgAIAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Rectangle.cs</FileName>
@@ -47,16 +39,16 @@
     </TypeIdentifier>
   </Class>
   <Class Name="CompositeLibrary.Figures">
-    <Position X="12.25" Y="4.25" Width="3" />
-    <AssociationLine Name="figuresToDraw" Type="CompositeLibrary.Figure" FixedFromPoint="true" FixedToPoint="true">
+    <Position X="12.25" Y="3.75" Width="4.25" />
+    <AssociationLine Name="figuresToDraw" Type="CompositeLibrary.Figure" ManuallyRouted="true" FixedFromPoint="true" FixedToPoint="true">
       <Path>
-        <Point X="14.8" Y="4.25" />
-        <Point X="14.8" Y="1.148" />
-        <Point X="7.25" Y="1.148" />
+        <Point X="15.792" Y="3.75" />
+        <Point X="15.792" Y="1.062" />
+        <Point X="7.25" Y="1.062" />
       </Path>
     </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AEAAAAAAAAAAAhAAAAAAAAAAAAAAAAEGAAAAAABAAAA=</HashCode>
+      <HashCode>AEAAAAAAAAAABhAACAAAAAQAAAAAAAEGAAAAAAAAAAA=</HashCode>
       <FileName>Figures.cs</FileName>
     </TypeIdentifier>
     <ShowAsCollectionAssociation>
@@ -64,15 +56,31 @@
     </ShowAsCollectionAssociation>
     <Lollipop Position="0.2" />
   </Class>
-  <Class Name="CompositeLibrary.FiguresEnumerator">
-    <Position X="15.5" Y="4.25" Width="3.25" />
+  <Class Name="CompositeLibrary.FiguresEnumeratorByRectangle">
+    <Position X="15.5" Y="8.25" Width="3.25" />
+    <AssociationLine Name="figures" Type="CompositeLibrary.Figures">
+      <MemberNameLabel ManuallyPlaced="true">
+        <Position X="-0.784" Y="0.089" />
+      </MemberNameLabel>
+    </AssociationLine>
     <TypeIdentifier>
-      <HashCode>AEAAAAAAAAAABAAAAACAIAAAAAAAAAAAoAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAACAAAAAABAAAAACAIAAAAAAAAAAAoAAAAAAAAAA=</HashCode>
+      <FileName>FiguresEnumeratorByRectangle.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Field Name="figures" />
+    </ShowAsAssociation>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="CompositeLibrary.FiguresEnumerator">
+    <Position X="10.75" Y="8.25" Width="2.75" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAACAABAAAAACAIAAAAAAAAAAAoAAAAAAAAAA=</HashCode>
       <FileName>FiguresEnumerator.cs</FileName>
     </TypeIdentifier>
-    <ShowAsCollectionAssociation>
-      <Field Name="figuresToDraw" />
-    </ShowAsCollectionAssociation>
+    <ShowAsAssociation>
+      <Field Name="figures" />
+    </ShowAsAssociation>
     <Lollipop Position="0.2" />
   </Class>
   <Font Name="Segoe UI" Size="9" />

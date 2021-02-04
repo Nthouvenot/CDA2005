@@ -27,16 +27,31 @@ namespace DesignPatternCompositeFigure
             figuresRectangleTest.AddFigure(circleRectanglesTest);
             figuresRectangleTest.AddFigure(rectangleRectangleTest);
 
-            //print all the figure
-            Console.WriteLine("  *******affichage tout les figures avec methode Draw********");
+            //print all the figure with Draw method
+            Console.WriteLine("  **********affichage tout les figures avec methode Draw***********");
             figuresRectangleTest.Draw();
 
-            //Print to the console only the rectangles with the Figures enumerator
-            Console.WriteLine("\n  **affichage tout les rectangles de figures avec iterateur**");
-            foreach(Rectangle rectangleIterate in figuresRectangleTest)
+            //print all the figure with for and the index of the Figures collection
+            Console.WriteLine("\n  **********affichage tout les figures avec indexation***********");
+            for (int i=0; i < figuresRectangleTest.Count; i++)
             {
-               rectangleIterate.Draw();
+                figuresRectangleTest[i].Draw();
             }
+
+            //Print to the console all figure with the iterator
+            Console.WriteLine("\n  **affichage de toutes les figures avec iterateur(foreach)**");
+            foreach (Figure figure in figuresRectangleTest)
+            {
+                figure
+                    .Draw();
+            }
+
+            //Print to the console only the rectangles with the Figures enumerator
+            //Console.WriteLine("\n  **affichage tout les rectangles de figures avec iterateur(foreach)**");
+            //foreach (Rectangle rectangle in figuresRectangleTest)
+            //{
+            //    rectangle.Draw();
+            //}
             Console.ReadLine();
         }
     }
