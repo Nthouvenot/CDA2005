@@ -5,9 +5,11 @@ using System.Text;
 
 namespace CompositeLibrary
 {
-    public class Figures : Figure, IEnumerable
+    public class Figures : Figure, IEnumerable, IEnumerable<Figure>
     {
         private List<Figure> figuresToDraw;
+
+        public List<Figure> FiguresToDraw { get => figuresToDraw; protected set => figuresToDraw = value; }
 
         public Figures(Coordinate coordinate) : base(coordinate)
         {
@@ -36,7 +38,12 @@ namespace CompositeLibrary
 
         public FiguresEnumerator GetEnumerator()
         {
-            return new FiguresEnumerator(figuresToDraw);
+            return new FiguresEnumerator(this);
+        }
+
+        IEnumerator<Figure> IEnumerable<Figure>.GetEnumerator()
+        {
+            return (IEnumerator<Figure>)GetEnumerator();
         }
     }
 }

@@ -12,10 +12,10 @@ namespace CompositeLibrary
         // until the first MoveNext() call.
         private int position = -1;
 
-        public FiguresEnumerator(List<Figure> figuresToDraw) //here implement the export of rectangles figure
+        public FiguresEnumerator(Figures figures)
         {
             this.figuresToDraw = new List<Figure>();
-            foreach (Figure figure in figuresToDraw)
+            foreach (Figure figure in figures.FiguresToDraw)
             {
                 if(figure is Rectangle)
                 {
