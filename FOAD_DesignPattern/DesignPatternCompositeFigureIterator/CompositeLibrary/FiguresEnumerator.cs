@@ -21,7 +21,7 @@ namespace CompositeLibrary
         //provide an mechanism for relase unmanaged ressource
         public void Dispose()
         {
-            
+
         }
 
         object IEnumerator.Current

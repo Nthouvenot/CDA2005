@@ -5,7 +5,7 @@ using System.Collections.Generic;
 namespace CompositeLibrary
 {
     // When you implement IEnumerable, you must also implement IEnumerator.
-    public class FiguresEnumeratorByRectangle : IEnumerator
+    public class FiguresEnumeratorByRectangle : IEnumerator, IEnumerator<Rectangle>
     {
         private Figures figures;
         // Enumerators are positioned before the first element
@@ -32,19 +32,25 @@ namespace CompositeLibrary
             }
         }
 
-        public Figure Current
+        public Rectangle Current
         {
             get
             {
                 try
                 {
-                    return figures[position];
+                    return (Rectangle)figures[position];
                 }
                 catch (IndexOutOfRangeException)
                 {
                     throw new InvalidOperationException();
                 }
             }
+        }
+
+        //provide an mechanism for relase unmanaged ressource
+        public void Dispose()
+        {
+
         }
 
         public bool MoveNext()
@@ -56,6 +62,6 @@ namespace CompositeLibrary
         public void Reset()
         {
             position = -1;
-        }
+        }  
     }
 }

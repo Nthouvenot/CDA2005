@@ -5,7 +5,7 @@ using System.Text;
 
 namespace CompositeLibrary
 {
-    public class Figures : Figure, IEnumerable, IEnumerable<Figure>
+    public class Figures : Figure, IEnumerable, IEnumerable<Figure>, IEnumerable<Rectangle>
     {
         // Collection count number is positioned at 0
         // until the first AddFigure() call
@@ -47,16 +47,20 @@ namespace CompositeLibrary
             }
         }
 
-        //Implementation for the GetEnumerator method
+        //implementation for the GetEnumerator method
         IEnumerator IEnumerable.GetEnumerator()
         {
             return (IEnumerator)GetEnumerator();
         }
 
-        //Generic Enumerator
         IEnumerator<Figure> IEnumerable<Figure>.GetEnumerator()
         {
-            return (IEnumerator<Figure>)GetEnumerator();
+            return new FiguresEnumerator(this);
+        }
+
+        IEnumerator<Rectangle> IEnumerable<Rectangle>.GetEnumerator()
+        {
+            return (IEnumerator<Rectangle>)new FiguresEnumeratorByRectangle(this);
         }
 
         public FiguresEnumerator GetEnumerator()
@@ -64,22 +68,9 @@ namespace CompositeLibrary
             return new FiguresEnumerator(this);
         }
 
-        ////Rectangle enumerator
-        //IEnumerator IEnumerable.GetEnumerator()
-        //{
-        //    return (IEnumerator)GetEnumeratorByRectangle();
-        //}
-
-
-        //IEnumerator<Rectangle> IEnumerable<Figure>.GetEnumerator()
-        //{
-        //    return (IEnumerator<Rectangle>)GetEnumeratorByRectangle();
-        //}
-
-        //public FiguresEnumeratorByRectangle GetEnumeratorByRectangle()
-        //{
-        //    return new FiguresEnumeratorByRectangle(this);
-        //}
+        public FiguresEnumeratorByRectangle GetEnumeratorByRectangle()
+        {
+            return new FiguresEnumeratorByRectangle(this);
+        }
     }
 }
-

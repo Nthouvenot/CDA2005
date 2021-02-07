@@ -42,8 +42,7 @@ namespace DesignPatternCompositeFigure
             Console.WriteLine("\n  **affichage de toutes les figures avec iterateur(foreach)**");
             foreach (Figure figure in figuresRectangleTest)
             {
-                figure
-                    .Draw();
+                figure.Draw();
             }
 
             //Print to the console only the rectangles with the Figures enumerator
