@@ -1,5 +1,6 @@
 ﻿using CompositeLibrary;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -46,11 +47,14 @@ namespace DesignPatternCompositeFigure
             }
 
             //Print to the console only the rectangles with the Figures enumerator
-            //Console.WriteLine("\n  **affichage tout les rectangles de figures avec iterateur(foreach)**");
-            //foreach (Rectangle rectangle in figuresRectangleTest)
-            //{
-            //    rectangle.Draw();
-            //}
+            Console.WriteLine("\n  **affichage tout les rectangles de figures avec iterateur(foreach)**");
+            IEnumerator enumerator = figuresRectangleTest.GetEnumeratorByRectangle();
+            Rectangle rectangle;
+            while(enumerator.MoveNext())
+            {
+                rectangle = (Rectangle)enumerator.Current;
+                rectangle.Draw();
+            }
             Console.ReadLine();
         }
     }
