@@ -1,27 +1,27 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
-using System.Text;
 
 namespace CompositeLibrary
 {
-    public class FiguresEnumerator : IEnumerator, IEnumerator<Figure>
+    // When you implement IEnumerable, you must also implement IEnumerator.
+    public class FiguresEnumerator : IEnumerator
     {
-
-        private Figures figures;
+        private List<Figure> figuresToDraw;
         // Enumerators are positioned before the first element
         // until the first MoveNext() call.
         private int position = -1;
 
         public FiguresEnumerator(Figures figures)
         {
-            this.figures = figures;
-        }
-
-        //provide an mechanism for relase unmanaged ressource
-        public void Dispose()
-        {
-
+            this.figuresToDraw = new List<Figure>();
+            foreach (Figure figure in figures.FiguresToDraw)
+            {
+                if(figure is Rectangle)
+                {
+                    this.figuresToDraw.Add(new Rectangle((Rectangle)figure));
+                }
+            }
         }
 
         object IEnumerator.Current
@@ -38,7 +38,7 @@ namespace CompositeLibrary
             {
                 try
                 {
-                    return figures[position];
+                    return figuresToDraw[position];
                 }
                 catch (IndexOutOfRangeException)
                 {
@@ -50,7 +50,7 @@ namespace CompositeLibrary
         public bool MoveNext()
         {
             position++;
-            return (position < figures.Count);
+            return (position < figuresToDraw.Count);
         }
 
         public void Reset()
