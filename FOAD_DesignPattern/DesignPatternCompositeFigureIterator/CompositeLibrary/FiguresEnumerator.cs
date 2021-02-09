@@ -1,27 +1,27 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Text;
 
 namespace CompositeLibrary
 {
-    // When you implement IEnumerable, you must also implement IEnumerator.
-    public class FiguresEnumerator : IEnumerator
+    public class FiguresEnumerator : IEnumerator, IEnumerator<Figure>
     {
-        private List<Figure> figuresToDraw;
+
+        private Figures figures;
         // Enumerators are positioned before the first element
         // until the first MoveNext() call.
         private int position = -1;
 
         public FiguresEnumerator(Figures figures)
         {
-            this.figuresToDraw = new List<Figure>();
-            foreach (Figure figure in figures.FiguresToDraw)
-            {
-                if(figure is Rectangle)
-                {
-                    this.figuresToDraw.Add(new Rectangle((Rectangle)figure));
-                }
-            }
+            this.figures = figures;
+        }
+
+        //provide an mechanism for relase unmanaged ressource
+        public void Dispose()
+        {
+
         }
 
         object IEnumerator.Current
@@ -32,13 +32,16 @@ namespace CompositeLibrary
             }
         }
 
+        /// <summary>
+        /// return thre current element of the collection
+        /// </summary>
         public Figure Current
         {
             get
             {
                 try
                 {
-                    return figuresToDraw[position];
+                    return figures[position];
                 }
                 catch (IndexOutOfRangeException)
                 {
@@ -47,12 +50,19 @@ namespace CompositeLibrary
             }
         }
 
+        /// <summary>
+        /// Move to the next element of the collection ans return the element
+        /// </summary>
+        /// <returns></returns>
         public bool MoveNext()
         {
             position++;
-            return (position < figuresToDraw.Count);
+            return (position < figures.Count);
         }
 
+        /// <summary>
+        /// Reset the pointer
+        /// </summary>
         public void Reset()
         {
             position = -1;

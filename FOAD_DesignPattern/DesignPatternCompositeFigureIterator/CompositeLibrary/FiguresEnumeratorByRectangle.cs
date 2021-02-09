@@ -4,10 +4,10 @@ using System.Collections.Generic;
 
 namespace CompositeLibrary
 {
-    // When you implement IEnumerable, you must also implement IEnumerator.
     public class FiguresEnumeratorByRectangle : IEnumerator, IEnumerator<Rectangle>
     {
         private Figures figures;
+
         // Enumerators are positioned before the first element
         // until the first MoveNext() call
         private int position = -1;
@@ -32,6 +32,9 @@ namespace CompositeLibrary
             }
         }
 
+        /// <summary>
+        /// Return thre current element of the collection
+        /// </summary>
         public Rectangle Current
         {
             get
@@ -53,12 +56,19 @@ namespace CompositeLibrary
 
         }
 
+        /// <summary>
+        /// Move to the next element of the collection ans return the element
+        /// </summary>
+        /// <returns></returns>
         public bool MoveNext()
         {
             position++;
             return (position < figures.Count);
         }
 
+        /// <summary>
+        /// Reset the pointer
+        /// </summary>
         public void Reset()
         {
             position = -1;
