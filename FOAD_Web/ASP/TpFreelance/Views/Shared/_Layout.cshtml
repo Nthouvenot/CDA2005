@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html lang="fr-fr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/css/Main.css"/>
+    <link rel="stylesheet" type="text/css" href=@ViewBag.Css />
+    <script src="https://use.fontawesome.com/378550ad2a.js"></script>
+</head>
+<body>
+    <header>
+        <p id="flex-left" class="bordered"><img src="~/Images/TP_Freelancer_logo.jpg" alt="TP_Freelancer_logo" width ="160" height="39"/></p>
+        <p id="flex-void"></p>
+        <nav>
+            <ul>
+                <li><a href="~/customers"><i class="fa fa-users" aria-hidden="true"></i> Clients</a></li>
+                <li><a href ="#"><i class="fa fa-coffee" aria-hidden="true"></i> Missions</a></li>
+                <li><a id="bill-link" href="#"><i class="fa fa-calculator" aria-hidden="true"></i> Devis et factures</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        @RenderBody()
+    </main>
+   
+<footer>
+    <nav>
+        <ul>
+            <li><a href="">Ajouter</a></li>
+            <li><span> &middot; </span><a href=""> Quelques</a></li>
+            <li><span> &middot; </span><a href=""> Liens</a></li>
+            <li><span> &middot; </span><a href=""> De votre choix</a></li>
+            <li><span> &middot; </span><a href=""> Un autre lien</a></li>
+        </ul>
+    </nav>
+    <p><i class="fa fa-copyright"></i> Copyright 2021 &middot; THOUVENOT Nicolas</p>
+</footer>
+</body>
+</html>

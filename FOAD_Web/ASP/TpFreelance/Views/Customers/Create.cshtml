@@ -1,0 +1,35 @@
+﻿@model TpFreelancer.Models.CustomersModel
+@{
+    ViewData["Title"] = "Create";
+    ViewBag.Css = "../css/Create.css";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Créer un nouveau client</h1>
+<div class="row">
+    <form asp-action="Create">
+        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+        <div class="form-group">
+            <label asp-for="CustomerName" class="control-label">nom</label>
+            <input type="text" asp-for="CustomerName" class="form-control" />
+            <span asp-validation-for="CustomerName" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CustomerEmail" class="control-label">mail</label>
+            <input type="text" asp-for="CustomerEmail" class="form-control" />
+            <span asp-validation-for="CustomerEmail" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="CatId" class="control-label">catégorie</label>
+            @Html.DropDownListFor(m => m.CustomersCats, new SelectList(@ViewBag.ListCustomerCats))
+            <span asp-validation-for="CatId" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <a type="button" asp-action="Index">retour</a>
+            <a id="button-void" href="#"> </a>
+            <input type="submit" value="creer" class="btn btn-primary" />
+        </div>
+    </form>
+    
+</div>
+

@@ -1,0 +1,77 @@
+/***********Common************/
+
+* {
+    box-sizing: border-box;
+    font-family: Tahoma;
+}
+
+/************Main*************/
+
+main > div {
+    text-align: center;
+    color: #45505E;
+}
+
+    main > div > h1 {
+        margin-bottom: 0px;
+        font-size: 2em;
+    }
+
+    main > div > p:nth-child(2n) {
+        margin-top: 5px;
+    }
+
+    main > div > h2 {
+        margin-top: 50px;
+        font-size: 1.5em;
+    }
+
+    main > div > p > a {
+        display: block;
+        width: 20%;
+        margin: 0px auto;
+        padding: 4px;
+        border: 1px solid #111;
+        font-size: 0.8em;
+        text-align: center;
+    }
+
+        main > div > p > a:hover {
+            background-color: #3809DD;
+            color: #FAF7F5;
+        }
+
+.table {
+    width: calc(90%);
+    margin: 0px auto;
+    border-collapse: collapse;
+    border: 2px solid #111;
+}
+
+    .table td, table th {
+        padding-left: 5px;
+    }
+
+    .table th {
+        background-color: #111;
+        color: #FAF7F5;
+        text-align: justify;
+        font-size: 1.2em;
+    }
+
+table td {
+    color: #45505E;
+}
+
+.table tbody {
+    background-color: #FAF7F5;
+    text-align: justify;
+}
+
+.actions > p > a:nth-child(1n) {
+    color: green;
+}
+
+.actions > p > a:nth-child(2n) {
+    color: red;
+}
